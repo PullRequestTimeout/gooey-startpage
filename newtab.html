@@ -76,7 +76,10 @@
                 <path d="M14.5833 24.7917C20.2212 24.7917 24.7917 20.2212 24.7917 14.5833C24.7917 8.94543 20.2212 4.375 14.5833 4.375C8.94543 4.375 4.375 8.94543 4.375 14.5833C4.375 20.2212 8.94543 24.7917 14.5833 24.7917Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M30.625 30.625L21.875 21.875" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>       
-            <input type="text" class="search-widget-input" name="" id="">
+            <form id="searchString" action="https://www.google.com/search?">
+                <input type="text" name="q" class="search-widget-input" autocomplete="off" autofocus>
+                <input type="submit" hidden>
+            </form>
         </div>
         <div class="quick-links-container">
             <a href="https://www.reddit.com/">

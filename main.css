@@ -118,7 +118,17 @@ main {
 	box-shadow: 0em 2px 5px rgba(75, 75, 75, 0.5);
 }
 
+.search-widget input[type="submit"] {
+	display: none;
+}
+
+.search-widget form {
+	align-items: center;
+	margin-top: 0.5em;
+}
+
 .search-widget-input {
+	align-self: center;
 	border: none;
 	background-color: transparent;
 	outline: none;
