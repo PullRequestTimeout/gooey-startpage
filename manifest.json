@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name" : "UI Startpage",
+    "description" : "Replace default new tab page in firefox with UI Startpage.",
+    
+    "version": "1.0",
+    
+    "developer": {
+        "name": "Jacob Druery",
+        "url": "https://github.com/PullRequestTimeout"
+      },
+
+    "icons": {
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png"
+      },
+    
+    "chrome_url_overrides" : {
+        "newtab": "newtab.html"
+    }
+}
