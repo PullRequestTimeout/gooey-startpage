@@ -20,13 +20,45 @@ const updateClock = () => {
         timeDisplay.innerText = `12:${currentTime.getMinutes()}pm`;
     } else if (currentTime.getHours() == 12 && currentTime.getMinutes() < 10){
         timeDisplay.innerText = `12:0${currentTime.getMinutes()}pm`;
-    }};
+    }
+};
 
 // Date Display -------------------------------------------------------------
 
 const updateDate = () => {
     const currentDate  = new Date();
+    const dateDisplay = document.getElementById("dateDisplay");
+    const currentMonth = currentDate.getMonth();
+    const fullMonthName = () => {
+        switch (currentMonth) {
+            case 0:
+                return "January";
+            case 1:
+                return "February";
+            case 2:
+                return "March";
+            case 3:
+                return "April";
+            case 4:
+                return "May";
+            case 5:
+                return "June";
+            case 6:
+                return "July";
+            case 7:
+                return "August";
+            case 8:
+                return "September";
+            case 9:
+                return "October";
+            case 10:
+                return "November";
+            case 11:
+                return "December";            
+        }
+    }
     
+    dateDisplay.innerText = `${fullMonthName(currentDate.getMonth())} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 }
 
 // Settings -----------------------------------------------------------------
@@ -40,7 +72,7 @@ const translateSettingsPanel = () => {
 
 document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel)
 
-// Background Image Select
+// Background Image Select ---------------------------------------------------
 
 const bgImg = document.getElementById("backgroundImage")
 
@@ -70,19 +102,21 @@ document.getElementById("bgselect-img4").onclick = function(){
 
 const changeBgBlur = () => {
     const blurSlider = document.getElementById("bgblur");
-
     document.getElementById("backgroundImage").style["filter"] = `blur(${blurSlider.value}em)`;
     localStorage.setItem("blurValue", blurSlider.value)
 }
+
+document.getElementById("bgblur").addEventListener("input", changeBgBlur)
 
 // Background Brightness Slider -------------------------------------------------
 
 const changeBgBrightness = () => {
     const brightnessSlider = document.getElementById("bgbrightness");
-
     document.getElementById("backgroundImage").style["opacity"] = brightnessSlider.value;
     localStorage.setItem("brightValue", brightnessSlider.value)
 }
+
+document.getElementById("bgbrightness").addEventListener("input", changeBgBrightness)
 
 // Load State -------------------------------------------------------------------
 
@@ -147,3 +181,7 @@ const weatherDataCall = () =>{
 
     navigator.geolocation.getCurrentPosition(success, error);
 }
+
+// Page Load --------------------------------------------------------------------
+
+document.body.onload = updateClock(); updateDate(); setInterval(updateClock, 500); loadState(); weatherDataCall();
