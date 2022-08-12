@@ -70,7 +70,15 @@ const translateSettingsPanel = () => {
     settingsPanel.classList.toggle("display-settings");
 }
 
-document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel)
+const closeSettingsPanel = () => {
+    const settingsPanel = document.getElementById("settingsPanel");
+    if (settingsPanel.classList[1] !== "display-settings") {
+        translateSettingsPanel();
+    }
+};
+
+document.querySelector("main").addEventListener("click", closeSettingsPanel);
+document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
 
 // Background Image Select ---------------------------------------------------
 

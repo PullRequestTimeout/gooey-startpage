@@ -356,7 +356,7 @@ input[type="radio"]:active + label img {
 	display: none;
 }
 
-.fade-in {
+.fade-in-5s {
 	animation: fade-in 5s ease;
 }
 
