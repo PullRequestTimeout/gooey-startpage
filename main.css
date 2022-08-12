@@ -246,9 +246,11 @@ main {
 	height: 100%;
 	background-color: rgba(35, 35, 35, 0.75);
 	padding: 2em;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-evenly;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1em 0;
+	overflow-x: hidden;
+	overflow-y: scroll;
 	transition: 1s;
 	backdrop-filter: blur(0.3em);
 }
