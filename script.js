@@ -72,7 +72,7 @@ const translateSettingsPanel = () => {
 
 const closeSettingsPanel = () => {
     const settingsPanel = document.getElementById("settingsPanel");
-    if (settingsPanel.classList[1] !== "display-settings") {
+    if (settingsPanel.classList[1] == "display-settings") {
         translateSettingsPanel();
     }
 };
@@ -81,6 +81,9 @@ document.querySelector("main").addEventListener("click", closeSettingsPanel);
 document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
 
 // Background Image Select ---------------------------------------------------
+
+// Needs to be refactored into a function that retrieves the value of each radio input
+// Inputs value into innerHTML template literal
 
 const bgImg = document.getElementById("backgroundImage")
 
@@ -127,6 +130,9 @@ const changeBgBrightness = () => {
 document.getElementById("bgbrightness").addEventListener("input", changeBgBrightness)
 
 // Load State -------------------------------------------------------------------
+
+// This funtion calls a global variable, which is bad practice.
+// Refactor Background Image Select into function, and move the variable in that section into this function
 
 const loadState = () => {
     const backgroundImageState = localStorage.getItem("backgroundImage");

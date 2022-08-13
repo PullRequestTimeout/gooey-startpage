@@ -18,25 +18,25 @@
 </head>
 <body>
     <div class="settings-switch">
-        <input type="checkbox" name="settings" id="settings" class="hidden-input">
+        <input type="checkbox" name="settings" id="settings" class="hidden-element">
         <label for="settings" id="settingsIcon" class="settings-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 512 512" class="settings-logo" fill="white">
                 <path d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/>
             </svg>
         </label>
     </div>
-    <div class="settings-panel display-settings" id="settingsPanel">
+    <div class="settings-panel" id="settingsPanel">
         <h2 class="settings-heading">Settings</h2>
         <div class="settings-section">
             <h3 class="settings-heading">Background Image:</h3>
             <div class="bgselect-panel">
-                <input type="radio" name="bgselect" id="bgselect-img1" class="hidden-input">
+                <input type="radio" name="bgselect" id="bgselect-img1" class="hidden-element">
                 <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels"></label>
-                <input type="radio" name="bgselect" id="bgselect-img2" class="hidden-input">
+                <input type="radio" name="bgselect" id="bgselect-img2" class="hidden-element">
                 <label for="bgselect-img2"><img src="assets/img2.jpg" alt="Backgound Image 2" class="bgselect-labels"></label>
-                <input type="radio" name="bgselect" id="bgselect-img3" class="hidden-input">
+                <input type="radio" name="bgselect" id="bgselect-img3" class="hidden-element">
                 <label for="bgselect-img3"><img src="assets/img3.jpg" alt="Backgound Image 3" class="bgselect-labels"></label>
-                <input type="radio" name="bgselect" id="bgselect-img4" class="hidden-input">
+                <input type="radio" name="bgselect" id="bgselect-img4" class="hidden-element">
                 <label for="bgselect-img4"><img src="assets/img4.jpg" alt="Backgound Image 4" class="bgselect-labels"></label>
             </div>
         
@@ -51,20 +51,20 @@
         <div class="settings-section">
             <h3 class="settings-heading">Font:</h3>
             <div class="fontselect-panel">
-                <input type="radio" name="fontselect" id="robotoFont" class="hidden-input">
+                <!-- <input type="radio" name="fontselect" id="robotoFont" class="hidden-element">
                 <div><label for="robotoFont" class="font-select-buttons"></label></div>
-                <input type="radio" name="fontselect" id="" class="hidden-input">
+                <input type="radio" name="fontselect" id="" class="hidden-element">
                 <label for="" class="font-select-buttons"></label>
-                <input type="radio" name="fontselect" id="" class="hidden-input">
+                <input type="radio" name="fontselect" id="" class="hidden-element">
                 <label for="" class="font-select-buttons"></label>
-                <input type="radio" name="fontselect" id="" class="hidden-input">
-                <label for="" class="font-select-buttons"></label>
+                <input type="radio" name="fontselect" id="" class="hidden-element">
+                <label for="" class="font-select-buttons"></label> -->
             </div>
         </div>
         <div class="settings-section">
             <h3 class="settings-heading">Search Engine:</h3>
             <div class="search-select-panel col-2">
-                <input type="radio" name="searchselect" id="searchselect-google" class="hidden-input">
+                <input type="radio" name="searchselect" id="searchselect-google" class="hidden-element">
                 <button class="settings-button">Google
                     <!-- <label for="searchselect-google">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-google" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="rgb(37, 37, 37)" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -73,7 +73,7 @@
                         </svg>
                     </label> -->
                 </button>
-                <input type="radio" name="searchselect" id="searchselect-ddg" class="hidden-input">
+                <input type="radio" name="searchselect" id="searchselect-ddg" class="hidden-element">
                 <button class="settings-button">DuckDuckGo
                     <!-- <label for="searchselect-ddg">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 40 40" width="40px" height="40px">

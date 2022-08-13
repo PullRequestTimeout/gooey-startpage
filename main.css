@@ -175,6 +175,7 @@ main {
 .link-cards svg {
 	justify-self: center;
 	align-self: center;
+	transform: translateY(0.5em);
 }
 
 .link-cards:hover {
@@ -204,7 +205,6 @@ main {
 }
 
 /*|| Settings Panel ---------------------------------------------------------------------------------- */
-
 
 /* Switch */
 .settings-switch {
@@ -245,8 +245,9 @@ main {
 	right: 0;
 	width: 26em;
 	/* This is hacky as fuck, fix this */
-	height: 93.5vh;
-	/* height: 100vh; */
+	/* height: 93.5vh; */
+	height: 100vh;
+	max-height: 100%;
 	background-color: rgba(35, 35, 35, 0.75);
 	padding: 1.5em;
 	display: grid;
@@ -256,10 +257,14 @@ main {
 	overflow-y: scroll;
 	transition: 1s;
 	backdrop-filter: blur(0.3em);
+	
+	/* Makes hidden panel the default state */
+	transform: translateX(100%);
 }
 
 .display-settings {
-	transform: translateX(100%);
+	/* Shows settings panel */
+	transform: translateX(0%);
 	transition: 1s;
 }
 
@@ -352,7 +357,7 @@ input[type="radio"]:active + label img {
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
 
-.hidden-input {
+.hidden-element {
 	display: none;
 }
 
