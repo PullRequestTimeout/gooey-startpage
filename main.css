@@ -349,6 +349,7 @@ input[type="radio"]:active + label img {
 .settings-button {
 	cursor: pointer;
 	padding: 0.5em;
+	width: 100%;
 	border-radius: 2em;
 	border: none;
 	font-size: 1em;
@@ -366,9 +367,7 @@ input[type="radio"]:active + label img {
 
 /* While clicked. Need to differentiate between checkbox option and radio */
 
-.settings-button:checked {
-	opacity: 0.75;
-}
+
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
 
