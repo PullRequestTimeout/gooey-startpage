@@ -107,8 +107,6 @@ document.getElementById("bgselect-img4").onclick = function(){
     localStorage.setItem("backgroundImage", "img4");
 }
 
-
-
 // Background Blur Slider -------------------------------------------------------
 
 const changeBgBlur = () => {
@@ -128,6 +126,12 @@ const changeBgBrightness = () => {
 }
 
 document.getElementById("bgbrightness").addEventListener("input", changeBgBrightness)
+
+// Hide Element -----------------------------------------------------------------
+
+const toggleHide = () => {
+    classList.toggle("hidden-element");
+}
 
 // Load State -------------------------------------------------------------------
 

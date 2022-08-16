@@ -245,8 +245,8 @@ main {
 	right: 0;
 	width: 26em;
 	/* This is hacky as fuck, fix this */
-	/* height: 93.5vh; */
-	height: 100vh;
+	height: 93.5vh;
+	/* height: 100vh; */
 	max-height: 100%;
 	background-color: rgba(35, 35, 35, 0.75);
 	padding: 1.5em;
@@ -343,16 +343,31 @@ input[type="radio"]:active + label img {
 	border-radius: 1em;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	
+	align-items: center;	
 }
 
 .settings-button {
 	cursor: pointer;
 	padding: 0.5em;
 	border-radius: 2em;
+	border: none;
 	font-size: 1em;
-	background-color: rgb(45, 45, 45);
+	background-color: #0061df;
+	
+}
+
+.settings-button:hover {
+	background-color: #004caf;
+}
+
+.settings-button:active {
+	transform: scale(0.97);
+}
+
+/* While clicked. Need to differentiate between checkbox option and radio */
+
+.settings-button:checked {
+	opacity: 0.75;
 }
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
