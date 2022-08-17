@@ -132,15 +132,16 @@ document.getElementById("bgbrightness").addEventListener("input", changeBgBright
 const updateTempUnits = () => {
     const currentTempValue = localStorage.getItem("currentTemp");
     const currentTempDisplay = document.getElementById("currentTempDisplay");
+    const tempUnitDisplay = document.getElementById("tempUnitDisplay");
 
     if (tempUnitToggle.checked == true) {
         localStorage.setItem("tempUnit", "fahr");
         currentTempDisplay.innerText = `The temperature is ${Math.trunc(currentTempValue * 9/5 + 32)}°F.`;
-
+        tempUnitDisplay.innerText = "Celcius";
     } else if (tempUnitToggle.checked == false) {
         localStorage.setItem("tempUnit", "celc");
         currentTempDisplay.innerText = `The temperature is ${currentTempValue}°C.`;
-        
+        tempUnitDisplay.innerText = "Fahrenheit";
     }
 };
 

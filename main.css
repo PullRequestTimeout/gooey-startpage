@@ -355,15 +355,11 @@ input[type="radio"]:active + label img {
 	font-size: 1em;
 	background-color: #0061df;
 	user-select: none;
-}	
-
-.button-checkbox input[type="checkbox"]:checked + button {
-	background-color: red;
 }
 
-.settings-section input[type="checkbox"]:checked + label {
-	background-color: rgb(255, 190, 60);
-}
+/* .settings-section input[type="checkbox"]:checked + label {
+	background-color: #00357b;
+} */
 
 .settings-button:hover {
 	background-color: #004caf;
