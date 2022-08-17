@@ -178,6 +178,7 @@ document.getElementById("tempUnitToggle").addEventListener("change", updateTempU
 // Refactor Background Image Select into function, and move the variable in that section into this function
 
 const loadState = () => {
+    // Retains background image selection
     const backgroundImageState = localStorage.getItem("backgroundImage");
     switch (backgroundImageState){
         case "img1": 
@@ -193,10 +194,20 @@ const loadState = () => {
             bgImg.setAttribute("src", "/assets/img4.jpg");
             break;
     };
+
+    // Retains background style choices
     document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`;
     document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
 
-    
+
+    // Retains search option choice
+    if (localStorage.getItem("search") == "google") {
+        document.getElementById("searchselect-google").checked = true;
+    } else if (localStorage.getItem("search") == "ddg") {
+        document.getElementById("searchselect-ddg").checked = true;
+    }
+
+
 };
 
 // Weather API Call -------------------------------------------------------------
