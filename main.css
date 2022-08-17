@@ -54,7 +54,7 @@ a {
 }
 /*|| Typography -------------------------------------------------------------------------------------- */
 
-h1, h2, h3, p, input, button {
+h1, h2, h3, p, input, button, label {
 	font-family: 'Roboto', sans-serif;
 	color: white;
 }
@@ -319,8 +319,8 @@ input[type="radio"]:active + label img {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1em;
+	align-items: center;
 }
-
 
 
 .font-select-buttons {
@@ -348,13 +348,21 @@ input[type="radio"]:active + label img {
 
 .settings-button {
 	cursor: pointer;
-	padding: 0.5em;
-	width: 100%;
+	text-align: center;
+	padding: 0.6em;
 	border-radius: 2em;
 	border: none;
 	font-size: 1em;
 	background-color: #0061df;
-	
+	user-select: none;
+}	
+
+.button-checkbox input[type="checkbox"]:checked + button {
+	background-color: red;
+}
+
+.settings-section input[type="checkbox"]:checked + label {
+	background-color: rgb(255, 190, 60);
 }
 
 .settings-button:hover {
