@@ -115,7 +115,7 @@
                 </div>
             </a>
         </div>
-        <div class="weather-widget">
+        <div class="weather-widget" id="weatherWidget">
             <p id="weatherDescription" class="fade-in-5s"></p>&nbsp;<p id="currentTempDisplay" class="fade-in-5s"></p>
         </div> 
         <img class="background-image brightness-adjuster" src="assets/img1.jpg" alt="Background Image" id="backgroundImage">
@@ -127,13 +127,13 @@
             <h3 class="settings-heading">Background Image:</h3>
             <div class="bgselect-panel">
                 <input type="radio" name="bgselect" id="bgselect-img1" class="hidden-element">
-                <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels"></label>
+                <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels" id="bgimg1"></label>
                 <input type="radio" name="bgselect" id="bgselect-img2" class="hidden-element">
-                <label for="bgselect-img2"><img src="assets/img2.jpg" alt="Backgound Image 2" class="bgselect-labels"></label>
+                <label for="bgselect-img2"><img src="assets/img2.jpg" alt="Backgound Image 2" class="bgselect-labels" id="bgimg2"></label>
                 <input type="radio" name="bgselect" id="bgselect-img3" class="hidden-element">
-                <label for="bgselect-img3"><img src="assets/img3.jpg" alt="Backgound Image 3" class="bgselect-labels"></label>
+                <label for="bgselect-img3"><img src="assets/img3.jpg" alt="Backgound Image 3" class="bgselect-labels" id="bgimg3"></label>
                 <input type="radio" name="bgselect" id="bgselect-img4" class="hidden-element">
-                <label for="bgselect-img4"><img src="assets/img4.jpg" alt="Backgound Image 4" class="bgselect-labels"></label>
+                <label for="bgselect-img4"><img src="assets/img4.jpg" alt="Backgound Image 4" class="bgselect-labels" id="bgimg4"></label>
             </div>
         
             <h3 class="settings-heading">Background Blur:</h3>
@@ -174,7 +174,7 @@
                 <label class="settings-button" id="tempUnitDisplay" for="tempUnitToggle">Units</label>
                 
                 <input type="checkbox" class="hidden-element" id="hideWeather">
-                <label class="settings-button" for="hideWeather">Hide</label>
+                <label class="settings-button" id="hideWeatherLabel" for="hideWeather">Hide</label>
             </div>
         </div>
         <div class="settings-section">

@@ -165,12 +165,25 @@ const updateTempUnits = () => {
 
 document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits)
 
-// Hide Element -----------------------------------------------------------------
+// Hide Weather Widget ----------------------------------------------------------
 
-// const toggleHide = () => {
-// }
+const toggleHideWeather = () => {
+    const hideWeatherToggle = document.getElementById("hideWeather");
+    const weatherWidget = document.getElementById("weatherWidget");
+    const hideWeatherLabel = document.getElementById("hideWeatherLabel");
 
+    if (hideWeatherToggle.checked == true) {
+        weatherWidget.classList.add("hidden-element");
+        hideWeatherLabel.innerText = "Show";
+        localStorage.setItem("hideWeather", "true");
+    } else if (hideWeatherToggle.checked == false) {
+        weatherWidget.classList.remove("hidden-element");
+        hideWeatherLabel.innerText = "Hide";
+        localStorage.setItem("hideWeather", "false");
+    };
+}
 
+document.getElementById("hideWeather").addEventListener("click", toggleHideWeather)
 
 // Load State -------------------------------------------------------------------
 
@@ -183,15 +196,19 @@ const loadState = () => {
     switch (backgroundImageState){
         case "img1": 
             bgImg.setAttribute("src", "/assets/img1.jpg");
+            document.getElementById("bgselect-img1").checked = true;
             break;
         case "img2":
             bgImg.setAttribute("src", "/assets/img2.jpg");
+            document.getElementById("bgselect-img2").checked = true;
             break;
         case "img3":
             bgImg.setAttribute("src", "/assets/img3.jpg");
+            document.getElementById("bgselect-img3").checked = true;
             break;
         case "img4":
             bgImg.setAttribute("src", "/assets/img4.jpg");
+            document.getElementById("bgselect-img4").checked = true;
             break;
     };
 
@@ -209,6 +226,14 @@ const loadState = () => {
         document.getElementById("searchselect-ddg").checked = true;
     }
 
+    // Retains weather display choice
+    if (localStorage.getItem("hideWeather") == "true") {
+        document.getElementById("hideWeather").checked = true;
+        toggleHideWeather();
+    } else if (localStorage.getItem("hideWeather") == "false") {
+        document.getElementById("hideWeather").checked = false;
+        toggleHideWeather();
+    }
 
 };
 
@@ -229,6 +254,7 @@ const weatherDataCall = () =>{
                 localStorage.setItem("currentTemp", Math.trunc(data.main.temp));
                 const weatherDescriptionDisplay = document.getElementById("weatherDescription");
 
+                // Regex in following line capitalises first letter in a string.
                 weatherDescriptionDisplay.innerText = `${weatherDescription.replace(/^\w/, (c) => c.toUpperCase())}.`;
                 updateTempUnits();
             })}
