@@ -195,10 +195,12 @@ const loadState = () => {
             break;
     };
 
-    // Retains background style choices
+    // Retains background style choices and settings range input
     document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`;
-    document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
+    document.getElementById("bgblur").value = localStorage.getItem("blurValue");
 
+    document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
+    document.getElementById("bgbrightness").value = localStorage.getItem("brightValue");
 
     // Retains search option choice
     if (localStorage.getItem("search") == "google") {
