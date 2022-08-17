@@ -298,52 +298,16 @@ main {
 	cursor: pointer;
 }
 
-input[type="radio"]:checked + label img {
+input[type="radio"]:checked + label img, input[type="radio"]:active + label img {
     opacity: 1;
 	box-shadow: 0px 0px 0.5em rgba(255, 255, 255, 0.75);
 } 
-
-input[type="radio"]:active + label img {
-    opacity: 1;
-	box-shadow: 0px 0px 0.5em rgba(255, 255, 255, 0.75);
-}
 
 .settings-heading {
 	font-weight: 100;
 	font-size: 1.5em;
 	user-select: none;
 	text-align: center;
-}
-
-.col-2 {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1em;
-	align-items: center;
-}
-
-
-.font-select-buttons {
-	padding: 1em;
-}
-
-.search-select-panel {
-	width: 100%;
-	/* display: flex;
-	justify-content: space-evenly;
-	gap: 1em; */
-}
-
-.search-select-buttons {
-	cursor: pointer;
-	/* background-color: rgba(255, 255, 255, 0.5); */
-	/* padding: 1.5em; */
-	height: 6em;
-	width: 6em;
-	border-radius: 1em;
-	display: flex;
-	justify-content: center;
-	align-items: center;	
 }
 
 .settings-button {
@@ -357,10 +321,6 @@ input[type="radio"]:active + label img {
 	user-select: none;
 }
 
-/* .settings-section input[type="checkbox"]:checked + label {
-	background-color: #00357b;
-} */
-
 .settings-button:hover {
 	background-color: #004caf;
 }
@@ -371,12 +331,25 @@ input[type="radio"]:active + label img {
 
 /* While clicked. Need to differentiate between checkbox option and radio */
 
-
+.settings-button input[type="radio"]:checked + label {
+	
+}
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
 
 .hidden-element {
 	display: none;
+}
+
+.transparent-element {
+	opacity: 0;
+}
+
+.col-2 {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1em;
+	align-items: center;
 }
 
 .fade-in-5s {
