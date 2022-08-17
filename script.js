@@ -129,29 +129,22 @@ document.getElementById("bgbrightness").addEventListener("input", changeBgBright
 
 // Toggle Weather ---------------------------------------------------------------
 
-// This can't fire an API Call every time it's toggled.
-// Find a way to change the temp display, and retain state, without new call.
-// Maybe take out the display portion of the fetch function and make it its own function that they can each call.
-// Maybe current temp should be displayed in its own element with targetable ID. 
-
 const updateTempUnits = () => {
     const currentTempValue = localStorage.getItem("currentTemp");
+    const currentTempDisplay = document.getElementById("currentTempDisplay");
 
     if (tempUnitToggle.checked == true) {
         localStorage.setItem("tempUnit", "fahr");
-        // console.log(Math.trunc(currentTempValue * 9/5 + 32) + "°F");
+        currentTempDisplay.innerText = `The temperature is ${Math.trunc(currentTempValue * 9/5 + 32)}°F.`;
 
     } else if (tempUnitToggle.checked == false) {
         localStorage.setItem("tempUnit", "celc");
-        console.log(currentTempValue + "°C");
+        currentTempDisplay.innerText = `The temperature is ${currentTempValue}°C.`;
         
     }
 };
 
 document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits)
-
-
-
 
 // Hide Element -----------------------------------------------------------------
 
@@ -199,23 +192,11 @@ const weatherDataCall = () =>{
             .then((data) => {
                 console.log(data);
                 const weatherDescription = data.weather[0].description;
-
-                localStorage.setItem("currentTemp", Math.trunc(data.main.temp))
-                
-                const currentTempValue = localStorage.getItem("currentTemp");
+                localStorage.setItem("currentTemp", Math.trunc(data.main.temp));
                 const weatherDescriptionDisplay = document.getElementById("weatherDescription");
 
-                // localStorage.setItem("currentTemp", currentTempValue);
-                
-                const tempUnit = localStorage.getItem("tempUnit");
-
-                if (tempUnit == "fahr") {
-                    weatherDescriptionDisplay.innerText = `${weatherDescription.replace(/^\w/, (c) => c.toUpperCase())}. The temperature is ${Math.trunc(currentTempValue * 9/5 + 32)}°F.`
-                } else if (tempUnit == "celc") {
-                    weatherDescriptionDisplay.innerText = `${weatherDescription.replace(/^\w/, (c) => c.toUpperCase())}. The temperature is ${currentTempValue}°C.`;
-                }
-                
-
+                weatherDescriptionDisplay.innerText = `${weatherDescription.replace(/^\w/, (c) => c.toUpperCase())}.`;
+                updateTempUnits();
             })}
 
     navigator.geolocation.getCurrentPosition(success, error);
