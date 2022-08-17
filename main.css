@@ -329,10 +329,8 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	transform: scale(0.97);
 }
 
-/* While clicked. Need to differentiate between checkbox option and radio */
-
-.settings-button input[type="radio"]:checked + label {
-	
+.settings-section input[type="radio"]:checked + .settings-button {
+	background-color: #002e6b;
 }
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
