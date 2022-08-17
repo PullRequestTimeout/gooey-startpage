@@ -126,6 +126,24 @@ const changeBgBrightness = () => {
 }
 
 document.getElementById("bgbrightness").addEventListener("input", changeBgBrightness)
+// Search Select ----------------------------------------------------------------
+
+const searchSelect = () => {
+    const searchSelectGoogle = document.getElementById("searchselect-google");
+    const searchSelectDDG = document.getElementById("searchselect-ddg");
+    const searchString = document.getElementById("searchString");
+
+    if (searchSelectGoogle.checked == true){
+        searchString.setAttribute("action", "https://www.google.com/search?");
+        localStorage.setItem("search", "google");
+    } else if (searchSelectDDG.checked == true){
+        searchString.setAttribute("action", "https://duckduckgo.com/?");
+        localStorage.setItem("search", "ddg");
+    }
+};
+
+document.getElementById("searchselect-google").addEventListener("click", searchSelect);
+document.getElementById("searchselect-ddg").addEventListener("click", searchSelect);
 
 // Toggle Weather ---------------------------------------------------------------
 
@@ -177,6 +195,8 @@ const loadState = () => {
     };
     document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`;
     document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
+
+    
 };
 
 // Weather API Call -------------------------------------------------------------
