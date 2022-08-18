@@ -185,6 +185,26 @@ const toggleHideWeather = () => {
 
 document.getElementById("hideWeather").addEventListener("click", toggleHideWeather);
 
+// Hide QuickLinks Widget -------------------------------------------------------
+
+const toggleHideLinks = () => {
+    const hideLinksToggle = document.getElementById("hideLinks");
+    const linksWidget = document.getElementById("linksWidget");
+    const hideLinksLabel = document.getElementById("hideLinksLabel");
+
+    if (hideLinksToggle.checked == true) {
+        linksWidget.classList.add("hidden-element");
+        hideLinksLabel.innerText = "Show";
+        localStorage.setItem("hideLinks", "true");
+    } else if (hideLinksToggle.checked == false) {
+        linksWidget.classList.remove("hidden-element");
+        hideLinksLabel.innerText = "Hide";
+        localStorage.setItem("hideLinks", "false");
+    };
+}
+
+document.getElementById("hideLinks").addEventListener("click", toggleHideLinks);
+
 // Load State -------------------------------------------------------------------
 
 // This funtion calls a global variable, which is bad practice.
@@ -235,6 +255,14 @@ const loadState = () => {
         toggleHideWeather();
     }
 
+    // Retains links display choice
+    if (localStorage.getItem("hideLinks") == "true") {
+        document.getElementById("hideLinks").checked = true;
+        toggleHideLinks();
+    } else if (localStorage.getItem("hideLinks") == "false") {
+        document.getElementById("hideLinks").checked = false;
+        toggleHideLinks();
+    }
 };
 
 // Weather API Call -------------------------------------------------------------

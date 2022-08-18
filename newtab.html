@@ -41,7 +41,7 @@
                 <input type="submit" hidden>
             </form>
         </div>
-        <div class="quick-links-container">
+        <div class="quick-links-container" id="linksWidget">
             <a href="https://www.reddit.com/">
                 <div class="link-cards">
                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -182,8 +182,10 @@
         <div class="settings-section">
             <h3 class="settings-heading">Quick Links:</h3>
             <div class="col-2">
-                <button class="settings-button">Edit</button>
-                <button class="settings-button">Hide</button>
+                <label class="settings-button">Edit</label>
+
+                <input type="checkbox" class="hidden-element" id="hideLinks">
+                <label class="settings-button" id="hideLinksLabel" for="hideLinks">Hide</label>
             </div>
         </div>
     </div>
