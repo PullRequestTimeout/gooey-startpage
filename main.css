@@ -289,7 +289,8 @@ main {
 
 input[type="radio"]:checked + label img, input[type="radio"]:active + label img {
     opacity: 1;
-	box-shadow: 0px 0px 0.5em rgba(255, 255, 255, 0.75);
+	/* box-shadow: 0px 0px 0.5em rgba(255, 255, 255, 0.75); */
+	outline: solid 2px white;
 } 
 
 .settings-heading {
@@ -319,7 +320,8 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 }
 
 .settings-section input[type="radio"]:checked + .settings-button {
-	background-color: #002e6b;
+	background-color: #0061df;
+	border: solid 2px white;
 }
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
