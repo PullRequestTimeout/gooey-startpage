@@ -276,17 +276,6 @@ main {
 	gap: 1em;
 }
 
-.bgselect-panel {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1em;
-	justify-content: space-evenly;
-}
-
-.bgselect-panel label {
-	width: 100%;
-}
-
 .bgselect-labels {
 	width: 11em;
 	border-radius: 1em;

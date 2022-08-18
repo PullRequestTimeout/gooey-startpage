@@ -10,6 +10,8 @@ A replacement startpage for the browser using vanilla JS, HTML, and CSS as a pro
 
 ### Functionality
 
+ - Add create extension icons and add to /icons directory
+
  - Background URL image functionality.
 	- Create hover options element, pencil icon, to replace default imgs with urls. 
  - Font settings widget

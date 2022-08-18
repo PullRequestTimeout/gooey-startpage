@@ -163,7 +163,7 @@ const updateTempUnits = () => {
     }
 };
 
-document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits)
+document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits);
 
 // Hide Weather Widget ----------------------------------------------------------
 
@@ -173,17 +173,17 @@ const toggleHideWeather = () => {
     const hideWeatherLabel = document.getElementById("hideWeatherLabel");
 
     if (hideWeatherToggle.checked == true) {
-        weatherWidget.classList.add("hidden-element");
+        weatherWidget.classList.add("transparent-element");
         hideWeatherLabel.innerText = "Show";
         localStorage.setItem("hideWeather", "true");
     } else if (hideWeatherToggle.checked == false) {
-        weatherWidget.classList.remove("hidden-element");
+        weatherWidget.classList.remove("transparent-element");
         hideWeatherLabel.innerText = "Hide";
         localStorage.setItem("hideWeather", "false");
     };
 }
 
-document.getElementById("hideWeather").addEventListener("click", toggleHideWeather)
+document.getElementById("hideWeather").addEventListener("click", toggleHideWeather);
 
 // Load State -------------------------------------------------------------------
 

@@ -115,9 +115,11 @@
                 </div>
             </a>
         </div>
-        <div class="weather-widget" id="weatherWidget">
-            <p id="weatherDescription" class="fade-in-5s"></p>&nbsp;<p id="currentTempDisplay" class="fade-in-5s"></p>
-        </div> 
+
+        <div class="weather-widget fade-in-5s" id="weatherWidget">
+            <p id="weatherDescription"></p>&nbsp;<p id="currentTempDisplay"></p>
+        </div>
+
         <img class="background-image brightness-adjuster" src="assets/img1.jpg" alt="Background Image" id="backgroundImage">
     </main>
 
@@ -125,7 +127,7 @@
         <h2 class="settings-heading">Settings</h2>
         <div class="settings-section">
             <h3 class="settings-heading">Background Image:</h3>
-            <div class="bgselect-panel">
+            <div class="col-2">
                 <input type="radio" name="bgselect" id="bgselect-img1" class="hidden-element">
                 <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels" id="bgimg1"></label>
                 <input type="radio" name="bgselect" id="bgselect-img2" class="hidden-element">
