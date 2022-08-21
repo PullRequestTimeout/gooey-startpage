@@ -149,14 +149,7 @@
         <div class="settings-section">
             <h3 class="settings-heading">Font:</h3>
             <div class="fontselect-panel">
-                <!-- <input type="radio" name="fontselect" id="robotoFont" class="hidden-element">
-                <div><label for="robotoFont" class="font-select-buttons"></label></div>
-                <input type="radio" name="fontselect" id="" class="hidden-element">
-                <label for="" class="font-select-buttons"></label>
-                <input type="radio" name="fontselect" id="" class="hidden-element">
-                <label for="" class="font-select-buttons"></label>
-                <input type="radio" name="fontselect" id="" class="hidden-element">
-                <label for="" class="font-select-buttons"></label> -->
+                
             </div>
         </div>
         <div class="settings-section">
@@ -182,14 +175,44 @@
         <div class="settings-section">
             <h3 class="settings-heading">Quick Links:</h3>
             <div class="col-2">
-                <button class="settings-button">Edit</button>
+                <button class="settings-button" id="openLinksPanel">Edit</button>
 
                 <input type="checkbox" class="hidden-element" id="hideLinks">
                 <label class="settings-button" id="hideLinksLabel" for="hideLinks">Hide</label>
             </div>
         </div>
     </div>
-    
+    <div class="settings-panel z2 link-edit-panel" id="editLinksPanel">
+        <h2 class="settings-heading">Edit Quick Links</h2>
+        <div class="settings-section">
+            <h2 class="settings-heading">Add New Link:</h2>
+            
+            <form class="col-1" id="newLinkForm">
+
+                <input type="text" class="settings-text-input" id="newLinkName" placeholder="Link Name..." autocomplete="off">
+                <input type="text" class="settings-text-input" id="newLinkURL" placeholder="Link URL..." autocomplete="off">
+                <input type="text" title="Make sure copy and pasted SVGs are 100x100px, with a fill or stroke value of white." class="settings-text-input" id="newLinkSVG" placeholder="Link SVG..." autocomplete="off">
+            </form>
+            <div class="col-2">
+                <button type="submit" class="settings-button" name="" form="newLinkForm">Add</button>
+                <button class="settings-button" id="">Clear</button>
+            </div>
+        </div>
+
+        
+        <!-- <h2 class="settings-heading">Edit Quick Links:</h2> -->
+        <ul class="settings-section link-edit-section" id="link-">
+            <li class="link-edit-item">Reddit</li>
+            <li class="link-edit-item">Youtube</li>
+            <li class="link-edit-item">Netflix</li>
+            <li class="link-edit-item">1337x</li>
+            <li class="link-edit-item">Prime Video</li>
+            <li class="link-edit-item">Github</li>
+            <li class="link-edit-item">Figma</li>
+        </ul>
+        
+    </div>
     <script src="script.js"></script>
+    <!-- <script src="editlinks.js"></script> -->
 </body>
 </html>

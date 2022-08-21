@@ -54,7 +54,7 @@ a {
 }
 /*|| Typography -------------------------------------------------------------------------------------- */
 
-h1, h2, h3, p, input, button, label {
+h1, h2, h3, p, input, button, label, li {
 	font-family: 'Roboto', sans-serif;
 	color: white;
 }
@@ -244,14 +244,17 @@ main {
 	top: 0;
 	right: 0;
 	width: 26em;
+	
 	/* This is hacky as fuck, fix this */
 	height: 93.5vh;
 	/* height: 100vh; */
 	max-height: 100%;
+	
 	background-color: rgba(35, 35, 35, 0.75);
 	padding: 1.5em;
 	display: grid;
 	grid-template-columns: 1fr;
+	
 	gap: 2em 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -324,6 +327,44 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	border: solid 2px white;
 }
 
+/*|| Link Edit Panel ---------------------------------------------------------------------------------- */
+
+.settings-text-input {
+	background-color: rgba(35, 35, 35, 0.75);
+	border: none;
+	padding: 1em;
+	border-radius: 2em;
+	font-size: 1em;
+}
+
+.settings-text-input:focus {
+	outline-color: #fff;
+}
+
+.link-edit-panel {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	
+}
+/* 
+.link-edit-section {
+	height: 100%;
+	margin-top: 0;
+	
+} */
+
+.link-edit-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 2em;
+	padding: 1em;
+	background-color: rgba(255, 255, 255, 0.25);
+}
+
+
+
 /*|| Utilities ---------------------------------------------------------------------------------------- */
 
 .hidden-element {
@@ -332,6 +373,17 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 
 .transparent-element {
 	opacity: 0;
+}
+
+.z2 {
+	position: absolute;
+	z-index: 2;
+}
+
+.col-1 {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
 }
 
 .col-2 {

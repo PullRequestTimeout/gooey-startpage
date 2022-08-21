@@ -77,6 +77,20 @@ const closeSettingsPanel = () => {
     }
 };
 
+const translateLinksPanel = () => {
+    const editLinksPanel = document.getElementById("editLinksPanel");
+    editLinksPanel.classList.add("display-settings");
+    translateSettingsPanel();
+};
+
+const closeLinksPanel = () => {
+    const editLinksPanel = document.getElementById("editLinksPanel");
+    editLinksPanel.classList.remove("display-settings");
+    
+};
+
+document.getElementById("openLinksPanel").addEventListener("click", translateLinksPanel);
+document.querySelector("main").addEventListener("click", closeLinksPanel);
 document.querySelector("main").addEventListener("click", closeSettingsPanel);
 document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
 
