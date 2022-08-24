@@ -89,6 +89,8 @@ const closeLinksPanel = () => {
     
 };
 
+document.getElementById("closeLinkEditPanel").addEventListener("click", closeLinksPanel);
+document.getElementById("closeLinkEditPanel").addEventListener("click", translateSettingsPanel);
 document.getElementById("openLinksPanel").addEventListener("click", translateLinksPanel);
 document.querySelector("main").addEventListener("click", closeLinksPanel);
 document.querySelector("main").addEventListener("click", closeSettingsPanel);

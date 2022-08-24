@@ -1,6 +1,9 @@
 // Creates an empty array to populate
 const linkList = [];
 
+// Empty Field Check
+
+
 // Grabs the new link info from the input fields, creates a template literal for the element with that info, 
 // stores that new link in the linkList array 
 const submitLinkInput = () => {
@@ -26,9 +29,14 @@ const submitLinkInput = () => {
     // linksWidget.appendChild(linkHTMLTemplate);
 
 
-
+    
     // Clears the text fields after input
     // clearLinkInput();
+
+};
+
+
+const displayNewLink = () => {
 
 };
 
@@ -42,7 +50,7 @@ const clearLinkInput = () => {
     newLinkName.value = "";
     newLinkURL.value = "";
     newLinkSVG.value = "";
-}
+};
 
 document.getElementById("submitLinkInput").addEventListener("click", submitLinkInput);
 document.getElementById("clearLinkInput").addEventListener("click", clearLinkInput);
