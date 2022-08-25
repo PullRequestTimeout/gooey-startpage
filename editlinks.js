@@ -1,9 +1,7 @@
-// Creates an empty array to populate
-// const linkList = [];
-
 // Link Data Store --------------------------------------------------------------------------------
 
 // Default links as a starting point, just to dummy run the functions
+// After every update to the list, this should be written to localStorage as a string and then parsed as JSON
 const linkList = [
     {
         linkName: "Reddit",
@@ -116,25 +114,23 @@ const submitLinkInput = () => {
 const populateLinks = () => {
     // The destination of the links
     const linksWidget = document.getElementById("linksWidget");
+    const currentLinksDisplay = document.getElementById("currentLinksDisplay");
 
-    // Loop through the array, 
+    // Loop through the array, store values in variables
     for (let i = 0; i < linkList.length; i++) {
         let linkName = linkList[i].linkName;
         let linkURL = linkList[i].linkURL;
         let linkSVG = linkList[i].linkSVG;
         
-        // Template literal for HTML element
+        // Template literal for HTML elements
         const linkHTMLTemplate =  `<a href="${linkURL}"><div class="link-cards">${linkSVG}<h2>${linkName}</h2></div></a>`;
 
+        // 
         linksWidget.insertAdjacentHTML("beforeend", linkHTMLTemplate);
     }    
 };
 
-// Display New Link in Link Edit Panel ------------------------------------------------------------
 
-const displayNewLink = () => {
-
-};
 
 // Clear New Link Section Values ------------------------------------------------------------------
 
@@ -152,3 +148,7 @@ const clearLinkInput = () => {
 document.getElementById("submitLinkInput").addEventListener("click", submitLinkInput);
 // document.getElementById("submitLinkInput").addEventListener("click", checkEmptyFields)
 document.getElementById("clearLinkInput").addEventListener("click", clearLinkInput);
+
+// Boot -------------------------------------------------------------------------------------------
+
+document.body.onload = populateLinks();
