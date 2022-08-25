@@ -42,7 +42,7 @@
             </form>
         </div>
         <div class="quick-links-container" id="linksWidget">
-            <a href="https://www.reddit.com/">
+            <!-- <a href="https://www.reddit.com/">
                 <div class="link-cards">
                     <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M50 33.3333C61.0334 33.3333 70.95 36.775 77.8125 42.25C80.1601 41.4271 82.7248 41.4715 85.0425 42.3752C87.3602 43.279 89.278 44.9823 90.4489 47.1772C91.6199 49.3721 91.9666 51.9135 91.4265 54.3419C90.8864 56.7702 89.4951 58.9251 87.5042 60.4167C87.5042 75.375 70.7125 87.5 50.0042 87.5C29.6917 87.5 13.15 75.8333 12.5042 61.275L8.33752 60.4167C6.34663 58.9251 4.9553 56.7702 4.41518 54.3419C3.87507 51.9135 4.22184 49.3721 5.39278 47.1772C6.56371 44.9823 8.48149 43.279 10.7992 42.3752C13.1169 41.4715 15.6816 41.4271 18.0292 42.25C24.8875 36.7792 34.8042 33.3333 45.8375 33.3333H50Z" stroke="white" stroke-width="4.16667" stroke-linecap="round" stroke-linejoin="round"/>
@@ -51,7 +51,7 @@
                         <path d="M37.5 56.25C38.6506 56.25 39.5834 55.3173 39.5834 54.1667C39.5834 53.0161 38.6506 52.0833 37.5 52.0833C36.3494 52.0833 35.4167 53.0161 35.4167 54.1667C35.4167 55.3173 36.3494 56.25 37.5 56.25Z" fill="black" stroke="white" stroke-width="4.16667" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M62.5 56.25C63.6506 56.25 64.5834 55.3173 64.5834 54.1667C64.5834 53.0161 63.6506 52.0833 62.5 52.0833C61.3494 52.0833 60.4167 53.0161 60.4167 54.1667C60.4167 55.3173 61.3494 56.25 62.5 56.25Z" fill="black" stroke="white" stroke-width="4.16667" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M41.6667 70.8333C44.4459 72.2208 47.2209 72.9167 50 72.9167C52.7792 72.9167 55.5542 72.2208 58.3334 70.8333" stroke="white" stroke-width="4.16667" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>   
+                    </svg> 
                     <h2>Reddit</h2>
                 </div>
             </a>
@@ -113,8 +113,8 @@
                     </svg>
                     <h2>Figma</h2>
                 </div>
-            </a>
-        </div>
+            </a> -->
+        </div> 
 
         <div class="weather-widget fade-in-5s" id="weatherWidget">
             <p id="weatherDescription"></p>&nbsp;<p id="currentTempDisplay"></p>
@@ -197,14 +197,14 @@
                 <input type="text" title="Make sure copy and pasted SVGs are 100x100px, with a fill or stroke value of white." class="settings-text-input" id="newLinkSVG" placeholder="Link SVG..." autocomplete="off">
             </form>
             <div class="col-2">
-                <button type="submit" class="settings-button" name="" form="newLinkForm">Add</button>
-                <button class="settings-button" id="">Clear</button>
+                <button class="settings-button" name="" id="submitLinkInput">Add</button>
+                <button class="settings-button" id="clearLinkInput">Clear</button>
             </div>
         </div>
 
         
         <!-- <h2 class="settings-heading">Edit Quick Links:</h2> -->
-        <ul class="settings-section link-edit-section" id="link-">
+        <ul class="settings-section link-edit-section" id="currentLinksList">
             <li class="link-edit-item">Reddit</li>
             <li class="link-edit-item">Youtube</li>
             <li class="link-edit-item">Netflix</li>
@@ -216,6 +216,6 @@
         
     </div>
     <script src="script.js"></script>
-    <!-- <script src="editlinks.js"></script> -->
+    <script src="editlinks.js"></script>
 </body>
 </html>
