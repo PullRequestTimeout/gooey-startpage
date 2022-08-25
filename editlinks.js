@@ -1,6 +1,8 @@
 // Creates an empty array to populate
 // const linkList = [];
 
+// Link Data Store --------------------------------------------------------------------------------
+
 // Default links as a starting point, just to dummy run the functions
 const linkList = [
     {
@@ -71,41 +73,35 @@ const linkList = [
     
 ]
 
-// Empty Field Check
+// Empty Field Check ------------------------------------------------------------------------------
+
+// After link creation functions are working properly, throw them in here for error handling
+// This could be done with a custom modal rather than window.alert() for a more elegant solution 
+
 const checkEmptyFields = () => {
     const newLinkName = document.getElementById("newLinkName");
     const newLinkURL = document.getElementById("newLinkURL");
     const newLinkSVG = document.getElementById("newLinkSVG");
     if (newLinkName.value < 1 || newLinkURL.value < 1) {
-        alert("A new link item needs both a name and a URL.")
+        alert("A new quick link needs both a name and a URL.")
     } else if (newLinkSVG.value < 1) {
         alert("Are you sure you don't want to use an icon?")
     }
 };
  
+// Create New Link Entry --------------------------------------------------------------------------
+
 // Grabs the new link info from the input fields, creates a template literal for the element with that info, 
 // stores that new link in the linkList array 
 const submitLinkInput = () => {
     
-    // Identifies where the values are coming from, and where they're going
-    const newLinkName = document.getElementById("newLinkName");
-    const newLinkURL = document.getElementById("newLinkURL");
-    const newLinkSVG = document.getElementById("newLinkSVG");
-    const linksWidget = document.getElementById("linksWidget");
-
-    // Grabs the values and stores them in variables
-    let linkName = newLinkName.value;
-    let linkURL = newLinkURL.value;
-    let linkSVG = newLinkSVG.value;
+    // User input fields
+    const newLinkName = document.getElementById("newLinkName").value;
+    const newLinkURL = document.getElementById("newLinkURL").value;
+    const newLinkSVG = document.getElementById("newLinkSVG").value;
     
-    // Inputs the created variables into a template literal, this should be plug and play straight into the widget
-    const linkHTMLTemplate =  `<a href="${linkURL}"><div class="link-cards">${linkSVG}<h2>${linkName}</h2></div></a>`;
-
-    // Plugs the template into an array with the link name, and the full template literal as the 'element' key's value
-    linkList.push({name: linkName, element: linkHTMLTemplate});
-    
-    // Plugs the asembled template element into the widget
-    linksWidget.insertAdjacentHTML("beforeend", linkHTMLTemplate);
+    // Plugs the user input into the linksList Array
+    linkList.push({linkName: newLinkName, linkURL: newLinkURL, linkSVG: newLinkSVG});
     
     // Clears the text fields after input
     clearLinkInput();
@@ -115,12 +111,32 @@ const submitLinkInput = () => {
     
 };
 
+// Retrieves Links from linkList Array and displays them in the Links Widget ----------------------
+
+const populateLinks = () => {
+    // The destination of the links
+    const linksWidget = document.getElementById("linksWidget");
+
+    // Loop through the array, 
+    for (let i = 0; i < linkList.length; i++) {
+        let linkName = linkList[i].linkName;
+        let linkURL = linkList[i].linkURL;
+        let linkSVG = linkList[i].linkSVG;
+        
+        // Template literal for HTML element
+        const linkHTMLTemplate =  `<a href="${linkURL}"><div class="link-cards">${linkSVG}<h2>${linkName}</h2></div></a>`;
+
+        linksWidget.insertAdjacentHTML("beforeend", linkHTMLTemplate);
+    }    
+};
+
+// Display New Link in Link Edit Panel ------------------------------------------------------------
 
 const displayNewLink = () => {
 
 };
 
-// Clear New Link Section Values
+// Clear New Link Section Values ------------------------------------------------------------------
 
 const clearLinkInput = () => {
     const newLinkName = document.getElementById("newLinkName");
