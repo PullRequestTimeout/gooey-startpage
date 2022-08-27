@@ -1,8 +1,6 @@
-// Link Data Store --------------------------------------------------------------------------------
+// Default Link List ------------------------------------------------------------------------------
 
-// Default links as a starting point, just to dummy run the functions
-// After every update to the list, this should be written to localStorage as a string and then parsed as JSON
-const linkList = [
+const defaultLinkList = [
     {
         linkName: "Reddit",
         linkURL: "https://www.reddit.com/",
@@ -67,9 +65,84 @@ const linkList = [
         <rect x="6" y="3" width="12" height="6" rx="3" />
         <path d="M9 9a3 3 0 0 0 0 6h3m-3 0a3 3 0 1 0 3 3v-15" />
         </svg>`,
-    }
+    }  
+];
+
+// localStorage.setItem("userLinkList", JSON.stringify(defaultLinkList));
+
+// User Link List ---------------------------------------------------------------------------------
+
+// An array populated from localstorage that contains the user's custom list of links from previous sessions
+const userLinkList = (localStorage.userLinkList == null) ? defaultLinkList : JSON.parse(localStorage.userLinkList);
+
+// Display Current Links --------------------------------------------------------------------------
+
+// Retrieves links from varaible source based on previous user actions
+const populateLinks = () => {
+    // Uses default links on first boot, persistent dynamic user links on subsequent boots
+    let linkList = (localStorage.getItem("firstBoot") == null) ? defaultLinkList : userLinkList;
+    console.log(linkList);
+
+    // The destination of the links
+    const linksWidget = document.getElementById("linksWidget");
+    const currentLinksDisplay = document.getElementById("currentLinksDisplay");
+
+    // Refresh links
+    linksWidget.innerHTML = "";
+    currentLinksDisplay.innerHTML = "";
+
+    // Loop through the array, store values in variables
+    for (let i = 0; i < linkList.length; i++) {
+        let linkName = linkList[i].linkName;
+        let linkURL = linkList[i].linkURL;
+        let linkSVG = linkList[i].linkSVG;
+        
+        // Template literals for HTML elements
+        const quickLinkHTMLTemplate =  `<a href="${linkURL}"><div class="link-cards">${linkSVG}<h2>${linkName}</h2></div></a>`;
+        const currentLinkDisplayItem = `<li class="link-edit-item">${linkName}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" height="20"><path fill="#fff" d="M135.2 17.69C140.6 6.848 151.7 0 163.8 0H284.2C296.3 0 307.4 6.848 312.8 17.69L320 32H416C433.7 32 448 46.33 448 64C448 81.67 433.7 96 416 96H32C14.33 96 0 81.67 0 64C0 46.33 14.33 32 32 32H128L135.2 17.69zM31.1 128H416V448C416 483.3 387.3 512 352 512H95.1C60.65 512 31.1 483.3 31.1 448V128zM111.1 208V432C111.1 440.8 119.2 448 127.1 448C136.8 448 143.1 440.8 143.1 432V208C143.1 199.2 136.8 192 127.1 192C119.2 192 111.1 199.2 111.1 208zM207.1 208V432C207.1 440.8 215.2 448 223.1 448C232.8 448 240 440.8 240 432V208C240 199.2 232.8 192 223.1 192C215.2 192 207.1 199.2 207.1 208zM304 208V432C304 440.8 311.2 448 320 448C328.8 448 336 440.8 336 432V208C336 199.2 328.8 192 320 192C311.2 192 304 199.2 304 208z"/></svg></li>`;
+
+        // Inserts the elements into the widget
+        linksWidget.insertAdjacentHTML("beforeend", quickLinkHTMLTemplate);
+        
+        // Inserts the elements into the edit panel
+        currentLinksDisplay.insertAdjacentHTML("beforeend", currentLinkDisplayItem);
+    }    
+};
+
+// Create New Link Entry --------------------------------------------------------------------------
+
+// Grabs the new link info from the input fields, stores that new link in the linkList array 
+const submitLinkInput = () => {
+
+    // User input fields
+    const newLinkName = document.getElementById("newLinkName").value;
+    const newLinkURL = document.getElementById("newLinkURL").value;
+    const newLinkSVG = document.getElementById("newLinkSVG").value;
     
-]
+    // Plugs the user input into the linksList Array
+    userLinkList.push({linkName: newLinkName, linkURL: newLinkURL, linkSVG: newLinkSVG});
+    
+    // Updates locally stored version of user links
+    localStorage.setItem("userLinkList", JSON.stringify(userLinkList));
+
+    // Updates links
+    populateLinks();
+
+    // Clears the text fields after input
+    clearLinkInput();
+};
+
+document.getElementById("submitLinkInput").addEventListener("click", submitLinkInput);
+
+// Clear New Link Section Values ------------------------------------------------------------------
+
+const clearLinkInput = () => {
+    document.getElementById("newLinkName").value = "";
+    document.getElementById("newLinkURL").value = "";
+    document.getElementById("newLinkSVG").value = "";
+};
+
+document.getElementById("clearLinkInput").addEventListener("click", clearLinkInput);
 
 // Empty Field Check ------------------------------------------------------------------------------
 
@@ -86,69 +159,28 @@ const checkEmptyFields = () => {
         alert("Are you sure you don't want to use an icon?")
     }
 };
- 
-// Create New Link Entry --------------------------------------------------------------------------
 
-// Grabs the new link info from the input fields, creates a template literal for the element with that info, 
-// stores that new link in the linkList array 
-const submitLinkInput = () => {
-    
-    // User input fields
-    const newLinkName = document.getElementById("newLinkName").value;
-    const newLinkURL = document.getElementById("newLinkURL").value;
-    const newLinkSVG = document.getElementById("newLinkSVG").value;
-    
-    // Plugs the user input into the linksList Array
-    linkList.push({linkName: newLinkName, linkURL: newLinkURL, linkSVG: newLinkSVG});
-    
-    // Clears the text fields after input
-    clearLinkInput();
-
-    // Updates the display of current links in the edit links panel
-    const currentLinksList = document.getElementById("currentLinksList");
-    
-};
-
-// Retrieves Links from linkList Array and displays them in the Links Widget ----------------------
-
-const populateLinks = () => {
-    // The destination of the links
-    const linksWidget = document.getElementById("linksWidget");
-    const currentLinksDisplay = document.getElementById("currentLinksDisplay");
-
-    // Loop through the array, store values in variables
-    for (let i = 0; i < linkList.length; i++) {
-        let linkName = linkList[i].linkName;
-        let linkURL = linkList[i].linkURL;
-        let linkSVG = linkList[i].linkSVG;
-        
-        // Template literal for HTML elements
-        const linkHTMLTemplate =  `<a href="${linkURL}"><div class="link-cards">${linkSVG}<h2>${linkName}</h2></div></a>`;
-
-        // 
-        linksWidget.insertAdjacentHTML("beforeend", linkHTMLTemplate);
-    }    
-};
-
-
-
-// Clear New Link Section Values ------------------------------------------------------------------
-
-const clearLinkInput = () => {
-    const newLinkName = document.getElementById("newLinkName");
-    const newLinkURL = document.getElementById("newLinkURL");
-    const newLinkSVG = document.getElementById("newLinkSVG");
-
-    newLinkName.value = "";
-    newLinkURL.value = "";
-    newLinkSVG.value = "";
-};
-
-
-document.getElementById("submitLinkInput").addEventListener("click", submitLinkInput);
-// document.getElementById("submitLinkInput").addEventListener("click", checkEmptyFields)
-document.getElementById("clearLinkInput").addEventListener("click", clearLinkInput);
 
 // Boot -------------------------------------------------------------------------------------------
 
-document.body.onload = populateLinks();
+// If the page has never been booted before, set a marker in localstorage saying that it now has,
+// and boot from the default list of links. If the marker is present on boot, boot from a JSON.parse 
+// of the present object string in localstorage.
+
+const bootLinksOrigin = () => {
+    if (localStorage.getItem("firstBoot") == null) {
+        // Sets default list as starting point for dynamic functions
+        localStorage.setItem("userLinkList", JSON.stringify(defaultLinkList));
+
+        populateLinks();
+        console.log("Links being loaded from the default list.");
+        
+        // Leave a marker to guide subsequent boots
+        localStorage.setItem("firstBoot", "completed");
+    } else if (localStorage.getItem("firstBoot") == "completed") {
+        populateLinks();
+        console.log("Links being loaded from dynamic user list.")
+    }
+};
+
+document.body.onload = bootLinksOrigin();

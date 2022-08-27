@@ -338,7 +338,7 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 }
 
 .settings-text-input:focus {
-	outline-color: #fff;
+	outline: 2px solid #fff;
 }
 
 .link-edit-panel {
@@ -368,12 +368,23 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	height: 2em;
 	cursor: pointer;
 	opacity: 0.7;
-	transition: 0.1s;
+	transition: 0.3s;
 }
 
 .link-edit-panel-close:hover {
 	opacity: 1;
-	transition: 0.1s;
+	transition: 0.3s;
+}
+
+.link-edit-item svg {
+	opacity: 0.7;
+	transition: 0.3s;
+}
+
+.link-edit-item svg:hover {
+	opacity: 1;
+	transition: 0.3s;
+	cursor: pointer;
 }
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
