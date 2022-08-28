@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
     "name" : "UI Startpage",
-    "description" : "Replace default new tab page in firefox with UI Startpage.",
+    "description" : "Replace default new tab page in Firefox with UI Startpage.",
     
-    "version": "1.0",
+    "version": "1.0.0",
     
     "developer": {
         "name": "Jacob Druery",
@@ -16,7 +16,6 @@
       },
     
     "permissions": [
-      "tabs",
       "geolocation",
       "storage"
     ],
