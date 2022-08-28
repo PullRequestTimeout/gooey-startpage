@@ -324,7 +324,7 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 
 .settings-section input[type="radio"]:checked + .settings-button {
 	background-color: #0061df;
-	border: solid 2px white;
+	outline: solid 2px white;
 }
 
 /*|| Link Edit Panel ---------------------------------------------------------------------------------- */

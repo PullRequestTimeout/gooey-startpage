@@ -12,8 +12,10 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet"> 
-    
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">  -->
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400&family=Exo:wght@100;400&family=Montserrat:wght@100;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+
+
     <title>New Tab</title>
 </head>
 <body>
@@ -148,14 +150,24 @@
         </div>
         <div class="settings-section">
             <h3 class="settings-heading">Font:</h3>
-            <div class="fontselect-panel">
-                
+            <div class="col-2">
+                <input type="radio" name="fontselect" id="fontselect-roboto" class="hidden-element" checked>
+                <label for="fontselect-roboto" class="settings-button">Roboto</label>
+
+                <input type="radio" name="fontselect" id="fontselect-montserrat" class="hidden-element">
+                <label for="fontselect-montserrat" class="settings-button">Montserrat</label>
+
+                <input type="radio" name="fontselect" id="fontselect-alegreya" class="hidden-element">
+                <label for="fontselect-alegreya" class="settings-button">Alegreya</label>
+
+                <input type="radio" name="fontselect" id="fontselect-exo" class="hidden-element">
+                <label for="fontselect-exo" class="settings-button">Exo</label>
             </div>
         </div>
         <div class="settings-section">
             <h3 class="settings-heading">Search Engine:</h3>
             <div class="col-2">
-                <input type="radio" name="searchselect" id="searchselect-google" class="hidden-element">
+                <input type="radio" name="searchselect" id="searchselect-google" class="hidden-element" checked>
                 <label for="searchselect-google" class="settings-button">Google</label>
 
                 <input type="radio" name="searchselect" id="searchselect-ddg" class="hidden-element">
@@ -202,9 +214,6 @@
                 <button class="settings-button" id="clearLinkInput">Clear</button>
             </div>
         </div>
-
-        
-        <!-- <h2 class="settings-heading">Edit Quick Links:</h2> -->
         <div class="settings-section">
             <ul id="currentLinksDisplay">
                 <!-- <li class="link-edit-item">Reddit

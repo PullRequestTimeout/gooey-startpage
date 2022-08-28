@@ -27,6 +27,7 @@ The extension uses geolocation permissions purely to tailor a weather data API c
     -   ~Hide widget functionality~
     -   ~Add and remove quick links items with name and url~.
     -   ~Add SVG input field~
+    -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation.
 
 -   Add create extension icons and add to /icons directory
 -   Learn how to version after release
