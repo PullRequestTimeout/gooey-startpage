@@ -185,7 +185,7 @@ const getLinkName = (event) => {
 
 const restoreDefaultLinks = () => {
     userLinkList = JSON.parse(localStorage.getItem("defaultLinkList"));
-    localStorage.setItem(JSON.stringify(userLinkList));
+    localStorage.setItem("userLinkList", JSON.stringify(userLinkList));
     populateLinks();
 
 };
@@ -196,6 +196,7 @@ document.getElementById("restoreDefaultLinks").addEventListener("click", restore
 
 const clearAllLinks = () => {
     userLinkList = [];
+    localStorage.setItem("userLinkList", JSON.stringify(userLinkList));
     populateLinks();
 }
 
