@@ -54,7 +54,7 @@ a {
 }
 /*|| Typography -------------------------------------------------------------------------------------- */
 
-h1, h2, h3, p, input, button, label, li {
+h1, h2, h3, p, input, button, label, li, a {
 	font-family: 'Roboto', sans-serif;
 	color: white;
 }
@@ -347,12 +347,6 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	flex-direction: column;
 	
 }
-/* 
-.link-edit-section {
-	height: 100%;
-	margin-top: 0;
-	
-} */
 
 .link-edit-item {
 	display: flex;
@@ -390,7 +384,27 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	cursor: pointer;
 }
 
+.link-edit-panel-link {
+	text-decoration: underline;
+	margin-left: 1em;
+	/* opacity: 0.7; */
+}
 
+.tabler-shoutout {
+	opacity: 0.2;
+	transition: 0.1s;
+}
+
+.tabler-shoutout:hover {
+	opacity: 0.8;
+	transition: 0.1s;
+}
+
+#currentLinksDisplay {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
 
 /*|| Utilities ---------------------------------------------------------------------------------------- */
 
