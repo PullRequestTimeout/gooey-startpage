@@ -1,6 +1,8 @@
 # UI Startpage
 
-A startpage to replace the browser's default New Tab in the form of a Firefox-Addon. Using vanilla JS, HTML, and CSS as a project to practice fundamentals, API calls, and build a UI from scratch. Drawing from [/r/startpages](https://www.reddit.com/r/startpages/) for some inspiration.
+A startpage to replace the browser's default New Tab in the form of a Firefox-Addon. Using vanilla JS, HTML, and CSS as a project to practice fundamentals, API calls, and build a CRUD GUI from scratch. Drawing from [/r/startpages](https://www.reddit.com/r/startpages/) for some inspiration.
+
+The extension uses geolocation permissions purely to tailor a weather data API call to the user's location, none of this information is stored or accessible to anyone other than the user, and storage permissions are used to persist user options selection.
 
 ## To-dos:
 
