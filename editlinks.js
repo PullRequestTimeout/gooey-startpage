@@ -82,7 +82,7 @@ const populateLinks = () => {
     // Uses default links on first boot, persistent dynamic user links on subsequent boots
     let linkList = (localStorage.getItem("firstBoot") == null) ? defaultLinkList : userLinkList;
     // let linkList = userLinkList;
-    console.log(linkList);
+    // console.log(linkList);
 
     // The destination of the links
     const linksWidget = document.getElementById("linksWidget");
@@ -166,7 +166,7 @@ const checkEmptyFields = () => {
 
 // Retrieve the target element's ID
 const getLinkName = (event) => {
-    console.log(event.target.textContent);
+    // console.log(event.target.textContent);
     
     for (var i = userLinkList.length - 1; i >= 0; --i) {
         if (userLinkList[i].linkName == event.target.textContent) {

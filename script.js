@@ -153,7 +153,7 @@ const changeFont = () => {
     for (i = 0; i < fontSelected.length; i++) {
         if (fontSelected[i].checked){
             const notValue = fonts.filter(font => font !== fontSelected[i].value);
-            console.log(notValue[0], notValue[1], notValue[2]);
+            // console.log(notValue[0], notValue[1], notValue[2]);
 
             fontElements.forEach(element => element.classList.add(fontSelected[i].value));
             fontElements.forEach(element => element.classList.remove(notValue[0], notValue[1], notValue[2]));
@@ -322,7 +322,7 @@ const weatherDataCall = () =>{
         fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=464f77339fb17e890968824a382be54b&units=metric`)
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 const weatherDescription = data.weather[0].description;
                 localStorage.setItem("currentTemp", Math.trunc(data.main.temp));
                 const weatherDescriptionDisplay = document.getElementById("weatherDescription");
