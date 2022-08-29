@@ -1,29 +1,29 @@
-// My Ugly Ass Clock Function That Needs Rewriting ---------------------------
+// My Ugly Ass Clock Function That Needs Rewriting ------------------------------------------------
 const updateClock = () => {
 
     const timeDisplay = document.getElementById("timeDisplay");
     const currentTime = new Date();
     // I hate 24hr time
-    if (currentTime.getHours() > 12 && currentTime.getMinutes() > 10){
+    if (currentTime.getHours() > 12 && currentTime.getMinutes() >= 10){
         timeDisplay.innerText = `${currentTime.getHours() - 12}:${currentTime.getMinutes()}pm`;
     } else if (currentTime.getHours() > 12 && currentTime.getMinutes() < 10){
         timeDisplay.innerText = `${currentTime.getHours() - 12}:0${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() < 12 && currentTime.getMinutes() > 10){
+    } else if (currentTime.getHours() < 12 && currentTime.getMinutes() >= 10){
         timeDisplay.innerText = `${currentTime.getHours()}:${currentTime.getMinutes()}am`;
     } else if (currentTime.getHours() < 12 && currentTime.getMinutes() < 10){
         timeDisplay.innerText = `${currentTime.getHours()}:0${currentTime.getMinutes()}am`;
     } else if (currentTime.getHours() == 0 && currentTime.getMinutes() < 10){
         timeDisplay.innerText = `12:0${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 0 && currentTime.getMinutes() > 10){
+    } else if (currentTime.getHours() == 0 && currentTime.getMinutes() >= 10){
         timeDisplay.innerText = `12:${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 12 && currentTime.getMinutes() > 10){
+    } else if (currentTime.getHours() == 12 && currentTime.getMinutes() >= 10){
         timeDisplay.innerText = `12:${currentTime.getMinutes()}pm`;
     } else if (currentTime.getHours() == 12 && currentTime.getMinutes() < 10){
         timeDisplay.innerText = `12:0${currentTime.getMinutes()}pm`;
     }
 };
 
-// Date Display -------------------------------------------------------------
+// Date Display -----------------------------------------------------------------------------------
 
 const updateDate = () => {
     const currentDate  = new Date();
@@ -61,7 +61,7 @@ const updateDate = () => {
     dateDisplay.innerText = `${fullMonthName(currentDate.getMonth())} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 }
 
-// Settings -----------------------------------------------------------------
+// Settings ---------------------------------------------------------------------------------------
 
 // Settings Panel Animation
 
@@ -96,7 +96,7 @@ document.querySelector("main").addEventListener("click", closeLinksPanel);
 document.querySelector("main").addEventListener("click", closeSettingsPanel);
 document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
 
-// Background Image Select ---------------------------------------------------
+// Background Image Select ------------------------------------------------------------------------
 
 // Needs to be refactored into a function that retrieves the value of each radio input
 // Inputs value into innerHTML template literal
@@ -123,7 +123,7 @@ document.getElementById("bgselect-img4").onclick = function(){
     localStorage.setItem("backgroundImage", "img4");
 }
 
-// Background Blur Slider -------------------------------------------------------
+// Background Blur Slider -------------------------------------------------------------------------
 
 const changeBgBlur = () => {
     const blurSlider = document.getElementById("bgblur");
@@ -133,7 +133,7 @@ const changeBgBlur = () => {
 
 document.getElementById("bgblur").addEventListener("input", changeBgBlur)
 
-// Background Brightness Slider -------------------------------------------------
+// Background Brightness Slider -------------------------------------------------------------------
 
 const changeBgBrightness = () => {
     const brightnessSlider = document.getElementById("bgbrightness");
@@ -142,7 +142,32 @@ const changeBgBrightness = () => {
 }
 
 document.getElementById("bgbrightness").addEventListener("input", changeBgBrightness)
-// Search Select ----------------------------------------------------------------
+
+// Font Select -----------------------------------------------------------------------------------
+
+const changeFont = () => {
+    const fontElements =  document.querySelectorAll("h1, h2, h3, p, input, button, label, li, a");
+    const fontSelected = document.getElementsByName("fontselect");
+    const fonts = ["roboto", "montserrat", "adventpro", "exo"]
+
+    for (i = 0; i < fontSelected.length; i++) {
+        if (fontSelected[i].checked){
+            const notValue = fonts.filter(font => font !== fontSelected[i].value);
+            console.log(notValue[0], notValue[1], notValue[2]);
+
+            fontElements.forEach(element => element.classList.add(fontSelected[i].value));
+            fontElements.forEach(element => element.classList.remove(notValue[0], notValue[1], notValue[2]));
+            
+            // fontElements.classList.remove(notValue.toString());
+            localStorage.setItem("font", fontSelected[i].value)
+        };
+    }
+};
+
+document.getElementsByName("fontselect").forEach(element => element.addEventListener("input", changeFont));
+// document.getElementsByName("fontselect").forEach(element => element.addEventListener("change", changeFont));
+
+// Search Select ----------------------------------------------------------------------------------
 
 const searchSelect = () => {
     const searchSelectGoogle = document.getElementById("searchselect-google");
@@ -161,7 +186,7 @@ const searchSelect = () => {
 document.getElementById("searchselect-google").addEventListener("click", searchSelect);
 document.getElementById("searchselect-ddg").addEventListener("click", searchSelect);
 
-// Toggle Weather ---------------------------------------------------------------
+// Toggle Weather ---------------------------------------------------------------------------------
 
 const updateTempUnits = () => {
     const currentTempValue = localStorage.getItem("currentTemp");
@@ -181,7 +206,7 @@ const updateTempUnits = () => {
 
 document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits);
 
-// Hide Weather Widget ----------------------------------------------------------
+// Hide Weather Widget ----------------------------------------------------------------------------
 
 const toggleHideWeather = () => {
     const hideWeatherToggle = document.getElementById("hideWeather");
@@ -201,7 +226,7 @@ const toggleHideWeather = () => {
 
 document.getElementById("hideWeather").addEventListener("click", toggleHideWeather);
 
-// Hide QuickLinks Widget -------------------------------------------------------
+// Hide QuickLinks Widget -------------------------------------------------------------------------
 
 const toggleHideLinks = () => {
     const hideLinksToggle = document.getElementById("hideLinks");
@@ -221,7 +246,7 @@ const toggleHideLinks = () => {
 
 document.getElementById("hideLinks").addEventListener("click", toggleHideLinks);
 
-// Load State -------------------------------------------------------------------
+// Load State -------------------------------------------------------------------------------------
 
 // This funtion calls a global variable, which is bad practice.
 // Refactor Background Image Select into function, and move the variable in that section into this function
@@ -260,7 +285,7 @@ const loadState = () => {
         document.getElementById("searchselect-google").checked = true;
     } else if (localStorage.getItem("search") == "ddg") {
         document.getElementById("searchselect-ddg").checked = true;
-    }
+    };
 
     // Retains weather display choice
     if (localStorage.getItem("hideWeather") == "true") {
@@ -269,7 +294,7 @@ const loadState = () => {
     } else if (localStorage.getItem("hideWeather") == "false") {
         document.getElementById("hideWeather").checked = false;
         toggleHideWeather();
-    }
+    };
 
     // Retains links display choice
     if (localStorage.getItem("hideLinks") == "true") {
@@ -278,10 +303,14 @@ const loadState = () => {
     } else if (localStorage.getItem("hideLinks") == "false") {
         document.getElementById("hideLinks").checked = false;
         toggleHideLinks();
-    }
+    };
+
+    // Retains font
+    document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
+    changeFont();
 };
 
-// Weather API Call -------------------------------------------------------------
+// Weather API Call -------------------------------------------------------------------------------
 
 const weatherDataCall = () =>{
     
@@ -306,6 +335,6 @@ const weatherDataCall = () =>{
     navigator.geolocation.getCurrentPosition(success, error);
 }
 
-// Boot -------------------------------------------------------------------------
+// Boot -------------------------------------------------------------------------------------------
 
 document.body.onload = updateClock(); updateDate(); setInterval(updateClock, 500); loadState(); weatherDataCall();

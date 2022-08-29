@@ -59,6 +59,44 @@ h1, h2, h3, p, input, button, label, li, a {
 	color: white;
 }
 
+/* Font Control Utility Classes */
+
+.roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+.montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+
+.adventpro {
+	font-family: 'Advent Pro', sans-serif;
+}
+
+.exo {
+	font-family: 'Exo', sans-serif;
+}
+
+
+/* Font Select Labels */
+
+/* #fontSelectLabel-roboto {
+	font-family: 'Roboto', sans-serif;
+}
+
+#fontSelectLabel-montserrat {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#fontSelectLabel-alegreya {
+	font-family: 'Advent Pro', sans-serif;
+}
+
+#fontSelectLabel-exo {
+	font-family: 'Exo', sans-serif;
+} */
+
+
 /*|| Main Layout ------------------------------------------------------------------------------------- */
 
 html {

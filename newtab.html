@@ -12,8 +12,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">  -->
-    <link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@100;400&family=Exo:wght@100;400&family=Montserrat:wght@100;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Exo:wght@100;400&family=Montserrat:wght@100;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet">
 
 
     <title>New Tab</title>
@@ -132,10 +131,13 @@
             <div class="col-2">
                 <input type="radio" name="bgselect" id="bgselect-img1" class="hidden-element" checked>
                 <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels" id="bgimg1"></label>
+                
                 <input type="radio" name="bgselect" id="bgselect-img2" class="hidden-element">
                 <label for="bgselect-img2"><img src="assets/img2.jpg" alt="Backgound Image 2" class="bgselect-labels" id="bgimg2"></label>
+                
                 <input type="radio" name="bgselect" id="bgselect-img3" class="hidden-element">
                 <label for="bgselect-img3"><img src="assets/img3.jpg" alt="Backgound Image 3" class="bgselect-labels" id="bgimg3"></label>
+                
                 <input type="radio" name="bgselect" id="bgselect-img4" class="hidden-element">
                 <label for="bgselect-img4"><img src="assets/img4.jpg" alt="Backgound Image 4" class="bgselect-labels" id="bgimg4"></label>
             </div>
@@ -151,17 +153,17 @@
         <div class="settings-section">
             <h3 class="settings-heading">Font:</h3>
             <div class="col-2">
-                <input type="radio" name="fontselect" id="fontselect-roboto" class="hidden-element" checked>
-                <label for="fontselect-roboto" class="settings-button">Roboto</label>
+                <input type="radio" name="fontselect" id="fontselect-roboto" class="hidden-element" value="roboto" checked>
+                <label for="fontselect-roboto" class="settings-button fontselect" style="font-family: 'Roboto', sans-serif !important;">Roboto</label>
 
-                <input type="radio" name="fontselect" id="fontselect-montserrat" class="hidden-element">
-                <label for="fontselect-montserrat" class="settings-button">Montserrat</label>
+                <input type="radio" name="fontselect" id="fontselect-montserrat" class="hidden-element" value="montserrat">
+                <label for="fontselect-montserrat" class="settings-button fontselect" style="font-family: 'Montserrat', sans-serif !important;">Montserrat</label>
 
-                <input type="radio" name="fontselect" id="fontselect-alegreya" class="hidden-element">
-                <label for="fontselect-alegreya" class="settings-button">Alegreya</label>
+                <input type="radio" name="fontselect" id="fontselect-adventpro" class="hidden-element" value="adventpro">
+                <label for="fontselect-adventpro" class="settings-button fontselect" style="font-family: 'Advent Pro', sans-serif !important;">Advent Pro</label>
 
-                <input type="radio" name="fontselect" id="fontselect-exo" class="hidden-element">
-                <label for="fontselect-exo" class="settings-button">Exo</label>
+                <input type="radio" name="fontselect" id="fontselect-exo" class="hidden-element" value="exo">
+                <label for="fontselect-exo" class="settings-button fontselect" style="font-family: 'Exo', sans-serif !important;">Exo</label>
             </div>
         </div>
         <div class="settings-section">
