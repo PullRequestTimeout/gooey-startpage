@@ -70,6 +70,12 @@ const translateSettingsPanel = () => {
     settingsPanel.classList.toggle("display-settings");
 }
 
+const rotateSettingsIcon = () => {
+    const settingsIconCheckbox = document.getElementById("settings");
+    const settingsPanel = document.getElementById("settingsPanel");
+    settingsIconCheckbox.checked == true && settingsPanel.classList[1] == "display-settings" ? settingsIconCheckbox.checked = false : settingsIconCheckbox.checked = true;
+}
+
 const closeSettingsPanel = () => {
     const settingsPanel = document.getElementById("settingsPanel");
     if (settingsPanel.classList[1] == "display-settings") {
@@ -94,6 +100,7 @@ document.getElementById("closeLinkEditPanel").addEventListener("click", translat
 document.getElementById("openLinksPanel").addEventListener("click", translateLinksPanel);
 document.querySelector("main").addEventListener("click", closeLinksPanel);
 document.querySelector("main").addEventListener("click", closeSettingsPanel);
+document.querySelector("main").addEventListener("click", rotateSettingsIcon);
 document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
 
 // Background Image Select ------------------------------------------------------------------------
