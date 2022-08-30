@@ -13,7 +13,8 @@ The extension uses geolocation permissions purely to tailor a weather data API c
 -   Fix default bg slider display values.
 -   Refine widget positioning in the main screen.
 
-    -   Fix positioning when bookmarks toolbar changes
+    -   ~Fix positioning when bookmarks toolbar changes~
+    -   Fix hide quick links button, div is still there when there are no links. Apply 'hidden-element' class to widget and edit links panel display container when there are no links.
 
 -   Center search widget in page when all other widgets are hidden, use as centerpoint for the rest of the page.
 
@@ -23,7 +24,6 @@ The extension uses geolocation permissions purely to tailor a weather data API c
 
     -   ~Add 4 font option buttons with font-matched labels~
     -   ~Radio inputs linked to labels that function similarly to search toggle.~
-    -   Fix issues with state persistence in
 
 -   ~Search Engine settings widget~
 
