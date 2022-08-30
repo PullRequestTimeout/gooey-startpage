@@ -306,8 +306,12 @@ const loadState = () => {
     };
 
     // Retains font
-    document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
-    changeFont();
+    if (localStorage.getItem("font") == null) {
+        localStorage.setItem("font", "roboto");
+    } else {
+        document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
+        changeFont();
+    };
 };
 
 // Weather API Call -------------------------------------------------------------------------------
