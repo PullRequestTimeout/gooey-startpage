@@ -9,29 +9,41 @@ The extension uses geolocation permissions purely to tailor a weather data API c
 ### Appearance
 
 -   Fix settings panel 100vh bug.
+-   Uncheck display settings toggle when panel is hidden, triggering gear icon rotation.
 -   Fix default bg slider display values.
 -   Refine widget positioning in the main screen.
+
+    -   Fix positioning when bookmarks toolbar changes
+
 -   Center search widget in page when all other widgets are hidden, use as centerpoint for the rest of the page.
 
 ### Functionality
 
 -   Font settings widget
-    -   Add 4 font option buttons with font-matched labels
-    -   Radio inputs linked to labels that function similarly to search toggle.
--   Search Engine settings widget
+
+    -   ~Add 4 font option buttons with font-matched labels~
+    -   ~Radio inputs linked to labels that function similarly to search toggle.~
+    -   Fix issues with state persistence in
+
+-   ~Search Engine settings widget~
+
     -~Toggle search engine button~
--   Weather widget
+
+-   ~Weather widget~
+
     -   ~Hide widget functionality~
+
 -   Quick Links customisable functionality
 
+    -   Remove links doesn't seem to work in extension version.
     -   ~Hide widget functionality~
     -   ~Add and remove quick links items with name and url~.
     -   ~Add SVG input field~
     -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation.
 
--   Add create extension icons and add to /icons directory
--   Learn how to version after release
--   Finalise manifest.json, and submit to Mozilla for signing
+-   Create extension icons and add to /icons directory
+-   Learn how to version after release.
+-   Finalise manifest.json, and submit to Mozilla for signing.
 
 ### Future Features
 
