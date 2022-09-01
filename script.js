@@ -221,11 +221,11 @@ const toggleHideWeather = () => {
     const hideWeatherLabel = document.getElementById("hideWeatherLabel");
 
     if (hideWeatherToggle.checked == true) {
-        weatherWidget.classList.add("transparent-element");
+        weatherWidget.classList.add("hidden-element");
         hideWeatherLabel.innerText = "Show";
         localStorage.setItem("hideWeather", "true");
     } else if (hideWeatherToggle.checked == false) {
-        weatherWidget.classList.remove("transparent-element");
+        weatherWidget.classList.remove("hidden-element");
         hideWeatherLabel.innerText = "Hide";
         localStorage.setItem("hideWeather", "false");
     };

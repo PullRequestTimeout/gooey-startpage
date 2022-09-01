@@ -9,14 +9,14 @@ The extension uses geolocation permissions purely to tailor a weather data API c
 ### Appearance
 
 -   Fix settings panel 100vh bug.
--   Uncheck display settings toggle when panel is hidden, triggering gear icon rotation.
--   Fix default bg slider display values.
+-   ~Uncheck display settings toggle when panel is hidden, triggering gear icon rotation.~
+-   ~Fix default bg slider display values.~
 -   Refine widget positioning in the main screen.
 
     -   ~Fix positioning when bookmarks toolbar changes~
     -   Fix hide quick links button, div is still there when there are no links. Apply 'hidden-element' class to widget and edit links panel display container when there are no links.
 
--   Center search widget in page when all other widgets are hidden, use as centerpoint for the rest of the page.
+-   ~Center search widget in page when all other widgets are hidden, use as centerpoint for the rest of the page.~
 
 ### Functionality
 
@@ -41,6 +41,7 @@ The extension uses geolocation permissions purely to tailor a weather data API c
     -   ~Add SVG input field~
     -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation.
 
+-   Empty field check for new link input.
 -   Create extension icons and add to /icons directory
 -   Learn how to version after release.
 -   Finalise manifest.json, and submit to Mozilla for signing.

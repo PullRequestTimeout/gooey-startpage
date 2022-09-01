@@ -214,7 +214,6 @@ main {
 	font-size: 1.5em;
 	display: flex;
 	justify-content: center;
-	/* margin-top: 2em; */
 	text-align: center;
 	user-select: none;
 }
@@ -227,7 +226,7 @@ main {
 	z-index: 2;
 	right: 2.5em;
 	top: 1.25em;
-	opacity: 0.7;
+	opacity: 0.3;
 	cursor: pointer;
 	transition: 0.5s;
 }
