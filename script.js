@@ -153,7 +153,7 @@ document.getElementById("bgbrightness").addEventListener("input", changeBgBright
 // Font Select -----------------------------------------------------------------------------------
 
 const changeFont = () => {
-    const fontElements =  document.querySelectorAll("h1, h2, h3, p, input, button, label, li, a, .quick-links-container");
+    const html = document.querySelector("html");
     const fontSelected = document.getElementsByName("fontselect");
     const fonts = ["roboto", "montserrat", "adventpro", "exo"]
 
@@ -161,17 +161,16 @@ const changeFont = () => {
         if (fontSelected[i].checked){
             const notValue = fonts.filter(font => font !== fontSelected[i].value);
 
-            fontElements.forEach(element => element.classList.add(fontSelected[i].value));
-            fontElements.forEach(element => element.classList.remove(notValue[0], notValue[1], notValue[2]));
-            
-            // fontElements.classList.remove(notValue.toString());
-            localStorage.setItem("font", fontSelected[i].value)
+            html.classList.add(fontSelected[i].value);
+            html.classList.remove(notValue[0], notValue[1], notValue[2]);
+
+            localStorage.setItem("font", fontSelected[i].value);
         };
     }
 };
 
 document.getElementsByName("fontselect").forEach(element => element.addEventListener("input", changeFont));
-// document.getElementsByName("fontselect").forEach(element => element.addEventListener("change", changeFont));
+
 
 // Search Select ----------------------------------------------------------------------------------
 

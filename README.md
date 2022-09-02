@@ -42,6 +42,7 @@ The extension uses geolocation permissions purely to tailor a weather data API c
     -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation.
 
 -   Empty field check for new link input.
+-   Remove items from tabindex until they'r visible, and make sure tabindex functions correctly.
 -   Create extension icons and add to /icons directory
 -   Learn how to version after release.
 -   Finalise manifest.json, and submit to Mozilla for signing.

@@ -38,7 +38,7 @@
                 <path d="M30.625 30.625L21.875 21.875" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>       
             <form id="searchString" action="https://www.google.com/search?">
-                <input type="text" name="q" class="search-widget-input" autocomplete="off" autofocus>
+                <input type="text" name="q" class="search-widget-input" autocomplete="off" tabindex="1" autofocus>
                 <input type="submit" hidden>
             </form>
         </div>
@@ -124,7 +124,7 @@
         <img class="background-image brightness-adjuster" alt="Background Image" id="backgroundImage">
     </main>
 
-    <div class="settings-panel" id="settingsPanel">
+    <div class="settings-panel" id="settingsPanel" tabindex="-1">
         <h2 class="settings-heading">Settings</h2>
         <div class="settings-section">
             <h3 class="settings-heading">Background Image:</h3>
@@ -196,7 +196,7 @@
             </div>
         </div>
     </div>
-    <div class="settings-panel z2 link-edit-panel" id="editLinksPanel">
+    <div class="settings-panel z2 link-edit-panel" id="editLinksPanel" tabindex="-1">
         <svg class="link-edit-panel-close" id="closeLinkEditPanel" fill="#fff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30px" height="30px">
             <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/>
         </svg>
