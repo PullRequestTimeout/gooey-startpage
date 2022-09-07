@@ -134,7 +134,7 @@ const submitLinkInput = () => {
     clearLinkInput();
 };
 
-document.getElementById("submitLinkInput").addEventListener("click", submitLinkInput);
+// document.getElementById("submitLinkInput").addEventListener("click", submitLinkInput);
 
 // Clear New Link Section Values ------------------------------------------------------------------
 
@@ -152,15 +152,19 @@ document.getElementById("clearLinkInput").addEventListener("click", clearLinkInp
 // This could be done with a custom modal rather than window.alert() for a more elegant solution 
 
 const checkEmptyFields = () => {
-    const newLinkName = document.getElementById("newLinkName");
-    const newLinkURL = document.getElementById("newLinkURL");
-    const newLinkSVG = document.getElementById("newLinkSVG");
-    if (newLinkName.value < 1 || newLinkURL.value < 1) {
-        alert("A new quick link needs both a name and a URL.")
-    } else if (newLinkSVG.value < 1) {
-        alert("Are you sure you don't want to use an icon?")
+    const newLinkNameLength = document.getElementById("newLinkName").value.length;
+    const newLinkURLLength = document.getElementById("newLinkURL").value.length;
+    const newLinkSVGLength = document.getElementById("newLinkSVG").value.length;
+    if (newLinkNameLength < 1 || newLinkURLLength < 1 || newLinkSVGLength < 1) {
+        alert("A new quick link needs a name, url, and logo.")
+    } else if (newLinkNameLength >= 1 && newLinkNameLength < 3) {
+        alert("A name needs to be at least 3 characters in length.")
+    } else if (newLinkNameLength >= 3 && newLinkURLLength > 1 && newLinkSVGLength > 1) {
+        submitLinkInput();
     }
 };
+
+document.getElementById("submitLinkInput").addEventListener("click", checkEmptyFields);
 
 // Delete Array Item -----------------------------------------------------------------------------
 
