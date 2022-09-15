@@ -49,9 +49,9 @@ As this project is a learning tool to improve my fundamentals before diving into
     -   ~Add SVG input field~
     -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation somehow.
 -   ~Seperate animation JS and DOM JS into different files to take a more module-based approach. Things are getting a little cluttered.~
--   Empty field check for new link input.
-    -	Build a custom modal for more elegant solution than using alert().
--   Remove items from tabindex until they'r visible, and make sure tabindex functions correctly.
+-   ~Empty field check for new link input.~
+    -	~Build a custom modal for more elegant solution than using alert().~
+-   Remove items from tabindex until they're visible, and make sure tabindex functions correctly.
 -   Create extension icons and add to /icons directory
 -   Learn how to version after release.
 -   Finalise manifest.json, and submit to Mozilla for signing.
