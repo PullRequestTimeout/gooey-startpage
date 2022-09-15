@@ -48,7 +48,7 @@ As this project is a learning tool to improve my fundamentals before diving into
     -   ~Add and remove quick links items with name and url~.
     -   ~Add SVG input field~
     -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation somehow.
--   Seperate animation JS and DOM JS into different files to take a more module-based approach. Things are getting a little cluttered.
+-   ~Seperate animation JS and DOM JS into different files to take a more module-based approach. Things are getting a little cluttered.~
 -   Empty field check for new link input.
     -	Build a custom modal for more elegant solution than using alert().
 -   Remove items from tabindex until they'r visible, and make sure tabindex functions correctly.
