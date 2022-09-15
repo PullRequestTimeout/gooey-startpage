@@ -49,3 +49,5 @@ const hideErrorModal = () => {
     const errorModal = document.getElementById("errorModal");
     errorModal.classList.add("hidden-element");
 }
+
+document.getElementById("modalOk").addEventListener("click", hideErrorModal);

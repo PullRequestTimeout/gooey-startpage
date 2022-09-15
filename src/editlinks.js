@@ -155,10 +155,15 @@ const checkEmptyFields = () => {
     const newLinkNameLength = document.getElementById("newLinkName").value.length;
     const newLinkURLLength = document.getElementById("newLinkURL").value.length;
     const newLinkSVGLength = document.getElementById("newLinkSVG").value.length;
+    const modalErrorMessage = document.getElementById("modalErrorMessage");
+    
     if (newLinkNameLength < 1 || newLinkURLLength < 1 || newLinkSVGLength < 1) {
-        alert("A new quick link needs a name, url, and logo.")
+        // alert("A new quick link needs a name, url, and logo.")
+        showErrorModal();
+        modalErrorMessage.innerText = "A new quick link needs a name, url, and logo.";
     } else if (newLinkNameLength >= 1 && newLinkNameLength < 3) {
-        alert("A name needs to be at least 3 characters in length.")
+        showErrorModal();
+        modalErrorMessage.innerText = "A name needs to be at least 3 characters in length.";
     } else if (newLinkNameLength >= 3 && newLinkURLLength > 1 && newLinkSVGLength > 1) {
         submitLinkInput();
     }

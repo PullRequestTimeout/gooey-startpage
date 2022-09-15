@@ -541,7 +541,7 @@ input[type="radio"]:active+label img {
 	place-items: center;
 	align-items: center;
 	width: 25em;
-	height: 15em;
+	height: 10em;
 	background-color: rgb(29, 29, 29);
 	box-shadow: 0em 2px 5px rgba(0, 0, 0, 0.5);
 	border-radius: 1em;
