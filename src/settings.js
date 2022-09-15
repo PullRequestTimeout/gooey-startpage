@@ -1,126 +1,12 @@
-// My Ugly Ass Clock Function That Needs Rewriting ------------------------------------------------
-const updateClock = () => {
-
-    const timeDisplay = document.getElementById("timeDisplay");
-    const currentTime = new Date();
-    // I hate 24hr time
-    if (currentTime.getHours() > 12 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `${currentTime.getHours() - 12}:${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() > 12 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `${currentTime.getHours() - 12}:0${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() < 12 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `${currentTime.getHours()}:${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() < 12 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `${currentTime.getHours()}:0${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 0 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `12:0${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 0 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `12:${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 12 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `12:${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() == 12 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `12:0${currentTime.getMinutes()}pm`;
-    }
-};
-
-// Date Display -----------------------------------------------------------------------------------
-
-const updateDate = () => {
-    const currentDate  = new Date();
-    const dateDisplay = document.getElementById("dateDisplay");
-    const currentMonth = currentDate.getMonth();
-    const fullMonthName = () => {
-        switch (currentMonth) {
-            case 0:
-                return "January";
-            case 1:
-                return "February";
-            case 2:
-                return "March";
-            case 3:
-                return "April";
-            case 4:
-                return "May";
-            case 5:
-                return "June";
-            case 6:
-                return "July";
-            case 7:
-                return "August";
-            case 8:
-                return "September";
-            case 9:
-                return "October";
-            case 10:
-                return "November";
-            case 11:
-                return "December";            
-        }
-    }
-    
-    dateDisplay.innerText = `${fullMonthName(currentDate.getMonth())} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
-}
-
 // Settings ---------------------------------------------------------------------------------------
 
-// Settings Panel Animation
-
-const translateSettingsPanel = () => {
-    const settingsPanel = document.getElementById("settingsPanel");
-    settingsPanel.classList.toggle("display-settings");
-}
-
-const rotateSettingsIcon = () => {
-    const settingsIconCheckbox = document.getElementById("settings");
-    const settingsPanel = document.getElementById("settingsPanel");
-    settingsIconCheckbox.checked == true && settingsPanel.classList[1] == "display-settings" ? settingsIconCheckbox.checked = false : settingsIconCheckbox.checked = true;
-}
-
-const closeSettingsPanel = () => {
-    const settingsPanel = document.getElementById("settingsPanel");
-    if (settingsPanel.classList[1] == "display-settings") {
-        translateSettingsPanel();
-    }
-};
-
-const translateLinksPanel = () => {
-    const editLinksPanel = document.getElementById("editLinksPanel");
-    editLinksPanel.classList.add("display-settings");
-    translateSettingsPanel();
-};
-
-const closeLinksPanel = () => {
-    const editLinksPanel = document.getElementById("editLinksPanel");
-    editLinksPanel.classList.remove("display-settings");
-    
-};
-
-document.getElementById("closeLinkEditPanel").addEventListener("click", closeLinksPanel);
-document.getElementById("closeLinkEditPanel").addEventListener("click", translateSettingsPanel);
-document.getElementById("openLinksPanel").addEventListener("click", translateLinksPanel);
-document.querySelector("main").addEventListener("click", closeLinksPanel);
-document.querySelector("main").addEventListener("click", closeSettingsPanel);
-document.querySelector("main").addEventListener("click", rotateSettingsIcon);
-document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
-
-// Modal Animation --------------------------------------------------------------------------------
-
-const showErrorModal = () => {
-    const errorModal = document.getElementById("errorModal");
-    errorModal.classList.remove("hidden-element");
-}
-
-const hideErrorModal = () => {
-    const errorModal = document.getElementById("errorModal");
-    errorModal.classList.add("hidden-element");
-}
 
 // Background Image Select ------------------------------------------------------------------------
 
 // Needs to be refactored into a function that retrieves the value of each radio input
 // Inputs value into innerHTML template literal
 
-const bgImg = document.getElementById("backgroundImage")
+const bgImg = document.getElementById("backgroundImage");
 
 document.getElementById("bgselect-img1").onclick = function(){
     bgImg.setAttribute("src", "assets/img1.jpg");
@@ -265,12 +151,11 @@ document.getElementById("hideLinks").addEventListener("click", toggleHideLinks);
 
 // Load State -------------------------------------------------------------------------------------
 
-// This funtion calls a global variable, which is bad practice.
-// Refactor Background Image Select into function, and move the variable in that section into this function
-
 const loadState = () => {
     // Retains background image selection
     const backgroundImageState = localStorage.getItem("backgroundImage");
+    const bgImg = document.getElementById("backgroundImage");
+
     switch (backgroundImageState){
         case "img1": 
             bgImg.setAttribute("src", "/assets/img1.jpg");
@@ -331,31 +216,6 @@ const loadState = () => {
     };
 };
 
-// Weather API Call -------------------------------------------------------------------------------
-
-const weatherDataCall = () =>{
-    
-    const error = () => {
-        alert("You have not given location permissions to this website.")
-    }
-
-    const success = (position) => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=464f77339fb17e890968824a382be54b&units=metric`)
-            .then((response) => response.json())
-            .then((data) => {
-                // console.log(data);
-                const weatherDescription = data.weather[0].description;
-                localStorage.setItem("currentTemp", Math.trunc(data.main.temp));
-                const weatherDescriptionDisplay = document.getElementById("weatherDescription");
-
-                // Regex in following line capitalises first letter in a string.
-                weatherDescriptionDisplay.innerText = `${weatherDescription.replace(/^\w/, (c) => c.toUpperCase())}.`;
-                updateTempUnits();
-            })}
-
-    navigator.geolocation.getCurrentPosition(success, error);
-}
-
 // Boot -------------------------------------------------------------------------------------------
 
-document.body.onload = updateClock(); updateDate(); setInterval(updateClock, 500); loadState(); weatherDataCall();
+document.body.onload = loadState();
