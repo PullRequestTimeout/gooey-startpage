@@ -1,18 +1,86 @@
 /*|| Resets ------------------------------------------------------------------------------------------ */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -20,25 +88,44 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
-ol, ul {
+
+ol,
+ul {
 	list-style: none;
 }
-blockquote, q {
+
+blockquote,
+q {
 	quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
@@ -47,14 +134,24 @@ table {
 a {
 	text-decoration: none;
 }
+
 /*|| Colours ----------------------------------------------------------------------------------------- */
 
 :root {
-    --clr:accent: ;
+	--clr: accent:;
 }
+
 /*|| Typography -------------------------------------------------------------------------------------- */
 
-h1, h2, h3, p, input, button, label, li, a {
+h1,
+h2,
+h3,
+p,
+input,
+button,
+label,
+li,
+a {
 	/* font-family: 'Roboto', sans-serif; */
 	color: white;
 }
@@ -242,12 +339,12 @@ main {
 	transition: 0.5s;
 }
 
-.settings-switch input[type="checkbox"]:checked + label svg {
-    transform: rotate(270deg);
+.settings-switch input[type="checkbox"]:checked+label svg {
+	transform: rotate(270deg);
 	transition: 1s;
 }
 
-.settings-switch input[type="checkbox"] + label svg {
+.settings-switch input[type="checkbox"]+label svg {
 	transition: 1s;
 }
 
@@ -258,23 +355,23 @@ main {
 	top: 0;
 	right: 0;
 	width: 26em;
-	
+
 	/* This is hacky as fuck, fix this */
 	height: 93.5vh;
 	/* height: 100vh; */
 	max-height: 100%;
-	
+
 	background-color: rgba(35, 35, 35, 0.75);
 	padding: 1.5em;
 	display: grid;
 	grid-template-columns: 1fr;
-	
+
 	gap: 2em 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	transition: 1s;
 	backdrop-filter: blur(0.3em);
-	
+
 	/* Makes hidden panel the default state */
 	transform: translateX(100%);
 }
@@ -304,11 +401,12 @@ main {
 	cursor: pointer;
 }
 
-input[type="radio"]:checked + label img, input[type="radio"]:active + label img {
-    opacity: 1;
+input[type="radio"]:checked+label img,
+input[type="radio"]:active+label img {
+	opacity: 1;
 	/* box-shadow: 0px 0px 0.5em rgba(255, 255, 255, 0.75); */
 	outline: solid 2px white;
-} 
+}
 
 .settings-heading {
 	font-weight: 100;
@@ -336,7 +434,7 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	transform: scale(0.97);
 }
 
-.settings-section input[type="radio"]:checked + .settings-button {
+.settings-section input[type="radio"]:checked+.settings-button {
 	background-color: #0061df;
 	outline: solid 2px white;
 }
@@ -359,7 +457,7 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	
+
 }
 
 .link-edit-item {
@@ -420,6 +518,45 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 	gap: 1em;
 }
 
+/*|| Modal -------------------------------------------------------------------------------------------- */
+
+.modal-background-overlay {
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	z-index: +10;
+	height: 100vh;
+	width: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(0.05em);
+	justify-content: center;
+	align-items: center;
+}
+
+.modal-container {
+	display: grid;
+	grid-template-rows: 4fr 1fr;
+	/* justify-content: right; */
+	place-items: center;
+	align-items: center;
+	width: 25em;
+	height: 15em;
+	background-color: rgb(29, 29, 29);
+	box-shadow: 0em 2px 5px rgba(0, 0, 0, 0.5);
+	border-radius: 1em;
+	padding: 2em;
+
+}
+
+.modal-container .settings-button {
+	width: 10em;
+}
+
+.modal-text {
+	text-align: center;
+}
+
 /*|| Utilities ---------------------------------------------------------------------------------------- */
 
 .hidden-element {
@@ -455,9 +592,13 @@ input[type="radio"]:checked + label img, input[type="radio"]:active + label img 
 @keyframes fade-in {
 	0% {
 		opacity: 0;
-	} 80% {
+	}
+
+	80% {
 		opacity: 0;
-	} 100% {
+	}
+
+	100% {
 		opacity: 1;
 	}
 }

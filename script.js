@@ -103,6 +103,18 @@ document.querySelector("main").addEventListener("click", closeSettingsPanel);
 document.querySelector("main").addEventListener("click", rotateSettingsIcon);
 document.getElementById("settingsIcon").addEventListener("click", translateSettingsPanel);
 
+// Modal Animation --------------------------------------------------------------------------------
+
+const showErrorModal = () => {
+    const errorModal = document.getElementById("errorModal");
+    errorModal.classList.remove("hidden-element");
+}
+
+const hideErrorModal = () => {
+    const errorModal = document.getElementById("errorModal");
+    errorModal.classList.add("hidden-element");
+}
+
 // Background Image Select ------------------------------------------------------------------------
 
 // Needs to be refactored into a function that retrieves the value of each radio input

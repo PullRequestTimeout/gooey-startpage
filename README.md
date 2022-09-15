@@ -4,6 +4,14 @@ A startpage to replace the browser's default New Tab in the form of a Firefox-Ad
 
 The extension uses geolocation permissions purely to tailor a weather data API call to the user's location, none of this information is stored or accessible to anyone other than the user, and storage permissions are used to persist user options selection.
 
+## What I've Learnt So Far:
+
+As this project is a learning tool to improve my fundamentals before diving into more challenging areas of JS, here are some things I'm learning that I can keep in mind for future projects.
+
+- Writing vanilla CSS and keeping it maintainable at scale is hard. I now undertsand why tools like Tailwind are used, and I'll look into using that in my next project. I could also mitigate this in the future by sticking more closely to a design file rather than designing in-browser, and focusing on writing component-based CSS modules that can be used repeatedly (DRY!).
+- Similarly, vanilla JS tends to get messy when keeping all functionality in larger files and writing modules ad-hoc. Remember the Seven Ps; Prior Preperation Prevents Piss Poor Performance. Plan code, then write it, and having a secondary psuedo-code file might be useful for planning.
+- Keep in mind separation of concerns. One potential way to make JS files (an potentially CSS too!) more readable and maintainable is to separate files based on modules/functionality.
+
 ## To-dos:
 
 ### Appearance
@@ -39,9 +47,10 @@ The extension uses geolocation permissions purely to tailor a weather data API c
     -   ~Hide widget functionality~
     -   ~Add and remove quick links items with name and url~.
     -   ~Add SVG input field~
-    -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation.
-
+    -   Add remove link function to trash can icon as well, it's currently not functional despite having a click animation somehow.
+-   Seperate animation JS and DOM JS into different files to take a more module-based approach. Things are getting a little cluttered.
 -   Empty field check for new link input.
+    -	Build a custom modal for more elegant solution than using alert().
 -   Remove items from tabindex until they'r visible, and make sure tabindex functions correctly.
 -   Create extension icons and add to /icons directory
 -   Learn how to version after release.

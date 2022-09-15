@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="main.css">
     <!-- Dark Mode -->
     <!-- <link rel="stylesheet" href="dark.css"> -->
@@ -12,21 +13,26 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Exo:wght@100;400&family=Montserrat:wght@100;400&family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@100;400&family=Exo:wght@100;400&family=Montserrat:wght@100;400&family=Roboto:wght@100;400&display=swap"
+        rel="stylesheet">
 
 
     <title>New Tab</title>
 </head>
+
 <body>
     <div class="settings-switch">
         <input type="checkbox" name="settings" id="settings" class="hidden-element">
         <label for="settings" id="settingsIcon" class="settings-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 512 512" class="settings-logo" fill="white">
-                <path d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"/>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 512 512" class="settings-logo"
+                fill="white">
+                <path
+                    d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z" />
             </svg>
         </label>
     </div>
-    
+
     <main>
         <div class="clock-widget">
             <h1 class="clock" id="timeDisplay">4:20pm</h1>
@@ -34,9 +40,12 @@
         </div>
         <div class="search-widget">
             <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M14.5833 24.7917C20.2212 24.7917 24.7917 20.2212 24.7917 14.5833C24.7917 8.94543 20.2212 4.375 14.5833 4.375C8.94543 4.375 4.375 8.94543 4.375 14.5833C4.375 20.2212 8.94543 24.7917 14.5833 24.7917Z" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M30.625 30.625L21.875 21.875" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>       
+                <path
+                    d="M14.5833 24.7917C20.2212 24.7917 24.7917 20.2212 24.7917 14.5833C24.7917 8.94543 20.2212 4.375 14.5833 4.375C8.94543 4.375 4.375 8.94543 4.375 14.5833C4.375 20.2212 8.94543 24.7917 14.5833 24.7917Z"
+                    stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M30.625 30.625L21.875 21.875" stroke="white" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
             <form id="searchString" action="https://www.google.com/search?">
                 <input type="text" name="q" class="search-widget-input" autocomplete="off" tabindex="1" autofocus>
                 <input type="submit" hidden>
@@ -115,7 +124,7 @@
                     <h2>Figma</h2>
                 </div>
             </a> -->
-        </div> 
+        </div>
 
         <div class="weather-widget fade-in-5s" id="weatherWidget">
             <p id="weatherDescription"></p>&nbsp;<p id="currentTempDisplay"></p>
@@ -130,40 +139,50 @@
             <h3 class="settings-heading">Background Image:</h3>
             <div class="col-2">
                 <input type="radio" name="bgselect" id="bgselect-img1" class="hidden-element" checked>
-                <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels" id="bgimg1"></label>
-                
+                <label for="bgselect-img1"><img src="assets/img1.jpg" alt="Backgound Image 1" class="bgselect-labels"
+                        id="bgimg1"></label>
+
                 <input type="radio" name="bgselect" id="bgselect-img2" class="hidden-element">
-                <label for="bgselect-img2"><img src="assets/img2.jpg" alt="Backgound Image 2" class="bgselect-labels" id="bgimg2"></label>
-                
+                <label for="bgselect-img2"><img src="assets/img2.jpg" alt="Backgound Image 2" class="bgselect-labels"
+                        id="bgimg2"></label>
+
                 <input type="radio" name="bgselect" id="bgselect-img3" class="hidden-element">
-                <label for="bgselect-img3"><img src="assets/img3.jpg" alt="Backgound Image 3" class="bgselect-labels" id="bgimg3"></label>
-                
+                <label for="bgselect-img3"><img src="assets/img3.jpg" alt="Backgound Image 3" class="bgselect-labels"
+                        id="bgimg3"></label>
+
                 <input type="radio" name="bgselect" id="bgselect-img4" class="hidden-element">
-                <label for="bgselect-img4"><img src="assets/img4.jpg" alt="Backgound Image 4" class="bgselect-labels" id="bgimg4"></label>
+                <label for="bgselect-img4"><img src="assets/img4.jpg" alt="Backgound Image 4" class="bgselect-labels"
+                        id="bgimg4"></label>
             </div>
-            
+
             <h3 class="settings-heading">Background Blur:</h3>
-            <input type="range" name="bgblur" id="bgblur" class="sliders"
-                min="0" max="1" step="0.01" value="0.25">
+            <input type="range" name="bgblur" id="bgblur" class="sliders" min="0" max="1" step="0.01" value="0.25">
 
             <h3 class="settings-heading">Brightness:</h3>
-            <input type="range" name="bgbrightness" id="bgbrightness" class="sliders"
-                min="0" max="1" step="0.01" value="1">
+            <input type="range" name="bgbrightness" id="bgbrightness" class="sliders" min="0" max="1" step="0.01"
+                value="1">
         </div>
         <div class="settings-section">
             <h3 class="settings-heading">Font:</h3>
             <div class="col-2">
-                <input type="radio" name="fontselect" id="fontselect-roboto" class="hidden-element" value="roboto" checked>
-                <label for="fontselect-roboto" class="settings-button fontselect" style="font-family: 'Roboto', sans-serif !important;">Roboto</label>
+                <input type="radio" name="fontselect" id="fontselect-roboto" class="hidden-element" value="roboto"
+                    checked>
+                <label for="fontselect-roboto" class="settings-button fontselect"
+                    style="font-family: 'Roboto', sans-serif !important;">Roboto</label>
 
-                <input type="radio" name="fontselect" id="fontselect-montserrat" class="hidden-element" value="montserrat">
-                <label for="fontselect-montserrat" class="settings-button fontselect" style="font-family: 'Montserrat', sans-serif !important;">Montserrat</label>
+                <input type="radio" name="fontselect" id="fontselect-montserrat" class="hidden-element"
+                    value="montserrat">
+                <label for="fontselect-montserrat" class="settings-button fontselect"
+                    style="font-family: 'Montserrat', sans-serif !important;">Montserrat</label>
 
-                <input type="radio" name="fontselect" id="fontselect-adventpro" class="hidden-element" value="adventpro">
-                <label for="fontselect-adventpro" class="settings-button fontselect" style="font-family: 'Advent Pro', sans-serif !important;">Advent Pro</label>
+                <input type="radio" name="fontselect" id="fontselect-adventpro" class="hidden-element"
+                    value="adventpro">
+                <label for="fontselect-adventpro" class="settings-button fontselect"
+                    style="font-family: 'Advent Pro', sans-serif !important;">Advent Pro</label>
 
                 <input type="radio" name="fontselect" id="fontselect-exo" class="hidden-element" value="exo">
-                <label for="fontselect-exo" class="settings-button fontselect" style="font-family: 'Exo', sans-serif !important;">Exo</label>
+                <label for="fontselect-exo" class="settings-button fontselect"
+                    style="font-family: 'Exo', sans-serif !important;">Exo</label>
             </div>
         </div>
         <div class="settings-section">
@@ -181,7 +200,7 @@
             <div class="col-2">
                 <input type="checkbox" class="hidden-element" id="tempUnitToggle">
                 <label class="settings-button" id="tempUnitDisplay" for="tempUnitToggle">Units</label>
-                
+
                 <input type="checkbox" class="hidden-element" id="hideWeather">
                 <label class="settings-button" id="hideWeatherLabel" for="hideWeather">Hide</label>
             </div>
@@ -197,20 +216,27 @@
         </div>
     </div>
     <div class="settings-panel z2 link-edit-panel" id="editLinksPanel" tabindex="-1">
-        <svg class="link-edit-panel-close" id="closeLinkEditPanel" fill="#fff" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30px" height="30px">
-            <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/>
+        <svg class="link-edit-panel-close" id="closeLinkEditPanel" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50" width="30px" height="30px">
+            <path
+                d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z" />
         </svg>
         <h2 class="settings-heading">Edit Quick Links</h2>
         <div class="settings-section">
             <h2 class="settings-heading">Add New Link:</h2>
-            
+
             <form class="col-1" id="newLinkForm">
 
-                <input type="text" class="settings-text-input" id="newLinkName" placeholder="Link Name..." autocomplete="off">
-                <input type="text" class="settings-text-input" id="newLinkURL" placeholder="Link URL..." autocomplete="off">
-                <input type="text" title="Make sure copy and pasted SVGs are 100x100px, with a fill or stroke value of white." class="settings-text-input" id="newLinkSVG" placeholder="Link SVG..." autocomplete="off">
+                <input type="text" class="settings-text-input" id="newLinkName" placeholder="Link Name..."
+                    autocomplete="off">
+                <input type="text" class="settings-text-input" id="newLinkURL" placeholder="Link URL..."
+                    autocomplete="off">
+                <input type="text"
+                    title="Make sure copy and pasted SVGs are 100x100px, with a fill or stroke value of white."
+                    class="settings-text-input" id="newLinkSVG" placeholder="Link SVG..." autocomplete="off">
             </form>
-            <p class="tabler-shoutout"><a href="https://tablericons.com/" target="_blank" class="link-edit-panel-link">Tabler</a> is a great source of SVGs!</p>
+            <p class="tabler-shoutout"><a href="https://tablericons.com/" target="_blank"
+                    class="link-edit-panel-link">Tabler</a> is a great source of SVGs!</p>
             <div class="col-2">
                 <button class="settings-button" name="" id="submitLinkInput">Add</button>
                 <button class="settings-button" id="clearLinkInput">Clear</button>
@@ -247,9 +273,19 @@
                 <button class="settings-button" id="restoreDefaultLinks">Restore Default</button>
             </div>
         </div>
-        
+
     </div>
+    <div class="modal-background-overlay hidden-element" id="errorModal">
+        <div class="modal-container">
+            <p class="modal-text" id="modalBodyText">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias,
+                aliquid ad? Commodi itaque amet quos. Provident dicta culpa voluptas odit, velit labore dolor dolorum
+                consequatur distinctio eaque nostrum doloremque suscipit.</p>
+            <button class="settings-button" id="modalOk">Ok</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script src="editlinks.js"></script>
 </body>
+
 </html>
