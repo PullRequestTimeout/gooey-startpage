@@ -146,25 +146,31 @@ const clearLinkInput = () => {
 
 document.getElementById("clearLinkInput").addEventListener("click", clearLinkInput);
 
-// Empty Field Check ------------------------------------------------------------------------------
-
-// After link creation functions are working properly, throw them in here for error handling
-// This could be done with a custom modal rather than window.alert() for a more elegant solution 
+// Empty Field Check ------------------------------------------------------------------------------ 
 
 const checkEmptyFields = () => {
     const newLinkNameLength = document.getElementById("newLinkName").value.length;
     const newLinkURLLength = document.getElementById("newLinkURL").value.length;
     const newLinkSVGLength = document.getElementById("newLinkSVG").value.length;
     const modalErrorMessage = document.getElementById("modalErrorMessage");
+    const newLinkURL = document.getElementById("newLinkURL").value;
+    const urlRegex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
     
+    // This conditional checks whether there has been sufficient input in the fields, and checks validity of the url against regex.
     if (newLinkNameLength < 1 || newLinkURLLength < 1 || newLinkSVGLength < 1) {
-        // alert("A new quick link needs a name, url, and logo.")
         showErrorModal();
         modalErrorMessage.innerText = "A new quick link needs a name, url, and logo.";
     } else if (newLinkNameLength >= 1 && newLinkNameLength < 3) {
         showErrorModal();
         modalErrorMessage.innerText = "A name needs to be at least 3 characters in length.";
-    } else if (newLinkNameLength >= 3 && newLinkURLLength > 1 && newLinkSVGLength > 1) {
+    } else if (urlRegex.test(newLinkURL) == false) {
+        showErrorModal();
+        modalErrorMessage.innerText = "Oops, this doesn't appear to be a valid URL.";
+    } else if (newLinkSVGLength < 10) {
+        showErrorModal();
+        modalErrorMessage.innerHTML = `This is going to look pretty ugly without an icon,<br>don't you think?<br><br><a title="Tabler Icons" href="https://tablericons.com/" target="_blank"
+        class="link-edit-panel-link">Tabler</a> is a great source of SVGs!`;
+    } else if (newLinkNameLength >= 3 && urlRegex.test(newLinkURL) == true && newLinkSVGLength > 1) {
         submitLinkInput();
     }
 };

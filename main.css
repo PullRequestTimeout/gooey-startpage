@@ -535,13 +535,14 @@ input[type="radio"]:active+label img {
 }
 
 .modal-container {
-	display: grid;
-	grid-template-rows: 4fr 1fr;
-	/* justify-content: right; */
-	place-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 	align-items: center;
+	gap: 2em;
 	width: 25em;
-	height: 10em;
+	height: auto;
+	line-height: 1.5;
 	background-color: rgb(29, 29, 29);
 	box-shadow: 0em 2px 5px rgba(0, 0, 0, 0.5);
 	border-radius: 1em;
