@@ -10,7 +10,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 
 - Writing vanilla CSS and keeping it maintainable at scale is hard. I now undertsand why tools like Tailwind are used, and I'll look into using that in my next project. I could also mitigate this in the future by sticking more closely to a design file rather than designing in-browser, and focusing on writing component-based CSS modules that can be used repeatedly (DRY!).
 - Similarly, vanilla JS tends to get messy when keeping all functionality in larger files and writing modules ad-hoc. Remember the Seven Ps; Prior Preperation Prevents Piss Poor Performance. Plan code, then write it, and having a secondary psuedo-code file might be useful for planning.
-- Keep in mind separation of concerns. One potential way to make JS files (an potentially CSS too!) more readable and maintainable is to separate files based on modules/functionality.
+- Keep in mind separation of concerns. One potential way to make JS files (and potentially CSS too!) more readable and maintainable is to separate files based on modules/functionality.
 
 ## To-dos:
 
@@ -19,7 +19,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 -   Fix settings panel 100vh bug.
 -   ~Uncheck display settings toggle when panel is hidden, triggering gear icon rotation.~
 -   ~Fix default bg slider display values.~
--   Refine widget positioning in the main screen.
+-   ~Refine widget positioning in the main screen.~
 
     -   ~Fix positioning when bookmarks toolbar changes~
     -   Fix hide quick links button, div is still there when there are no links. Apply 'hidden-element' class to widget and edit links panel display container when there are no links.
@@ -28,26 +28,23 @@ As this project is a learning tool to improve my fundamentals before diving into
 
 ### Functionality
 
--   Font settings widget
-
+-   ~Font settings widget~
     -   ~Add 4 font option buttons with font-matched labels~
     -   ~Radio inputs linked to labels that function similarly to search toggle.~
 
 -   ~Search Engine settings widget~
-
     -~Toggle search engine button~
 
 -   ~Weather widget~
-
     -   ~Hide widget functionality~
 
 -   Quick Links customisable functionality
-
-    -   Remove links doesn't seem to work in extension version.
+    -   Remove links doesn't seem to work in extension version. Maybe due to manifest.json file, and how the script files are declared.
     -   ~Hide widget functionality~
     -   ~Add and remove quick links items with name and url~.
     -   ~Add SVG input field~
     -   ~Add remove link function to trash can icon.~
+
 -   ~Seperate animation JS and DOM JS into different files to take a more module-based approach. Things are getting a little cluttered.~
 -   ~Empty field check for new link input.~
     -	~Build a custom modal for more elegant solution than using alert().~
