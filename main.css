@@ -465,7 +465,7 @@ input[type="radio"]:active+label img {
 	align-items: center;
 	justify-content: space-between;
 	border-radius: 2em;
-	padding: 1em;
+	padding: 0.45em 0.45em 0.45em 1em;
 	background-color: rgba(255, 255, 255, 0.25);
 }
 
@@ -482,17 +482,19 @@ input[type="radio"]:active+label img {
 	transition: 0.3s;
 }
 
-.link-edit-item svg {
+.link-edit-item svg,
+.link-edit-item svg circle {
 	opacity: 0;
 	transition: 0.3s;
 }
 
-.link-edit-item:hover svg {
+.link-edit-item:hover svg,
+.link-edit-item svg:hover circle {
 	opacity: 1;
 	transition: 0.3s;
 }
 
-.link-edit-item:hover {
+.link-edit-item svg:hover {
 	cursor: pointer;
 }
 
