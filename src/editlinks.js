@@ -107,7 +107,22 @@ const populateLinks = () => {
         const currentLinkDisplayItem = `<li class="link-edit-item">${linkName}<svg onClick="getLinkName(event)" height="35" viewBox="0 0 847 847" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="423.5" cy="423.5" r="423.5" fill="white" fill-opacity="0.20"/><path d="M335.2 185.69C340.6 174.848 351.7 168 363.8 168H484.2C496.3 168 507.4 174.848 512.8 185.69L520 200H616C633.7 200 648 214.33 648 232C648 249.67 633.7 264 616 264H232C214.33 264 200 249.67 200 232C200 214.33 214.33 200 232 200H328L335.2 185.69ZM231.1 296H616V616C616 651.3 587.3 680 552 680H295.1C260.65 680 231.1 651.3 231.1 616V296ZM311.1 376V600C311.1 608.8 319.2 616 327.1 616C336.8 616 343.1 608.8 343.1 600V376C343.1 367.2 336.8 360 327.1 360C319.2 360 311.1 367.2 311.1 376ZM407.1 376V600C407.1 608.8 415.2 616 423.1 616C432.8 616 440 608.8 440 600V376C440 367.2 432.8 360 423.1 360C415.2 360 407.1 367.2 407.1 376ZM504 376V600C504 608.8 511.2 616 520 616C528.8 616 536 608.8 536 600V376C536 367.2 528.8 360 520 360C511.2 360 504 367.2 504 376Z"fill="white"/></svg></li>`;
         // Inserts the elements into the edit panel
         currentLinksDisplay.insertAdjacentHTML("beforeend", currentLinkDisplayItem);
-    }    
+    }
+
+    hideLinkListsIfEmpty();    
+};
+
+// Hide elements if userLinkList in localStorage is empty
+const hideLinkListsIfEmpty = () => {
+    const linksWidget = document.getElementById("linksWidget");
+    const currentLinksDisplay = document.getElementById("currentLinksDisplay");
+    if (userLinkList.length < 1) {
+        linksWidget.classList.add("hidden-element");
+        currentLinksDisplay.classList.add("hidden-element");
+    } else {
+        linksWidget.classList.remove("hidden-element");
+        currentLinksDisplay.classList.remove("hidden-element");
+    };
 };
 
 

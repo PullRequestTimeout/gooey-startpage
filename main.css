@@ -514,7 +514,7 @@ input[type="radio"]:active+label img {
 	transition: 0.1s;
 }
 
-#currentLinksDisplay {
+.current-links-display {
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
