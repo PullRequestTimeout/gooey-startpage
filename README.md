@@ -1,6 +1,6 @@
-# UI Startpage
+# Gooey Startpage
 
-A startpage to replace the browser's default New Tab in the form of a Firefox-Addon. Using vanilla JS, HTML, and CSS as a project to practice fundamentals, API calls, and build a CRUD GUI from scratch. Drawing from [/r/startpages](https://www.reddit.com/r/startpages/) for some inspiration.
+Gooey (GUI) is a startpage to replace the browser's default New Tab in the form of a Firefox-Addon. Using vanilla JS, HTML, and CSS as a project to practice fundamentals, API calls, and build a CRUD GUI from scratch. Drawing from [/r/startpages](https://www.reddit.com/r/startpages/) for some inspiration.
 
 The extension uses geolocation permissions purely to tailor a weather data API call to the user's location, none of this information is stored or accessible to anyone other than the user, and storage permissions are used to persist user options selection.
 
@@ -24,7 +24,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 -   ~Refine widget positioning in the main screen.~
 
     -   ~Fix positioning when bookmarks toolbar changes~
-    -   Fix hide quick links button, div is still there when there are no links. Apply 'hidden-element' class to widget and edit links panel display container when there are no links.
+    -   ~Fix hide quick links button, div is still there when there are no links. Apply 'hidden-element' class to widget and edit links panel display container when there are no links.~
 
 -   ~Center search widget in page when all other widgets are hidden, use as centerpoint for the rest of the page.~
 
