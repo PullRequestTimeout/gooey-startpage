@@ -11,6 +11,8 @@ As this project is a learning tool to improve my fundamentals before diving into
 - Writing vanilla CSS and keeping it maintainable at scale is hard. I now undertsand why tools like Tailwind are used, and I'll look into using that in my next project. I could also mitigate this in the future by sticking more closely to a design file rather than designing in-browser, and focusing on writing component-based CSS modules that can be used repeatedly (DRY!).
 - Similarly, vanilla JS tends to get messy when keeping all functionality in larger files and writing modules ad-hoc. Remember the Seven Ps; Prior Preperation Prevents Piss Poor Performance. Plan code, then write it, and having a secondary psuedo-code file might be useful for planning.
 - Keep in mind separation of concerns. One potential way to make JS files (and potentially CSS too!) more readable and maintainable is to separate files based on modules/functionality.
+- Getting more familiar with accessibility practices like semantic html and how it impacts keyboard navigation, something to keep in mind. It's often a balance between being able to achieve what the design outlines and adhering to strict accessiblity practices. Sometimes just adding a div to the tabindex is a much more efficient approact than forcing a semantic element into a design it isn't really suited for.
+- I'm a bit of a perfectionist. Learn when to recognise when something is "good enough" and move on, it's slowing down the learning process.
 
 ## To-dos:
 
@@ -49,7 +51,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 -   ~Empty field check for new link input.~
     -	~Build a custom modal for more elegant solution than using alert().~
 -   Remove items from tabindex until they're visible, and make sure tabindex functions correctly.
--   Create extension icons and add to /icons directory
+-   ~Create extension icons and add to /icons directory.~
 -   Learn how to version after release.
 -   Finalise manifest.json, and submit to Mozilla for signing.
 
