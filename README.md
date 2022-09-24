@@ -19,6 +19,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 ### Appearance
 
 -   Fix settings panel 100vh bug.
+-   Refine radio and checkbox buttons design in settings panel.
 -   ~Uncheck display settings toggle when panel is hidden, triggering gear icon rotation.~
 -   ~Fix default bg slider display values.~
 -   ~Refine widget positioning in the main screen.~
@@ -29,6 +30,8 @@ As this project is a learning tool to improve my fundamentals before diving into
 -   ~Center search widget in page when all other widgets are hidden, use as centerpoint for the rest of the page.~
 
 ### Functionality
+
+-   Backround Image Select function is a sloppy mess, fix before release.
 
 -   ~Font settings widget~
     -   ~Add 4 font option buttons with font-matched labels~
