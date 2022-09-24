@@ -151,12 +151,15 @@ document.getElementById("hideLinks").addEventListener("click", toggleHideLinks);
 
 // Load State -------------------------------------------------------------------------------------
 
+// Functions should only do one thing to avoid unintended side effects, 
+// maybe break this into each component and have the loadState function call the other functions 
 const loadState = () => {
     // Retains background image selection
     const backgroundImageState = localStorage.getItem("backgroundImage");
     const bgImg = document.getElementById("backgroundImage");
 
     switch (backgroundImageState){
+        case null:
         case "img1": 
             bgImg.setAttribute("src", "/assets/img1.jpg");
             document.getElementById("bgselect-img1").checked = true;
@@ -183,11 +186,15 @@ const loadState = () => {
     document.getElementById("bgbrightness").value = localStorage.getItem("brightValue");
 
     // Retains search option choice
-    if (localStorage.getItem("search") == "google") {
-        document.getElementById("searchselect-google").checked = true;
-    } else if (localStorage.getItem("search") == "ddg") {
-        document.getElementById("searchselect-ddg").checked = true;
-    };
+    switch (localStorage.getItem("search")){
+        case null:
+        case "google":
+            document.getElementById("searchselect-google").checked = true;
+            break;
+        case "ddg":
+            document.getElementById("searchselect-ddg").checked = true;
+            break;
+    }
 
     // Retains weather display choice
     if (localStorage.getItem("hideWeather") == "true") {
@@ -207,9 +214,10 @@ const loadState = () => {
         toggleHideLinks();
     };
 
-    // Retains font
+    // Retains font if previously set, otherwise defaults to Roboto
     if (localStorage.getItem("font") == null) {
-        localStorage.setItem("font", "roboto");
+        document.getElementById(`fontselect-roboto`).checked = true;
+        changeFont();
     } else {
         document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
         changeFont();
