@@ -3,30 +3,19 @@
 
 // Background Image Select ------------------------------------------------------------------------
 
-// Needs to be refactored into a function that retrieves the value of each radio input
-// Inputs value into innerHTML template literal
-
-const bgImg = document.getElementById("backgroundImage");
-
-document.getElementById("bgselect-img1").onclick = function(){
-    bgImg.setAttribute("src", "assets/img1.jpg");
-    localStorage.setItem("backgroundImage", "img1");
+const changeBackground = () => {
+    const bgImg = document.getElementById("backgroundImage");
+    const bgList = document.getElementsByName("bgselect");
+    
+    for (i = 0; i < bgList.length; i++) {
+        if (bgList[i].checked){
+            bgImg.setAttribute("src", `assets/${bgList[i].value}.jpg`)
+            localStorage.setItem("backgroundImage", bgList[i].value);
+        };
+    }
 }
 
-document.getElementById("bgselect-img2").onclick = function(){
-    bgImg.setAttribute("src", "assets/img2.jpg");
-    localStorage.setItem("backgroundImage", "img2");
-}
-
-document.getElementById("bgselect-img3").onclick = function(){
-    bgImg.setAttribute("src", "assets/img3.jpg");
-    localStorage.setItem("backgroundImage", "img3");
-}
-
-document.getElementById("bgselect-img4").onclick = function(){
-    bgImg.setAttribute("src", "assets/img4.jpg");
-    localStorage.setItem("backgroundImage", "img4");
-}
+document.getElementsByName("bgselect").forEach(element => element.addEventListener("input", changeBackground));
 
 // Background Blur Slider -------------------------------------------------------------------------
 
