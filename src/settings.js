@@ -11,7 +11,7 @@ const changeBackground = () => {
         if (bgList[i].checked){
             bgImg.setAttribute("src", `assets/${bgList[i].value}.jpg`)
             localStorage.setItem("backgroundImage", bgList[i].value);
-        };
+        }
     }
 }
 
@@ -52,9 +52,9 @@ const changeFont = () => {
             html.classList.remove(notValue[0], notValue[1], notValue[2]);
 
             localStorage.setItem("font", fontSelected[i].value);
-        };
+        }
     }
-};
+}
 
 document.getElementsByName("fontselect").forEach(element => element.addEventListener("input", changeFont));
 
@@ -73,7 +73,7 @@ const searchSelect = () => {
         searchString.setAttribute("action", "https://duckduckgo.com/?");
         localStorage.setItem("search", "ddg");
     }
-};
+}
 
 document.getElementById("searchselect-google").addEventListener("click", searchSelect);
 document.getElementById("searchselect-ddg").addEventListener("click", searchSelect);
@@ -94,7 +94,7 @@ const updateTempUnits = () => {
         currentTempDisplay.innerText = `The temperature is ${currentTempValue}°C.`;
         tempUnitDisplay.innerText = "Fahrenheit";
     }
-};
+}
 
 document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits);
 
@@ -113,7 +113,7 @@ const toggleHideWeather = () => {
         weatherWidget.classList.remove("hidden-element");
         hideWeatherLabel.innerText = "Hide";
         localStorage.setItem("hideWeather", "false");
-    };
+    }
 }
 
 document.getElementById("hideWeather").addEventListener("click", toggleHideWeather);
@@ -133,7 +133,7 @@ const toggleHideLinks = () => {
         linksWidget.classList.remove("hidden-element");
         hideLinksLabel.innerText = "Hide";
         localStorage.setItem("hideLinks", "false");
-    };
+    }
 }
 
 document.getElementById("hideLinks").addEventListener("click", toggleHideLinks);
@@ -165,7 +165,7 @@ const loadState = () => {
             bgImg.setAttribute("src", "/assets/img4.jpg");
             document.getElementById("bgselect-img4").checked = true;
             break;
-    };
+    }
 
     // Retains background style choices and settings range input
     document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`;
@@ -192,7 +192,7 @@ const loadState = () => {
     } else if (localStorage.getItem("hideWeather") == "false") {
         document.getElementById("hideWeather").checked = false;
         toggleHideWeather();
-    };
+    }
 
     // Retains links display choice
     if (localStorage.getItem("hideLinks") == "true") {
@@ -201,7 +201,7 @@ const loadState = () => {
     } else if (localStorage.getItem("hideLinks") == "false") {
         document.getElementById("hideLinks").checked = false;
         toggleHideLinks();
-    };
+    }
 
     // Retains font if previously set, otherwise defaults to Roboto
     if (localStorage.getItem("font") == null) {
@@ -210,8 +210,8 @@ const loadState = () => {
     } else {
         document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
         changeFont();
-    };
-};
+    }
+}
 
 // Boot -------------------------------------------------------------------------------------------
 
