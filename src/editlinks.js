@@ -110,12 +110,13 @@ const populateLinks = () => {
     }
 
     hideLinkListsIfEmpty();
-    addSVGListener();
+    addSVGListeners();
 };
 
-const addSVGListener = () => {
-    const addListenerToSVGs = document.querySelectorAll('.removeLink');
-    addListenerToSVGs.forEach(svg => {
+// Adds removeLink function to each edit link svg, every time the list is populated
+const addSVGListeners = () => {
+    const removeLinkIcons = document.querySelectorAll('.removeLink');
+    removeLinkIcons.forEach(svg => {
         svg.addEventListener('click', removeLink);
     });
 }
