@@ -115,11 +115,8 @@ const populateLinks = () => {
 
 const addSVGListener = () => {
     const addListenerToSVGs = document.querySelectorAll('.removeLink');
-    addListenerToSVGs.forEach(listenersforSVGs => {
-        listenersforSVGs.addEventListener('click', function handleClick(event) {
-            console.log(event);
-            removeLink(event);
-        });
+    addListenerToSVGs.forEach(svg => {
+        svg.addEventListener('click', removeLink);
     });
 }
 
