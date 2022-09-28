@@ -152,18 +152,22 @@ const loadState = () => {
         case "img1": 
             bgImg.setAttribute("src", "/assets/img1.jpg");
             document.getElementById("bgselect-img1").checked = true;
+            changeBackground();
             break;
         case "img2":
             bgImg.setAttribute("src", "/assets/img2.jpg");
             document.getElementById("bgselect-img2").checked = true;
+            changeBackground();
             break;
         case "img3":
             bgImg.setAttribute("src", "/assets/img3.jpg");
             document.getElementById("bgselect-img3").checked = true;
+            changeBackground();
             break;
         case "img4":
             bgImg.setAttribute("src", "/assets/img4.jpg");
             document.getElementById("bgselect-img4").checked = true;
+            changeBackground();
             break;
     }
 
