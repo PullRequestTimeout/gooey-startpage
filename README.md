@@ -19,7 +19,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 ### Appearance
 
 -   Fix settings panel 100vh bug.
--   Refine radio and checkbox buttons design in settings panel.
+-   ~Refine radio and checkbox buttons design in settings panel.~
 -   ~Uncheck display settings toggle when panel is hidden, triggering gear icon rotation.~
 -   ~Fix default bg slider display values.~
 -   ~Refine widget positioning in the main screen.~
@@ -31,7 +31,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 
 ### Functionality
 
--   Backround Image Select function is a sloppy mess, fix before release.
+-   ~Backround Image Select function is a sloppy mess, fix before release.~
 
 -   ~Font settings widget~
     -   ~Add 4 font option buttons with font-matched labels~
@@ -44,7 +44,7 @@ As this project is a learning tool to improve my fundamentals before diving into
     -   ~Hide widget functionality~
 
 -   Quick Links customisable functionality
-    -   Remove links doesn't seem to work in extension version. Maybe due to manifest.json file, and how the script files are declared.
+    -   ~Remove links doesn't seem to work in extension version. Maybe due to manifest.json file, and how the script files are declared.~
     -   ~Hide widget functionality~
     -   ~Add and remove quick links items with name and url~.
     -   ~Add SVG input field~
