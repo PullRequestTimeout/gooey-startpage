@@ -135,6 +135,11 @@ a {
 	text-decoration: none;
 }
 
+/* Small UX improvement */
+input[type="range"]:hover {
+	cursor: pointer;
+}
+
 /*|| Colours ----------------------------------------------------------------------------------------- */
 
 :root {
