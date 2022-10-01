@@ -142,10 +142,26 @@ input[type="range"]:hover {
 
 /*|| Colours ----------------------------------------------------------------------------------------- */
 
+/* TODO: Simplify all colors used into root variables, so they are more easily changed here */
+/*
 :root {
-	--clr: accent:;
-}
+	--clr-accent: ;
+	--clr-accent-light: ;
+	--clr-accent-dark: ;
 
+	--clr-translucent-white-1: ;
+	--clr-translucent-white-3: ;
+	--clr-translucent-white-5: ;
+	--clr-translucent-white-7: ;
+	--clr-translucent-white-9: ;
+
+	--clr-translucent-black-1: ;
+	--clr-translucent-black-3: ;
+	--clr-translucent-black-5: ;
+	--clr-translucent-black-7: ;
+	--clr-translucent-black-9: ;
+}
+*/
 /*|| Typography -------------------------------------------------------------------------------------- */
 
 h1,

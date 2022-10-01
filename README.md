@@ -56,6 +56,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 -   Remove items from tabindex until they're visible, and make sure tabindex functions correctly.
 -   ~Create extension icons and add to /icons directory.~
 -   Learn how to version after release.
+-   Make default links a little more generic.
 -   Finalise manifest.json, and submit to Mozilla for signing.
 
 ### Future Features
