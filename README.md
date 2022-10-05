@@ -13,6 +13,7 @@ As this project is a learning tool to improve my fundamentals before diving into
 - Keep in mind separation of concerns. One potential way to make JS files (and potentially CSS too!) more readable and maintainable is to separate files based on modules/functionality.
 - Getting more familiar with accessibility practices like semantic html and how it impacts keyboard navigation, something to keep in mind. It's often a balance between being able to achieve what the design outlines and adhering to strict accessiblity practices. Sometimes just adding a div to the tabindex is a much more efficient approact than forcing a semantic element into a design it isn't really suited for.
 - I'm a bit of a perfectionist. Learn when to recognise when something is "good enough" and move on, it's slowing down the learning process.
+- AVOID SIDE EFFECTS.
 
 ## To-dos:
 
