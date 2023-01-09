@@ -1,9 +1,13 @@
 // My Ugly Ass Clock Function That Needs Rewriting ------------------------------------------------
+// Maybe I should keep it though, it was my first ever function, 
+// copy and pasted from a previous project.
+// And it's kinda like... it's so ugly it's actually beautiful?
+
 const updateClock = () => {
 
     const timeDisplay = document.getElementById("timeDisplay");
     const currentTime = new Date();
-    // I hate 24hr time
+    // I hate 24hr time, so here we go.
     if (currentTime.getHours() > 12 && currentTime.getMinutes() >= 10){
         timeDisplay.innerText = `${currentTime.getHours() - 12}:${currentTime.getMinutes()}pm`;
     } else if (currentTime.getHours() > 12 && currentTime.getMinutes() < 10){
