@@ -1,7 +1,7 @@
 // My Ugly Ass Clock Function That Needs Rewriting ------------------------------------------------
 // Maybe I should keep it though, it was my first ever function, 
 // copy and pasted from a previous project.
-// And it's kinda like... it's so ugly it's actually beautiful?
+// And it's kinda like... so ugly it's actually beautiful?
 
 const updateClock = () => {
 
