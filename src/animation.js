@@ -3,6 +3,7 @@
 const translateSettingsPanel = () => {
     const settingsPanel = document.getElementById("settingsPanel");
     settingsPanel.classList.toggle("display-settings");
+    dynamicTabIndex();
 }
 
 const rotateSettingsIcon = () => {
@@ -16,6 +17,7 @@ const closeSettingsPanel = () => {
     if (settingsPanel.classList[1] == "display-settings") {
         translateSettingsPanel();
     }
+    dynamicTabIndex();
 };
 
 const translateLinksPanel = () => {
@@ -27,7 +29,7 @@ const translateLinksPanel = () => {
 const closeLinksPanel = () => {
     const editLinksPanel = document.getElementById("editLinksPanel");
     editLinksPanel.classList.remove("display-settings");
-    
+    dynamicTabIndex();
 };
 
 document.getElementById("closeLinkEditPanel").addEventListener("click", closeLinksPanel);
