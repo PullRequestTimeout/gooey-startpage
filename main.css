@@ -208,7 +208,7 @@ html {
 	z-index: -1;
 	width: 100%;
 	filter: blur(3px);
-	transform: scale(1.1);
+	/* transform: scale(1.1); */
 	opacity: 1;
 }
 
