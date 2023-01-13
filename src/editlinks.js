@@ -178,6 +178,7 @@ const checkEmptyFields = () => {
     const newLinkSVGLength = document.getElementById("newLinkSVG").value.length;
     const modalErrorMessage = document.getElementById("modalErrorMessage");
     const newLinkURL = document.getElementById("newLinkURL").value;
+    const newLinkSVG = document.getElementById("newLinkSVG").value
     const urlRegex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/;
     
     // This conditional checks whether there has been sufficient input in the fields, and checks validity of the url against regex.
@@ -195,13 +196,32 @@ const checkEmptyFields = () => {
         modalErrorMessage.innerHTML = `This is going to look pretty ugly without an icon,<br>don't you think?<br><br><a title="Tabler Icons" href="https://tablericons.com/" target="_blank"
         class="link-edit-panel-link">Tabler</a> is a great source of SVGs!`;
     } else if (newLinkNameLength >= 3 && urlRegex.test(newLinkURL) == true && newLinkSVGLength > 1) {
-        submitLinkInput();
+        // submitLinkInput();
+        validateSVG(newLinkSVG);
     }
 };
 
 document.getElementById("submitLinkInput").addEventListener("click", checkEmptyFields);
 
-// Delete Array Item -----------------------------------------------------------------------------
+// Check if valid svg -----------------------------------------------------------------------------
+
+const validateSVG = (svg) => {
+    const svgParser = new DOMParser().parseFromString(svg, "text/xml");
+    if (svgParser.activeElement.tagName == "svg") {
+        submitLinkInput()
+        // console.log("Wind's howling...")
+    } else {
+        showErrorModal();
+        modalErrorMessage.innerText = "Oops! This doesn't seem to be a valid SVG."
+    }
+}
+
+// input the svg value
+// use parser to extract html element from string input
+// check against svgParser.activeElement.tagName to ensure that an svg is being input
+// if tag == svg input string, if not show error modal with custom message
+
+// Delete Array Item ------------------------------------------------------------------------------
 
 const removeLink = (event) => {
     // Compared the clicked list item's title to each of the linkName value, and then removes the matching object from the array
