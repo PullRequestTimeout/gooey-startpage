@@ -209,17 +209,11 @@ const validateSVG = (svg) => {
     const svgParser = new DOMParser().parseFromString(svg, "text/xml");
     if (svgParser.activeElement.tagName == "svg") {
         submitLinkInput()
-        // console.log("Wind's howling...")
     } else {
         showErrorModal();
         modalErrorMessage.innerText = "Oops! This doesn't seem to be a valid SVG."
     }
 }
-
-// input the svg value
-// use parser to extract html element from string input
-// check against svgParser.activeElement.tagName to ensure that an svg is being input
-// if tag == svg input string, if not show error modal with custom message
 
 // Delete Array Item ------------------------------------------------------------------------------
 
