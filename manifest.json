@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Gooey Startpage",
-  "description": "Replace default new tab page in Firefox with UI Startpage.",
+  "description": "Replace default new tab page in Firefox with Gooey Startpage.",
   "version": "1.0.0",
   "developer": {
     "name": "Jacob Druery",
