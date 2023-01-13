@@ -174,14 +174,13 @@ const loadState = () => {
     // Retains background style choices and settings range input
     switch (localStorage.getItem("blurValue")){
         case null:
-            document.getElementById("backgroundImage").style["filter"] = `blur(0.25em)`;
-            localStorage.setItem("blurValue", "0.25");
+            document.getElementById("backgroundImage").style["filter"] = `blur(0.25em)`
+            localStorage.setItem("blurValue", "0.25")
             document.getElementById("bgblur").value = "0.25"
-            console.log("Blur Value is null.")
             break;
         default:
-            document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`;
-            document.getElementById("bgblur").value = localStorage.getItem("blurValue");
+            document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`
+            document.getElementById("bgblur").value = localStorage.getItem("blurValue")
             break;
     };
 
@@ -192,7 +191,6 @@ const loadState = () => {
             document.getElementById("backgroundImage").style["opacity"] = "1";
             localStorage.setItem("brightValue", "1");
             document.getElementById("bgbrightness").value = "1"
-            console.log("Brightness Value is null.")
             break;
         default:
             document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
