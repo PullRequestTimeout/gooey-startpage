@@ -5,6 +5,7 @@ Gooey (GUI) is a startpage to replace the browser's default New Tab in the form 
 The extension uses geolocation permissions purely to tailor a weather data API call to the user's location, none of this information is stored or accessible to anyone other than the user, and storage permissions are used in the form of localstorage to persist user options selection.
 
 If any bugs are discovered, feel free to contact me at 
+<!-- TODO add conatct details -->
 
 ## What I've Learnt So Far:
 
