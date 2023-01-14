@@ -127,6 +127,7 @@ const toggleHideLinks = () => {
 
     if (hideLinksToggle.checked == true) {
         linksWidget.classList.add("hidden-element");
+        console.log("Firing")
         hideLinksLabel.innerText = "Show";
         localStorage.setItem("hideLinks", "true");
     } else if (hideLinksToggle.checked == false) {
@@ -140,101 +141,126 @@ document.getElementById("hideLinks").addEventListener("click", toggleHideLinks);
 
 // Load State -------------------------------------------------------------------------------------
 
-// Functions should only do one thing to avoid unintended side effects, 
-// maybe break this into each component and have the loadState function call the other functions 
 const loadState = () => {
+    const loadBGState = () => {
+        const backgroundImageState = localStorage.getItem("backgroundImage");
+        const bgImg = document.getElementById("backgroundImage");
+    
+        switch (backgroundImageState){
+            case null:
+            case "img1": 
+                bgImg.setAttribute("src", "/assets/img1.jpg");
+                document.getElementById("bgselect-img1").checked = true;
+                changeBackground();
+                break;
+            case "img2":
+                bgImg.setAttribute("src", "/assets/img2.jpg");
+                document.getElementById("bgselect-img2").checked = true;
+                changeBackground();
+                break;
+            case "img3":
+                bgImg.setAttribute("src", "/assets/img3.jpg");
+                document.getElementById("bgselect-img3").checked = true;
+                changeBackground();
+                break;
+            case "img4":
+                bgImg.setAttribute("src", "/assets/img4.jpg");
+                document.getElementById("bgselect-img4").checked = true;
+                changeBackground();
+                break;
+        }
+    }
+    
+    const loadBlurValue = () => {
+        switch (localStorage.getItem("blurValue")){
+            case null:
+                document.getElementById("backgroundImage").style["filter"] = `blur(0.25em)`
+                localStorage.setItem("blurValue", "0.25")
+                document.getElementById("bgblur").value = "0.25"
+                break;
+            default:
+                document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`
+                document.getElementById("bgblur").value = localStorage.getItem("blurValue")
+                break;
+        };
+    }
+    
+    const loadBrightValue = () => {
+        switch (localStorage.getItem("brightValue")){
+            case null:
+                document.getElementById("backgroundImage").style["opacity"] = "1";
+                localStorage.setItem("brightValue", "1");
+                document.getElementById("bgbrightness").value = "1"
+                break;
+            default:
+                document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
+                document.getElementById("bgbrightness").value = localStorage.getItem("brightValue");
+                break;
+        }
+    }
+    
+    const loadSearchOption = () => {
+        switch (localStorage.getItem("search")){
+            case null:
+            case "google":
+                document.getElementById("searchselect-google").checked = true;
+                break;
+            case "ddg":
+                document.getElementById("searchselect-ddg").checked = true;
+                break;
+        }
+    }
+    
+    const loadWeatherDisplay = () => {
+        if (localStorage.getItem("hideWeather") == "true") {
+            document.getElementById("hideWeather").checked = true;
+            toggleHideWeather();
+        } else if (localStorage.getItem("hideWeather") == "false") {
+            document.getElementById("hideWeather").checked = false;
+            toggleHideWeather();
+        }
+    }
+    
+    const loadLinkDisplay = () => {
+        if (localStorage.getItem("hideLinks") == "true") {
+            document.getElementById("hideLinks").checked = true;
+            console.log("Should be hidden")
+            toggleHideLinks();
+        } else if (localStorage.getItem("hideLinks") == "false") {
+            document.getElementById("hideLinks").checked = false;
+            console.log("Should NOT be hidden")
+            toggleHideLinks();
+        }
+    }
+    
+    const loadFontSelection = () => {
+        if (localStorage.getItem("font") == null) {
+            document.getElementById(`fontselect-roboto`).checked = true;
+            changeFont();
+        } else {
+            document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
+            changeFont();
+        }
+    }
+
     // Retains background image selection
-    const backgroundImageState = localStorage.getItem("backgroundImage");
-    const bgImg = document.getElementById("backgroundImage");
-
-    switch (backgroundImageState){
-        case null:
-        case "img1": 
-            bgImg.setAttribute("src", "/assets/img1.jpg");
-            document.getElementById("bgselect-img1").checked = true;
-            changeBackground();
-            break;
-        case "img2":
-            bgImg.setAttribute("src", "/assets/img2.jpg");
-            document.getElementById("bgselect-img2").checked = true;
-            changeBackground();
-            break;
-        case "img3":
-            bgImg.setAttribute("src", "/assets/img3.jpg");
-            document.getElementById("bgselect-img3").checked = true;
-            changeBackground();
-            break;
-        case "img4":
-            bgImg.setAttribute("src", "/assets/img4.jpg");
-            document.getElementById("bgselect-img4").checked = true;
-            changeBackground();
-            break;
-    }
-
+    loadBGState();
+    
     // Retains background style choices and settings range input
-    switch (localStorage.getItem("blurValue")){
-        case null:
-            document.getElementById("backgroundImage").style["filter"] = `blur(0.25em)`
-            localStorage.setItem("blurValue", "0.25")
-            document.getElementById("bgblur").value = "0.25"
-            break;
-        default:
-            document.getElementById("backgroundImage").style["filter"] = `blur(${localStorage.getItem("blurValue")}em)`
-            document.getElementById("bgblur").value = localStorage.getItem("blurValue")
-            break;
-    };
-
-    // if 
-
-    switch (localStorage.getItem("brightValue")){
-        case null:
-            document.getElementById("backgroundImage").style["opacity"] = "1";
-            localStorage.setItem("brightValue", "1");
-            document.getElementById("bgbrightness").value = "1"
-            break;
-        default:
-            document.getElementById("backgroundImage").style["opacity"] = localStorage.getItem("brightValue");
-            document.getElementById("bgbrightness").value = localStorage.getItem("brightValue");
-            break;
-    }
+    loadBlurValue();
+    loadBrightValue();
 
     // Retains search option choice
-    switch (localStorage.getItem("search")){
-        case null:
-        case "google":
-            document.getElementById("searchselect-google").checked = true;
-            break;
-        case "ddg":
-            document.getElementById("searchselect-ddg").checked = true;
-            break;
-    }
+    loadSearchOption();
 
     // Retains weather display choice
-    if (localStorage.getItem("hideWeather") == "true") {
-        document.getElementById("hideWeather").checked = true;
-        toggleHideWeather();
-    } else if (localStorage.getItem("hideWeather") == "false") {
-        document.getElementById("hideWeather").checked = false;
-        toggleHideWeather();
-    }
+    loadWeatherDisplay();
 
     // Retains links display choice
-    if (localStorage.getItem("hideLinks") == "true") {
-        document.getElementById("hideLinks").checked = true;
-        toggleHideLinks();
-    } else if (localStorage.getItem("hideLinks") == "false") {
-        document.getElementById("hideLinks").checked = false;
-        toggleHideLinks();
-    }
+    loadLinkDisplay();
 
     // Retains font if previously set, otherwise defaults to Roboto
-    if (localStorage.getItem("font") == null) {
-        document.getElementById(`fontselect-roboto`).checked = true;
-        changeFont();
-    } else {
-        document.getElementById(`fontselect-${localStorage.getItem("font")}`).checked = true;
-        changeFont();
-    }
+    loadFontSelection()
 }
 
 // Boot -------------------------------------------------------------------------------------------

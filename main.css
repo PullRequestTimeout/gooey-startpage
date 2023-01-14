@@ -205,10 +205,11 @@ html {
 .background-image {
 	position: absolute;
 	bottom: -25%;
+	top: 0;
 	z-index: -1;
 	width: 100%;
 	filter: blur(3px);
-	/* transform: scale(1.1); */
+	transform: scale(1.1);
 	opacity: 1;
 }
 
