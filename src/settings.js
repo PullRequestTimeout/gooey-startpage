@@ -127,7 +127,6 @@ const toggleHideLinks = () => {
 
     if (hideLinksToggle.checked == true) {
         linksWidget.classList.add("hidden-element");
-        console.log("Firing")
         hideLinksLabel.innerText = "Show";
         localStorage.setItem("hideLinks", "true");
     } else if (hideLinksToggle.checked == false) {
@@ -224,11 +223,9 @@ const loadState = () => {
     const loadLinkDisplay = () => {
         if (localStorage.getItem("hideLinks") == "true") {
             document.getElementById("hideLinks").checked = true;
-            console.log("Should be hidden")
             toggleHideLinks();
         } else if (localStorage.getItem("hideLinks") == "false") {
             document.getElementById("hideLinks").checked = false;
-            console.log("Should NOT be hidden")
             toggleHideLinks();
         }
     }
