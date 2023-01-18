@@ -76,16 +76,71 @@ const weatherDataCall = () =>{
     }
 
     const success = (position) => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=464f77339fb17e890968824a382be54b&units=metric`)
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&current_weather=true`)
             .then((response) => response.json())
             .then((data) => {
-                // console.log(data);
-                const weatherDescription = data.weather[0].description;
-                localStorage.setItem("currentTemp", Math.trunc(data.main.temp));
-                const weatherDescriptionDisplay = document.getElementById("weatherDescription");
+                const weatherCode = data.current_weather.weathercode
+                const currentTemp = Math.trunc(data.current_weather.temperature)
+                const weatherDescriptionDisplay = document.getElementById("weatherDescription")
 
-                // Regex in following line capitalises first letter in a string.
-                weatherDescriptionDisplay.innerText = `${weatherDescription.replace(/^\w/, (c) => c.toUpperCase())}.`;
+                const weathercodeToDescription = () => { 
+                    switch (weatherCode) {
+                        case 0: 
+                            return "Clear sky."
+                        case 1:
+                            return "Mainly clear."
+                        case 2:
+                            return "Partly cloudy."
+                        case 3:
+                            return "Overcast."
+                        case 45: 
+                            return "Fog."
+                        case 48:
+                            return "Freezing fog."
+                        case 51:
+                            return "Light drizzle."
+                        case 53:
+                            return "Moderate drizzle."
+                        case 55:
+                            return "Heavy drizzle."
+                        case 56: 
+                            return "Light freezing drizzle."
+                        case 57:
+                            return "Heavy freezing drizzle."
+                        case 61:
+                            return "Light rain."
+                        case 63:
+                            return "Rain."
+                        case 65:
+                            return "Heavy rain."
+                        case 66:
+                            return "Freezing rain."
+                        case 67: 
+                            return "Heavy freezing rain."
+                        case 71:
+                            return "Light snow."
+                        case 73:
+                            return "Snow."
+                        case 75: 
+                            return "Heavy snow."
+                        case 77:
+                            return "Snow grains."
+                        case 80:
+                            return "Light rain showers."
+                        case 81:
+                            return "Rain showers."
+                        case 82:
+                            return "Violent rain showers."
+                        case 85:
+                            return "Slight snow showers."
+                        case 86:
+                            return "Heavy snow showers."
+                        case 95:
+                            return "Thunderstorms."
+                    }}
+                
+                weatherDescriptionDisplay.innerText = weathercodeToDescription();
+                localStorage.setItem("currentTemp", currentTemp);
                 updateTempUnits();
             })}
 
