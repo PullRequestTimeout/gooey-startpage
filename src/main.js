@@ -27,6 +27,50 @@ const updateClock = () => {
     }
 };
 
+// const clock = () => {
+//     const time = new Date()
+//     const currentHours = time.getHours()
+//     const currentMin = time.getMinutes();
+//     const timeDisplay = document.getElementById("timeDisplay");
+
+//     console.log(currentHours, currentMin)
+
+//     switch (time) {
+//         case currentHours > 12:
+//         case currentMin >= 10:
+//             timeDisplay.innerText = `${currentHours - 12}:${currentMin}pm`;
+//             break;
+//         case currentHours > 12:
+//         case currentMin < 10:
+//             timeDisplay.innerText = `${currentHours - 12}:0${currentMin}pm`;
+//             break;
+//         case currentHours < 12:
+//         case currentMin >= 10:
+//             timeDisplay.innerText = `${currentHours}:${currentMin}am`;
+//             break;
+//         case currentHours < 12:
+//         case currentMin < 10:
+//             timeDisplay.innerText = `${currentHours}:0${currentMin}am`;
+//             break;
+//         case currentHours == 0:
+//         case currentMin < 10:
+//             timeDisplay.innerText = `12:0${currentMin}am`;
+//             break;
+//         case currentHours == 0:
+//         case currentMin >= 10:
+//             timeDisplay.innerText = `12:${currentMin}am`;
+//             break;
+//         case currentHours == 12:
+//         case currentMin >= 10:
+//             timeDisplay.innerText = `12:${currentMin}pm`;
+//             break;
+//         case currentHours == 12:
+//         case currentMin < 10:
+//             timeDisplay.innerText = `12:0${currentMin}pm`;
+//             break;
+//     }
+// }
+
 // Date Display -----------------------------------------------------------------------------------
 
 const updateDate = () => {
@@ -82,7 +126,7 @@ const weatherDataCall = () =>{
                 const weatherCode = data.current_weather.weathercode
                 const currentTemp = Math.trunc(data.current_weather.temperature)
                 const weatherDescriptionDisplay = document.getElementById("weatherDescription")
-
+                
                 const weathercodeToDescription = () => { 
                     switch (weatherCode) {
                         case 0: 
