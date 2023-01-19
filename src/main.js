@@ -27,50 +27,6 @@ const updateClock = () => {
     }
 };
 
-// const clock = () => {
-//     const time = new Date()
-//     const currentHours = time.getHours()
-//     const currentMin = time.getMinutes();
-//     const timeDisplay = document.getElementById("timeDisplay");
-
-//     console.log(currentHours, currentMin)
-
-//     switch (time) {
-//         case currentHours > 12:
-//         case currentMin >= 10:
-//             timeDisplay.innerText = `${currentHours - 12}:${currentMin}pm`;
-//             break;
-//         case currentHours > 12:
-//         case currentMin < 10:
-//             timeDisplay.innerText = `${currentHours - 12}:0${currentMin}pm`;
-//             break;
-//         case currentHours < 12:
-//         case currentMin >= 10:
-//             timeDisplay.innerText = `${currentHours}:${currentMin}am`;
-//             break;
-//         case currentHours < 12:
-//         case currentMin < 10:
-//             timeDisplay.innerText = `${currentHours}:0${currentMin}am`;
-//             break;
-//         case currentHours == 0:
-//         case currentMin < 10:
-//             timeDisplay.innerText = `12:0${currentMin}am`;
-//             break;
-//         case currentHours == 0:
-//         case currentMin >= 10:
-//             timeDisplay.innerText = `12:${currentMin}am`;
-//             break;
-//         case currentHours == 12:
-//         case currentMin >= 10:
-//             timeDisplay.innerText = `12:${currentMin}pm`;
-//             break;
-//         case currentHours == 12:
-//         case currentMin < 10:
-//             timeDisplay.innerText = `12:0${currentMin}pm`;
-//             break;
-//     }
-// }
-
 // Date Display -----------------------------------------------------------------------------------
 
 const updateDate = () => {
@@ -109,14 +65,12 @@ const updateDate = () => {
     dateDisplay.innerText = `${fullMonthName(currentDate.getMonth())} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 }
 
-
-
 // Weather API Call -------------------------------------------------------------------------------
 
 const weatherDataCall = () =>{
     
     const error = () => {
-        alert("You have not given location permissions to this website.")
+        alert("You have not given location permissions to this extension.")
     }
 
     const success = (position) => {
