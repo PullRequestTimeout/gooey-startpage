@@ -321,6 +321,9 @@ currentLinksDisplay.addEventListener("dragover", e => {
       }
 })
 
+// Almost does what I need it to, but for some reason when I move items lower in the list it works fine
+// But when I move them higher in the list it jumps a place.
+
 function moveIndices (from, to) {
     userLinkList.splice(to, 0, userLinkList.splice(from, 1)[0])
 }
