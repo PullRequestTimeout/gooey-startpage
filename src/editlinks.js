@@ -252,6 +252,72 @@ const clearAllLinks = () => {
 
 document.getElementById("clearAllLinks").addEventListener("click", clearAllLinks);
 
+// Draggable Links -------------------------------------------------------------------------------------------
+
+// Here be draggons
+
+const currentLinksDisplay = document.getElementById("currentLinksDisplay")
+
+let oldArrayPosition
+let newArrayPosition
+
+function addLinkDraggingListeners () {
+    const draggableLinks = document.querySelectorAll(".link-edit-item")
+
+    draggableLinks.forEach(draggableLink => {
+        draggableLink.addEventListener("dragstart", () => {
+            draggableLink.classList.add("dragging")
+            oldArrayPosition = userLinkList.findIndex(x => x.linkName == draggableLink.innerText)
+        })
+    
+        draggableLink.addEventListener("dragend", () => {
+            draggableLink.classList.remove("dragging")
+            if (oldArrayPosition > newArrayPosition) {
+                moveIndices(oldArrayPosition, newArrayPosition + 1)
+            } else {
+                moveIndices(oldArrayPosition, newArrayPosition)
+            }
+            localStorage.setItem("userLinkList", JSON.stringify(userLinkList))
+            populateLinks()
+            
+        })
+    })
+}
+
+currentLinksDisplay.addEventListener("dragover", e => {
+    e.preventDefault()
+    const draggableElement = document.querySelector('.dragging')
+    const afterElement = getDragAfterElement(currentLinksDisplay, e.clientY)
+    
+    if (afterElement == null) {
+        currentLinksDisplay.appendChild(draggableElement)
+        newArrayPosition = userLinkList.length - 1
+      } else {
+        currentLinksDisplay.insertBefore(draggableElement, afterElement)
+        const indexOfAfterElement = userLinkList.findIndex(x => x.linkName == afterElement.innerText)
+        newArrayPosition = indexOfAfterElement - 1
+      }
+})
+
+function moveIndices (from, to) {
+    userLinkList.splice(to, 0, userLinkList.splice(from, 1)[0])
+}
+
+function getDragAfterElement(container, y) {
+    const editLinkElements = Array.from(document.querySelectorAll('.link-edit-item:not(.dragging)'))
+    
+    return editLinkElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect()
+        const offset = y - box.top - box.height / 2
+        
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child }
+            } else {
+            return closest
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element
+}
+
 // Boot -------------------------------------------------------------------------------------------
 
 // If the page has never been booted before, set a marker in localstorage saying that it now has,
@@ -275,71 +341,4 @@ const bootLinksOrigin = () => {
 };
 
 document.body.onload = bootLinksOrigin();
-
-// Draggable Links -------------------------------------------------------------------------------------------
-
-// Here be dragons
-
-const currentLinksDisplay = document.getElementById("currentLinksDisplay")
-
-let oldArrayPosition
-let newArrayPosition
-
-function addLinkDraggingListeners () {
-    const draggableLinks = document.querySelectorAll(".link-edit-item")
-
-    draggableLinks.forEach(draggableLink => {
-        draggableLink.addEventListener("dragstart", () => {
-            draggableLink.classList.add("dragging")
-            // const indexOfDraggable = userLinkList.findIndex(x => x.linkName == draggableLink.innerText)
-            oldArrayPosition = userLinkList.findIndex(x => x.linkName == draggableLink.innerText)
-            console.log("old", oldArrayPosition)
-        })
-    
-        draggableLink.addEventListener("dragend", () => {
-            draggableLink.classList.remove("dragging")
-            console.log("new", newArrayPosition)
-            moveIndices(oldArrayPosition, newArrayPosition)
-            populateLinks()
-            
-        })
-    })
-}
-
-currentLinksDisplay.addEventListener("dragover", e => {
-    e.preventDefault()
-    const draggableElement = document.querySelector('.dragging')
-    const afterElement = getDragAfterElement(currentLinksDisplay, e.clientY)
-    
-    if (afterElement == null) {
-        currentLinksDisplay.appendChild(draggableElement)
-        newArrayPosition = userLinkList.length - 1
-      } else {
-        currentLinksDisplay.insertBefore(draggableElement, afterElement)
-        const indexOfAfterElement = userLinkList.findIndex(x => x.linkName == afterElement.innerText)
-        newArrayPosition = indexOfAfterElement - 1
-      }
-})
-
-// Almost does what I need it to, but for some reason when I move items lower in the list it works fine
-// But when I move them higher in the list it jumps a place.
-
-function moveIndices (from, to) {
-    userLinkList.splice(to, 0, userLinkList.splice(from, 1)[0])
-}
-
-function getDragAfterElement(container, y) {
-    const editLinkElements = Array.from(document.querySelectorAll('.link-edit-item:not(.dragging)'))
-    
-    return editLinkElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect()
-        const offset = y - box.top - box.height / 2
-        
-        if (offset < 0 && offset > closest.offset) {
-            return { offset: offset, element: child }
-            } else {
-            return closest
-            }
-        }, { offset: Number.NEGATIVE_INFINITY }).element
-}
 
