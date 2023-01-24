@@ -144,9 +144,20 @@ const submitLinkInput = () => {
     const newLinkURL = document.getElementById("newLinkURL").value;
     const newLinkSVG = document.getElementById("newLinkSVG").value;
     
+    // Ensures http is used in user submitted links
+    const prependURL = (url) => {
+        if (!/^https?:\/\//i.test(url)) {
+            return "http://" + url;
+        } else {
+            return url
+        }
+    }
+
+    let prependdedURL = prependURL(newLinkURL)
+
     // Plugs the user input into the linksList Array
-    userLinkList.push({linkName: newLinkName, linkURL: newLinkURL, linkSVG: newLinkSVG});
-    
+    userLinkList.push({linkName: newLinkName, linkURL: prependdedURL, linkSVG: newLinkSVG});
+
     // Updates locally stored version of user links
     localStorage.setItem("userLinkList", JSON.stringify(userLinkList));
 
