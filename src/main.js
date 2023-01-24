@@ -1,35 +1,23 @@
-// My Ugly Ass Clock Function That Needs Rewriting ------------------------------------------------
-// Maybe I should keep it though, it was my first ever function, 
-// copy and pasted from a previous project.
-// And it's kinda like... so ugly it's actually beautiful?
+document.body.onload = updateClock(); setInterval(updateClock, 1500); updateDate(); weatherDataCall();
 
-const updateClock = () => {
-
-    const timeDisplay = document.getElementById("timeDisplay");
-    const currentTime = new Date();
-    // I hate 24hr time, so here we go.
-    if (currentTime.getHours() > 12 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `${currentTime.getHours() - 12}:${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() > 12 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `${currentTime.getHours() - 12}:0${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() < 12 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `${currentTime.getHours()}:${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() < 12 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `${currentTime.getHours()}:0${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 0 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `12:0${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 0 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `12:${currentTime.getMinutes()}am`;
-    } else if (currentTime.getHours() == 12 && currentTime.getMinutes() >= 10){
-        timeDisplay.innerText = `12:${currentTime.getMinutes()}pm`;
-    } else if (currentTime.getHours() == 12 && currentTime.getMinutes() < 10){
-        timeDisplay.innerText = `12:0${currentTime.getMinutes()}pm`;
+function updateClock () {
+    const timeDisplay = document.getElementById("timeDisplay")
+    let date = new Date()
+    let amOrPm = date.getHours() < 12 ? "am" : "pm"
+    let minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
+    let hours = (currentHours) => {
+        if (currentHours == 0) {
+                return 12
+        } else if (currentHours > 0 && currentHours < 13) {
+                return currentHours
+        } else {
+            return currentHours - 12
+        }
     }
-};
+    timeDisplay.innerText = `${hours(date.getHours())}:${minutes}${amOrPm}`
+}
 
-// Date Display -----------------------------------------------------------------------------------
-
-const updateDate = () => {
+function updateDate () {
     const currentDate  = new Date();
     const dateDisplay = document.getElementById("dateDisplay");
     const currentMonth = currentDate.getMonth();
@@ -65,9 +53,7 @@ const updateDate = () => {
     dateDisplay.innerText = `${fullMonthName(currentDate.getMonth())} ${currentDate.getDate()}, ${currentDate.getFullYear()}`;
 }
 
-// Weather API Call -------------------------------------------------------------------------------
-
-const weatherDataCall = () =>{
+function weatherDataCall () {
     
     const error = () => {
         alert("You have not given location permissions to this extension.")
@@ -144,7 +130,3 @@ const weatherDataCall = () =>{
 
     navigator.geolocation.getCurrentPosition(success, error);
 }
-
-// Boot -------------------------------------------------------------------------------------------
-
-document.body.onload = updateClock(); updateDate(); setInterval(updateClock, 500); weatherDataCall();
