@@ -147,7 +147,7 @@ const submitLinkInput = () => {
     // Ensures http is used in user submitted links
     const prependURL = (url) => {
         if (!/^https?:\/\//i.test(url)) {
-            return "http://" + url;
+            return "https://" + url;
         } else {
             return url
         }
