@@ -4,9 +4,6 @@ Gooey (GUI) is a startpage to replace the browser's default New Tab in the form 
 
 The extension uses geolocation permissions purely to tailor a weather data API call to the user's location, none of this information is stored or accessible to anyone other than the user, and storage permissions are used in the form of localstorage to persist user options selection.
 
-If any bugs are discovered, feel free to contact me at 
-<!-- TODO add conatct details -->
-
 ## What I've Learnt So Far:
 
 As this project is a learning tool to improve my fundamentals before diving into more challenging areas of JS, here are some things I'm learning that I can keep in mind for future projects.
@@ -16,5 +13,4 @@ As this project is a learning tool to improve my fundamentals before diving into
 - Keep in mind separation of concerns. One potential way to make JS files (and potentially CSS too!) more readable and maintainable is to separate files based on modules/functionality.
 - Getting more familiar with accessibility practices like semantic html and how it impacts keyboard navigation, something to keep in mind. It's often a balance between being able to achieve what the design outlines and adhering to strict accessiblity practices. Sometimes just adding a div to the tabindex is a much more efficient approact than forcing a semantic element into a design it isn't really suited for. And vice versa too! Semantic HTML exists for reason. 
 - I'm a bit of a perfectionist. Learn when to recognise when something is "good enough" and move on, it's slowing down the learning process.
-- AVOID SIDE EFFECTS.
-
+- Sometimes fancy ES6 features are great, but knowing when not to use them is also good. Eg. arrow functions aren't as easily readable at a glance and hoisting works differently.
