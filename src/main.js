@@ -1,20 +1,19 @@
 document.body.onload = updateClock(); setInterval(updateClock, 1500); updateDate(); weatherDataCall();
 
 function updateClock () {
-    const timeDisplay = document.getElementById("timeDisplay")
     let date = new Date()
     let amOrPm = date.getHours() < 12 ? "am" : "pm"
     let minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()
-    let hours = (currentHours) => {
-        if (currentHours == 0) {
+    let hours = (h) => {
+        if (h == 0) {
                 return 12
-        } else if (currentHours > 0 && currentHours < 13) {
-                return currentHours
+        } else if (h > 0 && h < 13) {
+                return h
         } else {
-            return currentHours - 12
+            return h - 12
         }
     }
-    timeDisplay.innerText = `${hours(date.getHours())}:${minutes}${amOrPm}`
+    document.getElementById("timeDisplay").innerText = `${hours(date.getHours())}:${minutes}${amOrPm}`
 }
 
 function updateDate () {
