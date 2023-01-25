@@ -55,9 +55,9 @@ function updateDate () {
 function weatherDataCall () {
     
     const error = () => {
-        const bootsSinceReminder = JSON.parse(localStorage.getItem("bootsSinceReminder"))
         // Adjust reminderFrequency to change how many boots between error message
         const reminderFrequency = 20
+        const bootsSinceReminder = JSON.parse(localStorage.getItem("bootsSinceReminder"))
 
         const locationReminder = () => {
             const modalErrorMessage = document.getElementById("modalErrorMessage")
@@ -77,10 +77,6 @@ function weatherDataCall () {
             }
         }
 
-        if (bootsSinceReminder) {
-            
-        }
-
         trackBoots(bootsSinceReminder)
         console.log("boots:", bootsSinceReminder)
         
@@ -92,6 +88,8 @@ function weatherDataCall () {
         localStorage.removeItem("weatherDescription")
         localStorage.removeItem("currentTemp")
     }
+
+    // 
 
     const success = (position) => {
         // Gives user weather and weather options if weather data is available
