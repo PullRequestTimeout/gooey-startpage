@@ -55,16 +55,54 @@ function updateDate () {
 function weatherDataCall () {
     
     const error = () => {
-        alert("You have not given location permissions to this extension.")
+        const bootsSinceReminder = JSON.parse(localStorage.getItem("bootsSinceReminder"))
+        // Adjust reminderFrequency to change how many boots between error message
+        const reminderFrequency = 20
+
+        const locationReminder = () => {
+            const modalErrorMessage = document.getElementById("modalErrorMessage")
+            showErrorModal()
+            modalErrorMessage.innerText = "Weather widget is disabled until location permission is granted."
+        }
+
+        const trackBoots = (boots) => {
+            if (boots == null) {
+                localStorage.setItem("bootsSinceReminder", boots + 1)
+                locationReminder()
+            } else if (boots < reminderFrequency) {
+                localStorage.setItem("bootsSinceReminder", boots + 1)
+            } else {
+                localStorage.setItem("bootsSinceReminder", 0)
+                locationReminder()
+            }
+        }
+
+        if (bootsSinceReminder) {
+            
+        }
+
+        trackBoots(bootsSinceReminder)
+        console.log("boots:", bootsSinceReminder)
+        
+        // Removes user weather and weather options if weather data isn't available
+        document.getElementById("weatherSettings").classList.add("hidden-element")
+        document.getElementById("weatherWidget").classList.add("hidden-element")
+
+        // Removes weather data from previous load if there is any
+        localStorage.removeItem("weatherDescription")
+        localStorage.removeItem("currentTemp")
     }
 
     const success = (position) => {
+        // Gives user weather and weather options if weather data is available
+        document.getElementById("weatherSettings").classList.remove("hidden-element")
+        document.getElementById("weatherWidget").classList.remove("hidden-element")
+        
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&current_weather=true`)
             .then((response) => response.json())
             .then((data) => {
                 const weatherCode = data.current_weather.weathercode
                 const currentTemp = Math.trunc(data.current_weather.temperature)
-                const weatherDescriptionDisplay = document.getElementById("weatherDescription")
                 
                 const weathercodeToDescription = () => { 
                     switch (weatherCode) {
@@ -122,9 +160,9 @@ function weatherDataCall () {
                             return "Thunderstorms."
                     }}
                 
-                weatherDescriptionDisplay.innerText = weathercodeToDescription();
+                localStorage.setItem("weatherDescription", weathercodeToDescription())
                 localStorage.setItem("currentTemp", currentTemp);
-                updateTempUnits();
+                updateWeatherDisplay()
             })}
 
     navigator.geolocation.getCurrentPosition(success, error);
