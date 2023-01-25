@@ -1,6 +1,3 @@
-// Settings ---------------------------------------------------------------------------------------
-
-
 // Background Image Select ------------------------------------------------------------------------
 
 const changeBackground = () => {
@@ -78,25 +75,26 @@ const searchSelect = () => {
 document.getElementById("searchselect-google").addEventListener("click", searchSelect);
 document.getElementById("searchselect-ddg").addEventListener("click", searchSelect);
 
-// Toggle Weather ---------------------------------------------------------------------------------
+// Toggle Temp Units ------------------------------------------------------------------------------
 
 const updateTempUnits = () => {
-    const currentTempValue = localStorage.getItem("currentTemp");
-    const currentTempDisplay = document.getElementById("currentTempDisplay");
-    const tempUnitDisplay = document.getElementById("tempUnitDisplay");
+    const currentTempValue = localStorage.getItem("currentTemp")
+    const currentTempDisplay = document.getElementById("currentTempDisplay")
+    const tempUnitDisplay = document.getElementById("tempUnitDisplay")
+    const tempUnitToggle = document.getElementById("tempUnitToggle")
 
     if (tempUnitToggle.checked == true) {
-        localStorage.setItem("tempUnit", "fahr");
-        currentTempDisplay.innerText = `The temperature is ${Math.trunc(currentTempValue * 9/5 + 32)}°F.`;
-        tempUnitDisplay.innerText = "Celcius";
+        localStorage.setItem("tempUnit", "fahr")
+        currentTempDisplay.innerText = `The temperature is ${Math.trunc(currentTempValue * 9/5 + 32)}°F.`
+        tempUnitDisplay.innerText = "Celsius"
     } else if (tempUnitToggle.checked == false) {
-        localStorage.setItem("tempUnit", "celc");
-        currentTempDisplay.innerText = `The temperature is ${currentTempValue}°C.`;
-        tempUnitDisplay.innerText = "Fahrenheit";
+        localStorage.setItem("tempUnit", "cels")
+        currentTempDisplay.innerText = `The temperature is ${currentTempValue}°C.`
+        tempUnitDisplay.innerText = "Fahrenheit"
     }
 }
 
-document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits);
+document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits)
 
 // Hide Weather Widget ----------------------------------------------------------------------------
 
@@ -220,6 +218,15 @@ const loadState = () => {
         }
     }
     
+    const loadTempUnits = () => {
+        const tempUnits = localStorage.getItem("tempUnit")
+        const tempUnitToggle = document.getElementById("tempUnitToggle")
+        if (tempUnits == "fahr") {
+            tempUnitToggle.checked = true
+            updateTempUnits()
+        }
+    }
+
     const loadLinkDisplay = () => {
         if (localStorage.getItem("hideLinks") == "true") {
             document.getElementById("hideLinks").checked = true;
@@ -249,6 +256,9 @@ const loadState = () => {
 
     // Retains search option choice
     loadSearchOption();
+
+    // Load temp unit choice
+    loadTempUnits()
 
     // Retains weather display choice
     loadWeatherDisplay();
