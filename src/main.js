@@ -55,8 +55,7 @@ function updateDate () {
 function weatherDataCall () {
     
     const error = () => {
-        // Adjust reminderFrequency to change how many boots between error message
-        const reminderFrequency = 5
+        const reminderFrequency = 20 //page loads before reminder
         const bootsSinceReminder = JSON.parse(localStorage.getItem("bootsSinceReminder"))
 
         const locationReminder = () => {
