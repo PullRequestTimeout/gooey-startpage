@@ -159,6 +159,9 @@ function weatherDataCall () {
                             return "Thunderstorms."
                     }}
                 
+                // Removes error handling marker
+                localStorage.removeItem("loadsSinceReminder")
+                
                 localStorage.setItem("weatherDescription", weathercodeToDescription())
                 localStorage.setItem("currentTemp", currentTemp);
                 updateWeatherDisplay()
