@@ -77,24 +77,38 @@ document.getElementById("searchselect-ddg").addEventListener("click", searchSele
 
 // Toggle Temp Units ------------------------------------------------------------------------------
 
-const updateTempUnits = () => {
-    const currentTempValue = localStorage.getItem("currentTemp")
-    const currentTempDisplay = document.getElementById("currentTempDisplay")
-    const tempUnitDisplay = document.getElementById("tempUnitDisplay")
+function updateWeatherDisplay () {
+    const weatherDescription = localStorage.getItem("weatherDescription")
+    const weatherDisplay = document.getElementById("weatherDisplay")
     const tempUnitToggle = document.getElementById("tempUnitToggle")
+    const weatherWidget = document.getElementById("weatherWidget")
+    let currentTempValue = updateTempUnits(tempUnitToggle);
+    
+    if (!weatherDescription || !currentTempValue) {
+        console.log("Error: No weather data available.")
+        weatherWidget.classList.add("hidden-element")
+    } else {
+        weatherWidget.classList.remove("hidden-element")
+        weatherDisplay.innerText = `${weatherDescription} The temperature is ${currentTempValue}`
+    }
 
-    if (tempUnitToggle.checked == true) {
-        localStorage.setItem("tempUnit", "fahr")
-        currentTempDisplay.innerText = `The temperature is ${Math.trunc(currentTempValue * 9/5 + 32)}°F.`
-        tempUnitDisplay.innerText = "Celsius"
-    } else if (tempUnitToggle.checked == false) {
-        localStorage.setItem("tempUnit", "cels")
-        currentTempDisplay.innerText = `The temperature is ${currentTempValue}°C.`
-        tempUnitDisplay.innerText = "Fahrenheit"
+    function updateTempUnits (toggle) {
+        const currentTempValue = localStorage.getItem("currentTemp")
+        const tempUnitDisplay = document.getElementById("tempUnitDisplay")
+    
+        if (toggle.checked == true) {
+            localStorage.setItem("tempUnit", "fahr")
+            tempUnitDisplay.innerText = "Celsius"
+            return `${Math.trunc(currentTempValue * 9/5 + 32)}°F.`
+        } else {
+            localStorage.setItem("tempUnit", "cels")
+            tempUnitDisplay.innerText = "Fahrenheit"
+            return `${currentTempValue}°C.`
+        }
     }
 }
 
-document.getElementById("tempUnitToggle").addEventListener("change", updateTempUnits)
+document.getElementById("tempUnitToggle").addEventListener("change", updateWeatherDisplay)
 
 // Hide Weather Widget ----------------------------------------------------------------------------
 
@@ -223,7 +237,9 @@ const loadState = () => {
         const tempUnitToggle = document.getElementById("tempUnitToggle")
         if (tempUnits == "fahr") {
             tempUnitToggle.checked = true
-            updateTempUnits()
+            updateWeatherDisplay()
+        } else {
+            updateWeatherDisplay()
         }
     }
 
