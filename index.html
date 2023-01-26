@@ -52,8 +52,8 @@
         <div class="quick-links-container" id="linksWidget">
         </div>
 
-        <div class="weather-widget fade-in-5s" id="weatherWidget">
-            <p id="weatherDescription"></p>&nbsp;<p id="currentTempDisplay"></p>
+        <div class="weather-widget" id="weatherWidget">
+            <p id="weatherDisplay"></p>
         </div>
 
         <img class="background-image brightness-adjuster" alt="Background Image" src="/assets/img1.jpg"
@@ -122,7 +122,7 @@
                 <label for="searchselect-ddg" class="settings-button button-secondary">DuckDuckGo</label>
             </div>
         </div>
-        <div class="settings-section">
+        <div class="settings-section" id="weatherSettings">
             <h3 class="settings-heading">Weather:</h3>
             <div class="col-2">
                 <input type="checkbox" class="hidden-element" id="tempUnitToggle">
@@ -187,8 +187,8 @@
         </div>
     </div>
 
-    <script src="src/main.js"></script>
     <script src="src/animation.js"></script>
+    <script src="src/main.js"></script>
     <script src="src/editlinks.js"></script>
     <script src="src/settings.js"></script>
 </body>
