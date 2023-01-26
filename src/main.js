@@ -60,8 +60,7 @@ function weatherDataCall () {
 
         const locationReminder = () => {
             const modalErrorMessage = document.getElementById("modalErrorMessage")
-            showErrorModal()
-            modalErrorMessage.innerText = "Weather widget is disabled until location permission is granted."
+            showErrorModal("Weather widget is disabled until location permission is granted.")
             localStorage.setItem("loadsSinceReminder", 0)
         }
 

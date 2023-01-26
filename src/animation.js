@@ -42,8 +42,9 @@ document.getElementById("settingsIcon").addEventListener("click", translateSetti
 
 // Modal Animation --------------------------------------------------------------------------------
 
-const showErrorModal = () => {
+const showErrorModal = (errorMessage) => {
     const errorModal = document.getElementById("errorModal");
+    document.getElementById("modalErrorMessage").innerText = errorMessage
     errorModal.classList.remove("hidden-element");
 }
 

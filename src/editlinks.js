@@ -193,14 +193,11 @@ const checkEmptyFields = () => {
     
     // This conditional checks whether there has been sufficient input in the fields, and checks validity of the url against regex.
     if (newLinkNameLength < 1 || newLinkURLLength < 1 || newLinkSVGLength < 1) {
-        showErrorModal();
-        modalErrorMessage.innerText = "A new quick link needs a name, url, and icon.";
+        showErrorModal("A new quick link needs a name, url, and icon.")
     } else if (newLinkNameLength >= 1 && newLinkNameLength < 3) {
-        showErrorModal();
-        modalErrorMessage.innerText = "A name needs to be at least 3 characters in length.";
+        showErrorModal("A name needs to be at least 3 characters in length.")
     } else if (urlRegex.test(newLinkURL) == false) {
-        showErrorModal();
-        modalErrorMessage.innerText = "Oops, this doesn't appear to be a valid URL.";
+        showErrorModal("Oops, this doesn't appear to be a valid URL.");
     } else if (newLinkSVGLength < 10) {
         showErrorModal();
         modalErrorMessage.innerHTML = `This is going to look pretty ugly without an icon,<br>don't you think?<br><br><a title="Tabler Icons" href="https://tablericons.com/" target="_blank"
@@ -220,8 +217,7 @@ const validateSVG = (svg) => {
     if (svgParser.activeElement.tagName == "svg") {
         submitLinkInput()
     } else {
-        showErrorModal();
-        modalErrorMessage.innerText = "Oops! This doesn't seem to be a valid SVG."
+        showErrorModal("Oops! This doesn't seem to be a valid SVG.");
     }
 }
 
