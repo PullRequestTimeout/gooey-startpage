@@ -56,32 +56,32 @@ function weatherDataCall () {
     
     const error = () => {
         const reminderFrequency = 20 //page loads before reminder
-        const bootsSinceReminder = JSON.parse(localStorage.getItem("bootsSinceReminder"))
+        const loadsSinceReminder = JSON.parse(localStorage.getItem("loadsSinceReminder"))
 
         const locationReminder = () => {
             const modalErrorMessage = document.getElementById("modalErrorMessage")
             showErrorModal()
             modalErrorMessage.innerText = "Weather widget is disabled until location permission is granted."
-            localStorage.setItem("bootsSinceReminder", 0)
+            localStorage.setItem("loadsSinceReminder", 0)
         }
 
-        const trackBoots = (boots) => {
-            if (boots < reminderFrequency) {
-                localStorage.setItem("bootsSinceReminder", boots + 1)
+        const trackLoads = (loads) => {
+            if (loads < reminderFrequency) {
+                localStorage.setItem("loadsSinceReminder", loads + 1)
             } else {
                 locationReminder()
             }
         }
 
-        navigator.permissions.query({name: 'geolocation'})
+        navigator.permissions.query({name: "geolocation"})
             .then((PermissionStatus) => {
-                if (PermissionStatus.state == 'prompt') {
+                if (PermissionStatus.state == "prompt") {
                     locationReminder()
-                } else if (PermissionStatus.state == 'denied') {
-                    trackBoots(bootsSinceReminder)
+                } else if (PermissionStatus.state == "denied") {
+                    trackLoads(loadsSinceReminder)
                 }
             })
-
+        
 
         // Removes user weather and weather options if weather data isn't available
         document.getElementById("weatherSettings").classList.add("hidden-element")
@@ -91,8 +91,6 @@ function weatherDataCall () {
         localStorage.removeItem("weatherDescription")
         localStorage.removeItem("currentTemp")
     }
-
-    // 
 
     const success = (position) => {
         // Gives user weather and weather options if weather data is available
