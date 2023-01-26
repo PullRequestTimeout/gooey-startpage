@@ -56,30 +56,34 @@ function weatherDataCall () {
     
     const error = () => {
         // Adjust reminderFrequency to change how many boots between error message
-        const reminderFrequency = 20
+        const reminderFrequency = 5
         const bootsSinceReminder = JSON.parse(localStorage.getItem("bootsSinceReminder"))
 
         const locationReminder = () => {
             const modalErrorMessage = document.getElementById("modalErrorMessage")
             showErrorModal()
             modalErrorMessage.innerText = "Weather widget is disabled until location permission is granted."
+            localStorage.setItem("bootsSinceReminder", 0)
         }
 
         const trackBoots = (boots) => {
-            if (boots == null) {
-                localStorage.setItem("bootsSinceReminder", boots + 1)
-                locationReminder()
-            } else if (boots < reminderFrequency) {
+            if (boots < reminderFrequency) {
                 localStorage.setItem("bootsSinceReminder", boots + 1)
             } else {
-                localStorage.setItem("bootsSinceReminder", 0)
                 locationReminder()
             }
         }
 
-        trackBoots(bootsSinceReminder)
-        console.log("boots:", bootsSinceReminder)
-        
+        navigator.permissions.query({name: 'geolocation'})
+            .then((PermissionStatus) => {
+                if (PermissionStatus.state == 'prompt') {
+                    locationReminder()
+                } else if (PermissionStatus.state == 'denied') {
+                    trackBoots(bootsSinceReminder)
+                }
+            })
+
+
         // Removes user weather and weather options if weather data isn't available
         document.getElementById("weatherSettings").classList.add("hidden-element")
         document.getElementById("weatherWidget").classList.add("hidden-element")
