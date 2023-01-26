@@ -1,4 +1,10 @@
-document.body.onload = updateClock(); setInterval(updateClock, 1500); updateDate(); weatherDataCall();
+document.body.onload = updateClock(); setInterval(updateClock, 1500); updateDate(); weatherDataCall(); welcomeMessage();
+
+function welcomeMessage () {
+    if (localStorage.getItem("firstBoot") == null) {
+        showErrorModal("Welcome to Gooey Startpage, thanks for using this extension! Head over to the settings menu in the top right to customise your new tab screen.")
+    }
+}
 
 function updateClock () {
     let date = new Date()
