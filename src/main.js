@@ -107,6 +107,7 @@ function weatherDataCall () {
             .then((data) => {
                 const weatherCode = data.current_weather.weathercode
                 const currentTemp = Math.trunc(data.current_weather.temperature)
+                console.log(weatherCode)
                 
                 const weathercodeToDescription = () => { 
                     switch (weatherCode) {
@@ -162,6 +163,10 @@ function weatherDataCall () {
                             return "Heavy snow showers."
                         case 95:
                             return "Thunderstorms."
+                        case 96:
+                            return "Thunderstorms with light hail."
+                        case 99:
+                            return "Thunderstorms with hail."
                     }}
                 
                 // Removes error handling marker
