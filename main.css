@@ -208,6 +208,9 @@ html {
 	top: 0;
 	z-index: -1;
 	width: 100%;
+	min-width: 1000px;
+	min-height: 100vh;
+	/* aspect-ratio: 1; */
 	filter: blur(3px);
 	transform: scale(1.1);
 	opacity: 1;
@@ -220,7 +223,7 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	gap: 4em;
+	gap: 4rem;
 	overflow: hidden;
 }
 
@@ -244,12 +247,14 @@ main {
 
 .search-widget {
 	width: 35em;
+	max-width: 90vw;
+	overflow: hidden;
 	display: flex;
 	justify-self: center;
 	justify-content: space-between;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	background-color: rgba(255, 255, 255, 0.25);
-	height: 3em;
+	min-height: 3rem;
 	border-radius: 2em;
 	box-shadow: 0em 2px 5px rgba(75, 75, 75, 0.5);
 }
@@ -283,9 +288,24 @@ main {
 .search-widget svg {
 	align-self: center;
 	margin-left: 0.75em;
+	min-width: 2rem;
 }
 
+@media screen and (max-width: 1200px) {
+	main {
+		gap: 2rem;
+	}
 
+	.clock-widget h1 {
+		font-size: 5em;
+	}
+}
+
+/* @media screen and (max-width: 600px) {
+	.clock-widget h1 {
+		font-size: 5em;
+	}
+} */
 
 /*|| Quick Links ------------------------------------------------------------------------------------- */
 
@@ -295,14 +315,17 @@ main {
 	display: flex;
 	justify-content: space-evenly;
 	margin-bottom: 2em;
+	gap: 1rem;
 }
 
 .link-cards {
 	background-color: rgba(255, 255, 255, 0.25);
-	width: 110px;
+	width: 7rem;
+	height: auto;
 	padding: 1em;
 	border-radius: 2em;
 	display: grid;
+	place-content: center;
 	transition: 0.2s;
 }
 
@@ -321,10 +344,51 @@ main {
 
 .link-cards h2 {
 	position: relative;
-	bottom: -3em;
+	bottom: -3rem;
 	text-align: center;
 	user-select: none;
 }
+
+@media screen and (max-width: 1200px) {
+	.link-cards {
+		width: 5rem;
+		height: 5rem;
+		margin-bottom: 2rem;
+	}
+
+	.link-cards svg {
+		width: 80px;
+	}
+
+	.link-cards h2 {
+		bottom: -2rem;
+		min-width: 10rem;
+	}
+
+	.quick-links-container {
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.link-cards {
+		width: 3rem;
+		height: 3rem;
+		margin-bottom: 2rem;
+		border-radius: 1.5rem;
+
+	}
+
+	.link-cards h2 {
+		bottom: -0.5rem;
+	}
+
+	.link-cards svg {
+		width: 45px;
+		stroke-width: 1px;
+	}
+}
+
 
 /*|| Weather Display --------------------------------------------------------------------------------- */
 
@@ -335,6 +399,12 @@ main {
 	justify-content: center;
 	text-align: center;
 	user-select: none;
+}
+
+@media screen and (max-width: 1200px) {
+	.weather-widget {
+		margin-top: -2rem;
+	}
 }
 
 /*|| Settings Panel ---------------------------------------------------------------------------------- */
