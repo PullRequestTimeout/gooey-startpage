@@ -107,7 +107,6 @@ function weatherDataCall () {
             .then((data) => {
                 const weatherCode = data.current_weather.weathercode
                 const currentTemp = Math.trunc(data.current_weather.temperature)
-                console.log(weatherCode)
                 
                 const weathercodeToDescription = () => { 
                     switch (weatherCode) {
