@@ -31,6 +31,19 @@
         </label>
     </div>
 
+    <div class="todo-switch">
+        <input type="checkbox" name="todos" id="todosCheckbox" class="hidden-element">
+        <label for="todosCheckbox" id="todosIcon" class="todos-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-checklist" width="40" height="40" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M9.615 20h-2.615a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8" />
+                <path d="M14 19l2 2l4 -4" />
+                <path d="M9 8h4" />
+                <path d="M9 12h2" />
+              </svg>
+        </label>
+    </div>
+
     <main>
         <div class="clock-widget">
             <h1 class="clock" id="timeDisplay"></h1>
@@ -186,11 +199,31 @@
             <button class="settings-button button-primary" id="modalOk">Ok</button>
         </div>
     </div>
+    <div class="settings-panel todos-panel" id="todosPanel">
+        <h2 class="settings-heading">Todos</h2>
+        <svg class="link-edit-panel-close todos-panel-close" id="closeTodosPanel" fill="#fff" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50" width="30px" height="30px">
+            <path
+                d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z" />
+        </svg>
+        <form id="newTodoForm" class="settings-section">
+            <input type="text" id="todoInput" class="settings-text-input todo-input" placeholder="New Todo..." autocomplete="off">
+            <button type="submit" class="button-primary"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#fff"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg></button>
+        </form>
+        <ul id="todoList" class="settings-section todo-list">
+            <li class="todo-item">Todo 1
+                <input type="checkbox" id="todo1" class="todo-checkbox hidden-element">
+                <label for="todo1" class="todo-check"><svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#fff"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg></label>
+                <button><svg class="remove-todo" height="35" viewBox="0 0 847 847" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="423.5" cy="423.5" r="423.5" fill="white" fill-opacity="0.20"/><path d="M335.2 185.69C340.6 174.848 351.7 168 363.8 168H484.2C496.3 168 507.4 174.848 512.8 185.69L520 200H616C633.7 200 648 214.33 648 232C648 249.67 633.7 264 616 264H232C214.33 264 200 249.67 200 232C200 214.33 214.33 200 232 200H328L335.2 185.69ZM231.1 296H616V616C616 651.3 587.3 680 552 680H295.1C260.65 680 231.1 651.3 231.1 616V296ZM311.1 376V600C311.1 608.8 319.2 616 327.1 616C336.8 616 343.1 608.8 343.1 600V376C343.1 367.2 336.8 360 327.1 360C319.2 360 311.1 367.2 311.1 376ZM407.1 376V600C407.1 608.8 415.2 616 423.1 616C432.8 616 440 608.8 440 600V376C440 367.2 432.8 360 423.1 360C415.2 360 407.1 367.2 407.1 376ZM504 376V600C504 608.8 511.2 616 520 616C528.8 616 536 608.8 536 600V376C536 367.2 528.8 360 520 360C511.2 360 504 367.2 504 376Z"fill="white"/></svg></button>
+            </li>
+        </ul>
+    </div>
 
     <script src="src/animation.js"></script>
     <script src="src/main.js"></script>
     <script src="src/editlinks.js"></script>
     <script src="src/settings.js"></script>
+    <script src="src/todos.js"></script>
 </body>
 
 </html>

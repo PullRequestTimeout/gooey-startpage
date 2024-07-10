@@ -122,7 +122,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-	content: '';
+	content: "";
 	content: none;
 }
 
@@ -180,19 +180,19 @@ a {
 /* Font Control Utility Classes */
 
 .roboto {
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 }
 
 .montserrat {
-	font-family: 'Montserrat', sans-serif;
+	font-family: "Montserrat", sans-serif;
 }
 
 .adventpro {
-	font-family: 'Advent Pro', sans-serif;
+	font-family: "Advent Pro", sans-serif;
 }
 
 .exo {
-	font-family: 'Exo', sans-serif;
+	font-family: "Exo", sans-serif;
 }
 
 /*|| Main Layout ------------------------------------------------------------------------------------- */
@@ -376,7 +376,6 @@ main {
 		height: 3rem;
 		margin-bottom: 2rem;
 		border-radius: 1.5rem;
-
 	}
 
 	.link-cards h2 {
@@ -388,7 +387,6 @@ main {
 		stroke-width: 1px;
 	}
 }
-
 
 /*|| Weather Display --------------------------------------------------------------------------------- */
 
@@ -431,12 +429,12 @@ main {
 	transition: 0.5s;
 }
 
-.settings-switch input[type="checkbox"]:checked+label svg {
+.settings-switch input[type="checkbox"]:checked + label svg {
 	transform: rotate(270deg);
 	transition: 1s;
 }
 
-.settings-switch input[type="checkbox"]+label svg {
+.settings-switch input[type="checkbox"] + label svg {
 	transition: 1s;
 }
 
@@ -493,8 +491,8 @@ main {
 	cursor: pointer;
 }
 
-input[type="radio"]:checked+label img,
-input[type="radio"]:active+label img {
+input[type="radio"]:checked + label img,
+input[type="radio"]:active + label img {
 	opacity: 1;
 	/* box-shadow: 0px 0px 0.5em rgba(255, 255, 255, 0.75); */
 	outline: solid 2px white;
@@ -509,19 +507,17 @@ input[type="radio"]:active+label img {
 
 .button-primary {
 	background-color: #0061df;
-	/* border: #0061df 2px solid; */
 	border: none;
+	cursor: pointer;
 }
 
 .button-primary:hover {
-	border: #004caf 2px solid;
 	background-color: #004caf;
 	border: none;
 }
 
 .button-secondary {
 	background-color: rgba(255, 255, 255, 0.2);
-	/* border: #fff 2px solid; */
 }
 
 .button-secondary:hover {
@@ -533,23 +529,118 @@ input[type="radio"]:active+label img {
 	text-align: center;
 	padding: 0.6em;
 	border-radius: 2em;
-	/* border: #fff 2px solid; */
 	font-size: 1em;
-	/* background-color: rgba(255, 255, 255, 0.1); */
 	user-select: none;
 }
-
-/* .settings-button:hover {
-	background-color: #004caf;
-} */
 
 .settings-button:active {
 	transform: scale(0.97);
 }
 
-.settings-section input[type="radio"]:checked+.settings-button {
-	/* background-color: #0061df; */
+.settings-section input[type="radio"]:checked + .settings-button {
 	outline: solid 2px white;
+}
+
+/*|| Todos Panel -------------------------------------------------------------------------------------- */
+
+.todo-switch {
+	position: absolute;
+	z-index: 2;
+	left: 2.5em;
+	top: 1em;
+	opacity: 0.3;
+	transition: 0.5s;
+	z-index: 1;
+}
+
+.todo-switch label {
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.todo-switch:hover {
+	opacity: 1;
+}
+
+.todos-panel {
+	transform: translateX(-100%);
+	left: 0;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.todos-panel.display-settings {
+	transform: translateX(0%);
+}
+
+.link-edit-panel-close.todos-panel-close {
+	right: 1em;
+	top: 1em;
+}
+
+.todos-panel form {
+	display: flex;
+	height: fit-content;
+}
+
+.todo-input {
+	width: 20rem;
+}
+
+.todos-panel form button {
+	border-radius: 2em;
+	padding: 0.25em 1em;
+}
+
+.todo-item {
+	display: grid;
+	grid-template-columns: 4fr auto auto;
+	align-items: center;
+	background-color: rgba(255, 255, 255, 0.25);
+	border-radius: 2em;
+	padding: 0.45em 0.45em 0.45em 1em;
+	user-select: none;
+}
+
+.todo-item label {
+	background-color: transparent;
+	border-radius: 2rem;
+	width: 2.25rem;
+}
+
+.todo-item label:hover {
+	background-color: #ffffff4f;
+}
+
+.todo-item button svg circle {
+	fill: none;
+}
+
+.todo-item button:hover svg circle {
+	fill: #fff;
+}
+
+.todo-item label,
+.todo-item button {
+	cursor: pointer;
+	opacity: 0;
+	transition: 0.2s;
+}
+
+.todo-item:hover label,
+.todo-item:hover button {
+	opacity: 1;
+	transition: 0.2s;
+}
+
+.todo-item button {
+	border: none;
+	background-color: transparent;
+}
+
+.todo-item.crossed-out {
+	text-decoration: line-through;
 }
 
 /*|| Link Edit Panel ---------------------------------------------------------------------------------- */
@@ -570,7 +661,6 @@ input[type="radio"]:active+label img {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-
 }
 
 .link-edit-item {
@@ -668,7 +758,6 @@ input[type="radio"]:active+label img {
 	box-shadow: 0em 2px 5px rgba(0, 0, 0, 0.5);
 	border-radius: 1em;
 	padding: 2em;
-
 }
 
 .modal-container .settings-button {
