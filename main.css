@@ -195,6 +195,22 @@ a {
 	font-family: "Exo", sans-serif;
 }
 
+html,
+* {
+	scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background-color: rgba(155, 155, 155, 0.5);
+	border: transparent;
+}
+
 /*|| Main Layout ------------------------------------------------------------------------------------- */
 
 html {
@@ -595,18 +611,23 @@ input[type="radio"]:active + label img {
 
 .todo-item {
 	display: grid;
-	grid-template-columns: 4fr auto auto;
+	grid-template-columns: 17rem auto auto;
 	align-items: center;
 	background-color: rgba(255, 255, 255, 0.25);
 	border-radius: 2em;
 	padding: 0.45em 0.45em 0.45em 1em;
 	user-select: none;
+	line-height: 1.2;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
 }
 
 .todo-item label {
 	background-color: transparent;
-	border-radius: 2rem;
-	width: 2.25rem;
+	border-radius: 50%;
+	width: 2.15rem;
+	height: 2.15rem;
+	margin-left: 0.5rem;
 }
 
 .todo-item label:hover {
